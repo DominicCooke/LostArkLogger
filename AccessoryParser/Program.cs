@@ -1,19 +1,18 @@
-﻿using AccessoryOptimizer.Models;
-
+﻿using AccessoryOptimizerLib.Models;
 
 Main();
 
 void Main()
 {
-    bool workOutNecklace = true;
-    if(workOutNecklace)
+    bool workOutNecklace = false;
+    if (workOutNecklace)
     {
         WorkoutNecklace();
     }
 
-    bool workOutEarring = false;
+    bool workOutEarring = true;
 
-    if(workOutEarring)
+    if (workOutEarring)
     {
         WorkoutEarring();
     }
@@ -24,23 +23,23 @@ void WorkoutNecklace()
     byte[] necklaceBytes = GetNecklaceData();
     necklaceBytes = RemoveFromByteArray(necklaceBytes, 14);
 
-    byte[] buyout = GetValue(249999);
-    byte[] bid = GetValue(199999);
+    byte[] buyout = GetValue(25000);
+    byte[] bid = GetValue(25000);
 
-    byte[] engraving1 = GetValue((int)EngravingType.Demonic_Impulse);
-    byte[] engraving1Quantity = GetValue(5);
+    byte[] engraving1 = GetValue((int)EngravingType.Adrenaline);
+    byte[] engraving1Quantity = GetValue(3);
 
-    byte[] engraving2 = GetValue((int)EngravingType.Grudge);
+    byte[] engraving2 = GetValue((int)EngravingType.Hit_Master);
     byte[] engraving2Quantity = GetValue(3);
 
     byte[] statType1 = GetValue((int)Stat_Type.Crit);
-    byte[] statType1Quantity = GetValue(498);
+    byte[] statType1Quantity = GetValue(499);
 
     byte[] statType2 = GetValue((int)Stat_Type.Specialization);
-    byte[] statType2Quantity = GetValue(454);
+    byte[] statType2Quantity = GetValue(485);
 
-    byte[] negativeEngravingType = GetValue((int)EngravingType.Move_Speed_Reduction);
-    byte[] negativeEngravingQuantity = GetValue(2);
+    byte[] negativeEngravingType = GetValue((int)EngravingType.Atk_Speed_Reduction);
+    byte[] negativeEngravingQuantity = GetValue(1);
 
     byte[] itemId = GetValue(213300030);
 
@@ -83,22 +82,22 @@ void WorkoutEarring()
     byte[] earringBytes = GetEarringData();
     earringBytes = RemoveFromByteArray(earringBytes, 14);
 
-    byte[] buyout = GetValue(45000);
-    byte[] bid = GetValue(35000);
+    byte[] buyout = GetValue(17500);
+    byte[] bid = GetValue(13125);
 
-    byte[] engraving1 = GetValue((int)EngravingType.Demonic_Impulse);
-    byte[] engraving1Quantity = GetValue(3);
+    byte[] engraving1 = GetValue((int)EngravingType.Adrenaline);
+    byte[] engraving1Quantity = GetValue(5);
 
-    byte[] engraving2 = GetValue((int)EngravingType.Grudge);
+    byte[] engraving2 = GetValue((int)EngravingType.Hit_Master);
     byte[] engraving2Quantity = GetValue(3);
 
-    byte[] statType1 = GetValue((int)Stat_Type.Specialization);
-    byte[] statType1Quantity = GetValue(191);
+    byte[] statType1 = GetValue((int)Stat_Type.Crit);
+    byte[] statType1Quantity = GetValue(200);
 
     byte[] negativeEngravingType = GetValue((int)EngravingType.Defence_Reduction);
-    byte[] negativeEngravingQuantity = GetValue(3);
+    byte[] negativeEngravingQuantity = GetValue(1);
 
-    byte[] itemId = GetValue(213300042);
+    byte[] itemId = GetValue(213300032);
 
     var buyout_byteToStart = Search(earringBytes, buyout.Reverse().ToArray());
     Console.WriteLine($"Buyout: {buyout_byteToStart}");
@@ -127,6 +126,16 @@ void WorkoutEarring()
 
     var itemId_byteToStart = Search(earringBytes, itemId.Reverse().ToArray());
     Console.WriteLine($"Item ID: {itemId_byteToStart}");
+}
+
+byte[] GetNecklaceData()
+{
+    return new byte[] { 20, 50, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 103, 239, 216, 2, 0, 0, 32, 36, 62, 179, 182, 12, 0, 0, 76, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 31, 24, 108, 23, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 244, 1, 0, 0, 1, 0, 0, 0, 144, 1, 0, 0, 110, 0, 0, 0, 229, 1, 0, 0, 1, 1, 0, 0, 16, 0, 0, 0, 2, 244, 1, 0, 0, 1, 0, 0, 0, 144, 1, 0, 0, 110, 0, 0, 0, 243, 1, 0, 0, 1, 1, 0, 0, 15, 0, 0, 0, 2, 3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 105, 0, 0, 0, 1, 0, 0, 0, 2, 1, 0, 0, 34, 3, 0, 0, 3, 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 105, 0, 0, 0, 3, 0, 0, 0, 1, 1, 0, 0, 43, 1, 0, 0, 3, 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 105, 0, 0, 0, 3, 0, 0, 0, 1, 1, 0, 0, 41, 1, 0, 0, 3, 1, 0, 0, 0, 230, 135, 235, 97, 26, 174, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 168, 97, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 226, 4, 0, 0, 0, 0, 0, 0, 58, 118, 126, 5, 0, 0, 0, 0, 168, 97, 0, 0, 0, 0, 0, 0, 168, 97, 0, 0, 0, 0, 0, 0 };
+}
+
+byte[] GetEarringData()
+{
+    return new byte[] { 20, 50, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 236, 180, 133, 2, 0, 0, 192, 16, 64, 179, 182, 12, 0, 0, 76, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 31, 24, 108, 23, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 200, 0, 0, 0, 1, 0, 0, 0, 160, 0, 0, 0, 210, 0, 0, 0, 200, 0, 0, 0, 1, 1, 0, 0, 15, 0, 0, 0, 2, 3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 105, 0, 0, 0, 1, 0, 0, 0, 3, 3, 0, 0, 33, 3, 0, 0, 3, 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 105, 0, 0, 0, 5, 0, 0, 0, 2, 3, 0, 0, 43, 1, 0, 0, 3, 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 105, 0, 0, 0, 3, 0, 0, 0, 1, 3, 0, 0, 41, 1, 0, 0, 3, 1, 0, 0, 0, 230, 135, 235, 29, 180, 127, 0, 0, 225, 105, 23, 0, 0, 0, 0, 0, 0, 0, 92, 68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 113, 2, 0, 0, 0, 0, 0, 0, 100, 94, 126, 5, 0, 0, 0, 0, 212, 48, 0, 0, 0, 0, 0, 0, 212, 48, 0, 0, 0, 0, 0, 0 };
 }
 
 byte[] RemoveFromByteArray(byte[] src, int amountToDelete)
@@ -191,14 +200,4 @@ long GetInt64Value(byte[] bytes)
     Array.Reverse(bytes);
     long intValue = BitConverter.ToInt64(bytes, 0);
     return intValue;
-}
-
-byte[] GetNecklaceData()
-{
-    return new byte[] { 1, 0, 0, 0, 20, 50, 5, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 180, 130, 190, 4, 0, 0, 32, 28, 62, 179, 182, 12, 0, 0, 65, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 31, 24, 108, 23, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 16, 0, 0, 0, 144, 1, 0, 0, 2, 110, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 198, 1, 0, 0, 244, 1, 0, 0, 15, 0, 0, 0, 144, 1, 0, 0, 2, 110, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 242, 1, 0, 0, 244, 1, 0, 0, 35, 3, 0, 0, 1, 0, 0, 0, 3, 105, 0, 0, 0, 3, 8, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 25, 1, 0, 0, 5, 0, 0, 0, 3, 105, 0, 0, 0, 2, 8, 147, 1, 1, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0, 118, 0, 0, 0, 3, 0, 0, 0, 3, 105, 0, 0, 0, 1, 8, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 13, 3, 0, 0, 0, 0, 0, 0, 63, 13, 3, 0, 0, 0, 0, 0, 0, 16, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 143, 208, 3, 0, 0, 0, 0, 0, 230, 135, 196, 5, 177, 102, 0, 0, 173, 189, 81, 5, 0, 0, 0, 0 };
-}
-
-byte[] GetEarringData()
-{
-    return new byte[] { 1, 0, 0, 0, 20, 50, 5, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 167, 95, 40, 2, 0, 0, 64, 60, 74, 179, 182, 12, 0, 0, 8, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 31, 24, 108, 23, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 16, 0, 0, 0, 160, 0, 0, 0, 2, 210, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 191, 0, 0, 0, 200, 0, 0, 0, 33, 3, 0, 0, 1, 0, 0, 0, 3, 105, 0, 0, 0, 3, 4, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 25, 1, 0, 0, 3, 0, 0, 0, 3, 105, 0, 0, 0, 2, 4, 147, 1, 1, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 118, 0, 0, 0, 3, 0, 0, 0, 3, 105, 0, 0, 0, 1, 4, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 184, 136, 0, 0, 0, 0, 0, 0, 0, 184, 136, 0, 0, 0, 0, 0, 0, 0, 214, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 200, 175, 0, 0, 0, 0, 0, 0, 230, 135, 68, 218, 199, 181, 0, 0, 4, 163, 83, 5, 0, 0, 0, 0 };
 }

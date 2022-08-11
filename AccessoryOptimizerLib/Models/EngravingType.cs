@@ -27,6 +27,8 @@
         Barrage_Enhancement = 193,
         True_Courage = 194,
         Desperate_Salvation = 195,
+        Rage_Hammer = 196,
+        Gravity_Training = 197,
         Empress_Grace = 200,
         Order_of_the_Empreror = 201,
         Master_of_Escape = 202,

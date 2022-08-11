@@ -48,6 +48,8 @@ namespace LostArkLogger
             [193] = "Barrage Enhancement",
             [194] = "True Courage",
             [195] = "Desperate Salvation",
+            [196] = "Rage Hammer",
+            [197] = "Gravity Training",
             [202] = "Master of Escape",
             [224] = "Combat Readiness",
             [225] = "Lone Knight",

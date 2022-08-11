@@ -157,18 +157,18 @@ namespace LostArkLogger
             // loggedPacketCountLabel
             // 
             this.loggedPacketCountLabel.AutoSize = true;
-            this.loggedPacketCountLabel.Location = new System.Drawing.Point(15, 12);
-            this.loggedPacketCountLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.loggedPacketCountLabel.Location = new System.Drawing.Point(13, 10);
+            this.loggedPacketCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loggedPacketCountLabel.Name = "loggedPacketCountLabel";
-            this.loggedPacketCountLabel.Size = new System.Drawing.Size(105, 15);
+            this.loggedPacketCountLabel.Size = new System.Drawing.Size(100, 13);
             this.loggedPacketCountLabel.TabIndex = 2;
             this.loggedPacketCountLabel.Text = "Logged Packets : 0";
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(80, 153);
+            this.clearButton.Location = new System.Drawing.Point(69, 133);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(65, 23);
+            this.clearButton.Size = new System.Drawing.Size(56, 20);
             this.clearButton.TabIndex = 13;
             this.clearButton.Text = "Clear All";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -176,9 +176,9 @@ namespace LostArkLogger
             // 
             // processButton
             // 
-            this.processButton.Location = new System.Drawing.Point(151, 199);
+            this.processButton.Location = new System.Drawing.Point(129, 172);
             this.processButton.Name = "processButton";
-            this.processButton.Size = new System.Drawing.Size(130, 23);
+            this.processButton.Size = new System.Drawing.Size(111, 20);
             this.processButton.TabIndex = 14;
             this.processButton.Text = "Process Permutations";
             this.processButton.UseVisualStyleBackColor = true;
@@ -187,17 +187,17 @@ namespace LostArkLogger
             // accessoryCount
             // 
             this.accessoryCount.AutoSize = true;
-            this.accessoryCount.Location = new System.Drawing.Point(112, 85);
+            this.accessoryCount.Location = new System.Drawing.Point(101, 74);
             this.accessoryCount.Name = "accessoryCount";
-            this.accessoryCount.Size = new System.Drawing.Size(13, 15);
+            this.accessoryCount.Size = new System.Drawing.Size(13, 13);
             this.accessoryCount.TabIndex = 15;
             this.accessoryCount.Text = "0";
             // 
             // refreshButton
             // 
-            this.refreshButton.Location = new System.Drawing.Point(14, 153);
+            this.refreshButton.Location = new System.Drawing.Point(12, 133);
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(65, 23);
+            this.refreshButton.Size = new System.Drawing.Size(56, 20);
             this.refreshButton.TabIndex = 16;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = true;
@@ -206,53 +206,53 @@ namespace LostArkLogger
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 7);
+            this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 15);
+            this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "Loaded Necklaces:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 34);
+            this.label2.Location = new System.Drawing.Point(3, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 15);
+            this.label2.Size = new System.Drawing.Size(87, 13);
             this.label2.TabIndex = 18;
             this.label2.Text = "Loaded Earrings:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 60);
+            this.label3.Location = new System.Drawing.Point(3, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 15);
+            this.label3.Size = new System.Drawing.Size(76, 13);
             this.label3.TabIndex = 19;
             this.label3.Text = "Loaded Rings:";
             // 
             // earringCount
             // 
             this.earringCount.AutoSize = true;
-            this.earringCount.Location = new System.Drawing.Point(113, 34);
+            this.earringCount.Location = new System.Drawing.Point(102, 29);
             this.earringCount.Name = "earringCount";
-            this.earringCount.Size = new System.Drawing.Size(12, 15);
+            this.earringCount.Size = new System.Drawing.Size(10, 13);
             this.earringCount.TabIndex = 21;
             this.earringCount.Text = "-";
             // 
             // ringCount
             // 
             this.ringCount.AutoSize = true;
-            this.ringCount.Location = new System.Drawing.Point(113, 60);
+            this.ringCount.Location = new System.Drawing.Point(102, 52);
             this.ringCount.Name = "ringCount";
-            this.ringCount.Size = new System.Drawing.Size(12, 15);
+            this.ringCount.Size = new System.Drawing.Size(10, 13);
             this.ringCount.TabIndex = 22;
             this.ringCount.Text = "-";
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(14, 176);
+            this.saveButton.Location = new System.Drawing.Point(12, 153);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(131, 23);
+            this.saveButton.Size = new System.Drawing.Size(112, 20);
             this.saveButton.TabIndex = 23;
             this.saveButton.Text = "Save All Accs";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -260,9 +260,9 @@ namespace LostArkLogger
             // 
             // loadButton
             // 
-            this.loadButton.Location = new System.Drawing.Point(14, 199);
+            this.loadButton.Location = new System.Drawing.Point(12, 172);
             this.loadButton.Name = "loadButton";
-            this.loadButton.Size = new System.Drawing.Size(131, 23);
+            this.loadButton.Size = new System.Drawing.Size(112, 20);
             this.loadButton.TabIndex = 24;
             this.loadButton.Text = "Load Accs";
             this.loadButton.UseVisualStyleBackColor = true;
@@ -271,35 +271,35 @@ namespace LostArkLogger
             // engraving1Choice
             // 
             this.engraving1Choice.FormattingEnabled = true;
-            this.engraving1Choice.Location = new System.Drawing.Point(480, 34);
+            this.engraving1Choice.Location = new System.Drawing.Point(411, 29);
             this.engraving1Choice.Name = "engraving1Choice";
-            this.engraving1Choice.Size = new System.Drawing.Size(165, 23);
+            this.engraving1Choice.Size = new System.Drawing.Size(142, 21);
             this.engraving1Choice.TabIndex = 25;
             // 
             // engraving1Label
             // 
             this.engraving1Label.AutoSize = true;
-            this.engraving1Label.Location = new System.Drawing.Point(480, 16);
+            this.engraving1Label.Location = new System.Drawing.Point(411, 14);
             this.engraving1Label.Name = "engraving1Label";
-            this.engraving1Label.Size = new System.Drawing.Size(69, 15);
+            this.engraving1Label.Size = new System.Drawing.Size(64, 13);
             this.engraving1Label.TabIndex = 26;
             this.engraving1Label.Text = "Engraving 1";
             // 
             // engraving1QuantityLabel
             // 
             this.engraving1QuantityLabel.AutoSize = true;
-            this.engraving1QuantityLabel.Location = new System.Drawing.Point(651, 9);
+            this.engraving1QuantityLabel.Location = new System.Drawing.Point(558, 8);
             this.engraving1QuantityLabel.Name = "engraving1QuantityLabel";
-            this.engraving1QuantityLabel.Size = new System.Drawing.Size(222, 15);
+            this.engraving1QuantityLabel.Size = new System.Drawing.Size(189, 13);
             this.engraving1QuantityLabel.TabIndex = 27;
             this.engraving1QuantityLabel.Text = "Minimum amount of engraving required";
             // 
             // engraving1Quantity_1
             // 
             this.engraving1Quantity_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.engraving1Quantity_1.Location = new System.Drawing.Point(651, 34);
+            this.engraving1Quantity_1.Location = new System.Drawing.Point(558, 29);
             this.engraving1Quantity_1.Name = "engraving1Quantity_1";
-            this.engraving1Quantity_1.Size = new System.Drawing.Size(100, 23);
+            this.engraving1Quantity_1.Size = new System.Drawing.Size(86, 20);
             this.engraving1Quantity_1.TabIndex = 28;
             this.engraving1Quantity_1.Text = "0";
             this.engraving1Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -307,9 +307,9 @@ namespace LostArkLogger
             // engraving2Quantity_1
             // 
             this.engraving2Quantity_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.engraving2Quantity_1.Location = new System.Drawing.Point(651, 85);
+            this.engraving2Quantity_1.Location = new System.Drawing.Point(558, 74);
             this.engraving2Quantity_1.Name = "engraving2Quantity_1";
-            this.engraving2Quantity_1.Size = new System.Drawing.Size(100, 23);
+            this.engraving2Quantity_1.Size = new System.Drawing.Size(86, 20);
             this.engraving2Quantity_1.TabIndex = 32;
             this.engraving2Quantity_1.Text = "0";
             this.engraving2Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -317,27 +317,27 @@ namespace LostArkLogger
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(651, 67);
+            this.label4.Location = new System.Drawing.Point(558, 58);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 15);
+            this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 31;
             this.label4.Text = "Amount";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(480, 67);
+            this.label5.Location = new System.Drawing.Point(411, 58);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 15);
+            this.label5.Size = new System.Drawing.Size(64, 13);
             this.label5.TabIndex = 30;
             this.label5.Text = "Engraving 2";
             // 
             // engraving3Quantity_1
             // 
             this.engraving3Quantity_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.engraving3Quantity_1.Location = new System.Drawing.Point(651, 136);
+            this.engraving3Quantity_1.Location = new System.Drawing.Point(558, 118);
             this.engraving3Quantity_1.Name = "engraving3Quantity_1";
-            this.engraving3Quantity_1.Size = new System.Drawing.Size(100, 23);
+            this.engraving3Quantity_1.Size = new System.Drawing.Size(86, 20);
             this.engraving3Quantity_1.TabIndex = 36;
             this.engraving3Quantity_1.Text = "0";
             this.engraving3Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -345,35 +345,35 @@ namespace LostArkLogger
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(651, 118);
+            this.label6.Location = new System.Drawing.Point(558, 102);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 15);
+            this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 35;
             this.label6.Text = "Amount";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(480, 118);
+            this.label7.Location = new System.Drawing.Point(411, 102);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 15);
+            this.label7.Size = new System.Drawing.Size(64, 13);
             this.label7.TabIndex = 34;
             this.label7.Text = "Engraving 3";
             // 
             // engraving3Choice
             // 
             this.engraving3Choice.FormattingEnabled = true;
-            this.engraving3Choice.Location = new System.Drawing.Point(480, 136);
+            this.engraving3Choice.Location = new System.Drawing.Point(411, 118);
             this.engraving3Choice.Name = "engraving3Choice";
-            this.engraving3Choice.Size = new System.Drawing.Size(165, 23);
+            this.engraving3Choice.Size = new System.Drawing.Size(142, 21);
             this.engraving3Choice.TabIndex = 33;
             // 
             // engraving4Quantity_1
             // 
             this.engraving4Quantity_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.engraving4Quantity_1.Location = new System.Drawing.Point(651, 187);
+            this.engraving4Quantity_1.Location = new System.Drawing.Point(558, 162);
             this.engraving4Quantity_1.Name = "engraving4Quantity_1";
-            this.engraving4Quantity_1.Size = new System.Drawing.Size(100, 23);
+            this.engraving4Quantity_1.Size = new System.Drawing.Size(86, 20);
             this.engraving4Quantity_1.TabIndex = 40;
             this.engraving4Quantity_1.Text = "0";
             this.engraving4Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -381,35 +381,35 @@ namespace LostArkLogger
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(651, 169);
+            this.label8.Location = new System.Drawing.Point(558, 146);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 15);
+            this.label8.Size = new System.Drawing.Size(43, 13);
             this.label8.TabIndex = 39;
             this.label8.Text = "Amount";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(480, 169);
+            this.label9.Location = new System.Drawing.Point(411, 146);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 15);
+            this.label9.Size = new System.Drawing.Size(64, 13);
             this.label9.TabIndex = 38;
             this.label9.Text = "Engraving 4";
             // 
             // engraving4Choice
             // 
             this.engraving4Choice.FormattingEnabled = true;
-            this.engraving4Choice.Location = new System.Drawing.Point(480, 187);
+            this.engraving4Choice.Location = new System.Drawing.Point(411, 162);
             this.engraving4Choice.Name = "engraving4Choice";
-            this.engraving4Choice.Size = new System.Drawing.Size(165, 23);
+            this.engraving4Choice.Size = new System.Drawing.Size(142, 21);
             this.engraving4Choice.TabIndex = 37;
             // 
             // engraving5Quantity_1
             // 
             this.engraving5Quantity_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.engraving5Quantity_1.Location = new System.Drawing.Point(651, 238);
+            this.engraving5Quantity_1.Location = new System.Drawing.Point(558, 206);
             this.engraving5Quantity_1.Name = "engraving5Quantity_1";
-            this.engraving5Quantity_1.Size = new System.Drawing.Size(100, 23);
+            this.engraving5Quantity_1.Size = new System.Drawing.Size(86, 20);
             this.engraving5Quantity_1.TabIndex = 44;
             this.engraving5Quantity_1.Text = "0";
             this.engraving5Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -417,35 +417,35 @@ namespace LostArkLogger
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(651, 220);
+            this.label10.Location = new System.Drawing.Point(558, 191);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 15);
+            this.label10.Size = new System.Drawing.Size(43, 13);
             this.label10.TabIndex = 43;
             this.label10.Text = "Amount";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(480, 220);
+            this.label11.Location = new System.Drawing.Point(411, 191);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 15);
+            this.label11.Size = new System.Drawing.Size(64, 13);
             this.label11.TabIndex = 42;
             this.label11.Text = "Engraving 5";
             // 
             // engraving5Choice
             // 
             this.engraving5Choice.FormattingEnabled = true;
-            this.engraving5Choice.Location = new System.Drawing.Point(480, 238);
+            this.engraving5Choice.Location = new System.Drawing.Point(411, 206);
             this.engraving5Choice.Name = "engraving5Choice";
-            this.engraving5Choice.Size = new System.Drawing.Size(165, 23);
+            this.engraving5Choice.Size = new System.Drawing.Size(142, 21);
             this.engraving5Choice.TabIndex = 41;
             // 
             // engraving6Quantity_1
             // 
             this.engraving6Quantity_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.engraving6Quantity_1.Location = new System.Drawing.Point(651, 289);
+            this.engraving6Quantity_1.Location = new System.Drawing.Point(558, 250);
             this.engraving6Quantity_1.Name = "engraving6Quantity_1";
-            this.engraving6Quantity_1.Size = new System.Drawing.Size(100, 23);
+            this.engraving6Quantity_1.Size = new System.Drawing.Size(86, 20);
             this.engraving6Quantity_1.TabIndex = 48;
             this.engraving6Quantity_1.Text = "0";
             this.engraving6Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -453,60 +453,60 @@ namespace LostArkLogger
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(651, 271);
+            this.label12.Location = new System.Drawing.Point(558, 235);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 15);
+            this.label12.Size = new System.Drawing.Size(43, 13);
             this.label12.TabIndex = 47;
             this.label12.Text = "Amount";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(480, 271);
+            this.label13.Location = new System.Drawing.Point(411, 235);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(69, 15);
+            this.label13.Size = new System.Drawing.Size(64, 13);
             this.label13.TabIndex = 46;
             this.label13.Text = "Engraving 6";
             // 
             // engraving6Choice
             // 
             this.engraving6Choice.FormattingEnabled = true;
-            this.engraving6Choice.Location = new System.Drawing.Point(480, 289);
+            this.engraving6Choice.Location = new System.Drawing.Point(411, 250);
             this.engraving6Choice.Name = "engraving6Choice";
-            this.engraving6Choice.Size = new System.Drawing.Size(165, 23);
+            this.engraving6Choice.Size = new System.Drawing.Size(142, 21);
             this.engraving6Choice.TabIndex = 45;
             // 
             // engraving2Choice
             // 
             this.engraving2Choice.FormattingEnabled = true;
-            this.engraving2Choice.Location = new System.Drawing.Point(480, 85);
+            this.engraving2Choice.Location = new System.Drawing.Point(411, 74);
             this.engraving2Choice.Name = "engraving2Choice";
-            this.engraving2Choice.Size = new System.Drawing.Size(165, 23);
+            this.engraving2Choice.Size = new System.Drawing.Size(142, 21);
             this.engraving2Choice.TabIndex = 50;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(156, 42);
+            this.label14.Location = new System.Drawing.Point(134, 36);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(167, 15);
+            this.label14.Size = new System.Drawing.Size(145, 13);
             this.label14.TabIndex = 52;
             this.label14.Text = "Maximum Individual Acc Cost";
             // 
             // maxCost
             // 
-            this.maxCost.Location = new System.Drawing.Point(329, 38);
+            this.maxCost.Location = new System.Drawing.Point(282, 33);
             this.maxCost.Name = "maxCost";
-            this.maxCost.Size = new System.Drawing.Size(70, 23);
+            this.maxCost.Size = new System.Drawing.Size(61, 20);
             this.maxCost.TabIndex = 53;
             this.maxCost.Text = "15001";
             // 
             // engraving6Quantity_2
             // 
             this.engraving6Quantity_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.engraving6Quantity_2.Location = new System.Drawing.Point(757, 289);
+            this.engraving6Quantity_2.Location = new System.Drawing.Point(649, 250);
             this.engraving6Quantity_2.Name = "engraving6Quantity_2";
-            this.engraving6Quantity_2.Size = new System.Drawing.Size(100, 23);
+            this.engraving6Quantity_2.Size = new System.Drawing.Size(86, 20);
             this.engraving6Quantity_2.TabIndex = 59;
             this.engraving6Quantity_2.Text = "0";
             this.engraving6Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -514,9 +514,9 @@ namespace LostArkLogger
             // engraving5Quantity_2
             // 
             this.engraving5Quantity_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.engraving5Quantity_2.Location = new System.Drawing.Point(757, 238);
+            this.engraving5Quantity_2.Location = new System.Drawing.Point(649, 206);
             this.engraving5Quantity_2.Name = "engraving5Quantity_2";
-            this.engraving5Quantity_2.Size = new System.Drawing.Size(100, 23);
+            this.engraving5Quantity_2.Size = new System.Drawing.Size(86, 20);
             this.engraving5Quantity_2.TabIndex = 58;
             this.engraving5Quantity_2.Text = "0";
             this.engraving5Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -524,9 +524,9 @@ namespace LostArkLogger
             // engraving4Quantity_2
             // 
             this.engraving4Quantity_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.engraving4Quantity_2.Location = new System.Drawing.Point(757, 187);
+            this.engraving4Quantity_2.Location = new System.Drawing.Point(649, 162);
             this.engraving4Quantity_2.Name = "engraving4Quantity_2";
-            this.engraving4Quantity_2.Size = new System.Drawing.Size(100, 23);
+            this.engraving4Quantity_2.Size = new System.Drawing.Size(86, 20);
             this.engraving4Quantity_2.TabIndex = 57;
             this.engraving4Quantity_2.Text = "0";
             this.engraving4Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -534,9 +534,9 @@ namespace LostArkLogger
             // engraving3Quantity_2
             // 
             this.engraving3Quantity_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.engraving3Quantity_2.Location = new System.Drawing.Point(757, 136);
+            this.engraving3Quantity_2.Location = new System.Drawing.Point(649, 118);
             this.engraving3Quantity_2.Name = "engraving3Quantity_2";
-            this.engraving3Quantity_2.Size = new System.Drawing.Size(100, 23);
+            this.engraving3Quantity_2.Size = new System.Drawing.Size(86, 20);
             this.engraving3Quantity_2.TabIndex = 56;
             this.engraving3Quantity_2.Text = "0";
             this.engraving3Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -544,9 +544,9 @@ namespace LostArkLogger
             // engraving2Quantity_2
             // 
             this.engraving2Quantity_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.engraving2Quantity_2.Location = new System.Drawing.Point(757, 85);
+            this.engraving2Quantity_2.Location = new System.Drawing.Point(649, 74);
             this.engraving2Quantity_2.Name = "engraving2Quantity_2";
-            this.engraving2Quantity_2.Size = new System.Drawing.Size(100, 23);
+            this.engraving2Quantity_2.Size = new System.Drawing.Size(86, 20);
             this.engraving2Quantity_2.TabIndex = 55;
             this.engraving2Quantity_2.Text = "0";
             this.engraving2Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -554,9 +554,9 @@ namespace LostArkLogger
             // engraving1Quantity_2
             // 
             this.engraving1Quantity_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.engraving1Quantity_2.Location = new System.Drawing.Point(757, 34);
+            this.engraving1Quantity_2.Location = new System.Drawing.Point(649, 29);
             this.engraving1Quantity_2.Name = "engraving1Quantity_2";
-            this.engraving1Quantity_2.Size = new System.Drawing.Size(100, 23);
+            this.engraving1Quantity_2.Size = new System.Drawing.Size(86, 20);
             this.engraving1Quantity_2.TabIndex = 54;
             this.engraving1Quantity_2.Text = "0";
             this.engraving1Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -564,9 +564,9 @@ namespace LostArkLogger
             // engraving6Quantity_3
             // 
             this.engraving6Quantity_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.engraving6Quantity_3.Location = new System.Drawing.Point(863, 289);
+            this.engraving6Quantity_3.Location = new System.Drawing.Point(740, 250);
             this.engraving6Quantity_3.Name = "engraving6Quantity_3";
-            this.engraving6Quantity_3.Size = new System.Drawing.Size(100, 23);
+            this.engraving6Quantity_3.Size = new System.Drawing.Size(86, 20);
             this.engraving6Quantity_3.TabIndex = 65;
             this.engraving6Quantity_3.Text = "0";
             this.engraving6Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -574,9 +574,9 @@ namespace LostArkLogger
             // engraving5Quantity_3
             // 
             this.engraving5Quantity_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.engraving5Quantity_3.Location = new System.Drawing.Point(863, 238);
+            this.engraving5Quantity_3.Location = new System.Drawing.Point(740, 206);
             this.engraving5Quantity_3.Name = "engraving5Quantity_3";
-            this.engraving5Quantity_3.Size = new System.Drawing.Size(100, 23);
+            this.engraving5Quantity_3.Size = new System.Drawing.Size(86, 20);
             this.engraving5Quantity_3.TabIndex = 64;
             this.engraving5Quantity_3.Text = "0";
             this.engraving5Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -584,9 +584,9 @@ namespace LostArkLogger
             // engraving4Quantity_3
             // 
             this.engraving4Quantity_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.engraving4Quantity_3.Location = new System.Drawing.Point(863, 187);
+            this.engraving4Quantity_3.Location = new System.Drawing.Point(740, 162);
             this.engraving4Quantity_3.Name = "engraving4Quantity_3";
-            this.engraving4Quantity_3.Size = new System.Drawing.Size(100, 23);
+            this.engraving4Quantity_3.Size = new System.Drawing.Size(86, 20);
             this.engraving4Quantity_3.TabIndex = 63;
             this.engraving4Quantity_3.Text = "0";
             this.engraving4Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -594,9 +594,9 @@ namespace LostArkLogger
             // engraving3Quantity_3
             // 
             this.engraving3Quantity_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.engraving3Quantity_3.Location = new System.Drawing.Point(863, 136);
+            this.engraving3Quantity_3.Location = new System.Drawing.Point(740, 118);
             this.engraving3Quantity_3.Name = "engraving3Quantity_3";
-            this.engraving3Quantity_3.Size = new System.Drawing.Size(100, 23);
+            this.engraving3Quantity_3.Size = new System.Drawing.Size(86, 20);
             this.engraving3Quantity_3.TabIndex = 62;
             this.engraving3Quantity_3.Text = "0";
             this.engraving3Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -604,9 +604,9 @@ namespace LostArkLogger
             // engraving2Quantity_3
             // 
             this.engraving2Quantity_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.engraving2Quantity_3.Location = new System.Drawing.Point(863, 85);
+            this.engraving2Quantity_3.Location = new System.Drawing.Point(740, 74);
             this.engraving2Quantity_3.Name = "engraving2Quantity_3";
-            this.engraving2Quantity_3.Size = new System.Drawing.Size(100, 23);
+            this.engraving2Quantity_3.Size = new System.Drawing.Size(86, 20);
             this.engraving2Quantity_3.TabIndex = 61;
             this.engraving2Quantity_3.Text = "0";
             this.engraving2Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -614,9 +614,9 @@ namespace LostArkLogger
             // engraving1Quantity_3
             // 
             this.engraving1Quantity_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.engraving1Quantity_3.Location = new System.Drawing.Point(863, 34);
+            this.engraving1Quantity_3.Location = new System.Drawing.Point(740, 29);
             this.engraving1Quantity_3.Name = "engraving1Quantity_3";
-            this.engraving1Quantity_3.Size = new System.Drawing.Size(100, 23);
+            this.engraving1Quantity_3.Size = new System.Drawing.Size(86, 20);
             this.engraving1Quantity_3.TabIndex = 60;
             this.engraving1Quantity_3.Text = "0";
             this.engraving1Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -624,9 +624,9 @@ namespace LostArkLogger
             // necklaceCount
             // 
             this.necklaceCount.AutoSize = true;
-            this.necklaceCount.Location = new System.Drawing.Point(113, 7);
+            this.necklaceCount.Location = new System.Drawing.Point(97, 6);
             this.necklaceCount.Name = "necklaceCount";
-            this.necklaceCount.Size = new System.Drawing.Size(12, 15);
+            this.necklaceCount.Size = new System.Drawing.Size(10, 13);
             this.necklaceCount.TabIndex = 20;
             this.necklaceCount.Text = "-";
             // 
@@ -640,60 +640,60 @@ namespace LostArkLogger
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.ringCount);
             this.panel1.Controls.Add(this.accessoryCount);
-            this.panel1.Location = new System.Drawing.Point(15, 39);
+            this.panel1.Location = new System.Drawing.Point(13, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(135, 108);
+            this.panel1.Size = new System.Drawing.Size(115, 94);
             this.panel1.TabIndex = 66;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 85);
+            this.label15.Location = new System.Drawing.Point(3, 74);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(105, 15);
+            this.label15.Size = new System.Drawing.Size(100, 13);
             this.label15.TabIndex = 67;
             this.label15.Text = "Total Loaded Accs:";
             // 
             // desiredStatType1
             // 
             this.desiredStatType1.FormattingEnabled = true;
-            this.desiredStatType1.Location = new System.Drawing.Point(240, 67);
+            this.desiredStatType1.Location = new System.Drawing.Point(214, 58);
             this.desiredStatType1.Name = "desiredStatType1";
-            this.desiredStatType1.Size = new System.Drawing.Size(121, 23);
+            this.desiredStatType1.Size = new System.Drawing.Size(104, 21);
             this.desiredStatType1.TabIndex = 67;
             // 
             // desiredStatType2
             // 
             this.desiredStatType2.FormattingEnabled = true;
-            this.desiredStatType2.Location = new System.Drawing.Point(240, 124);
+            this.desiredStatType2.Location = new System.Drawing.Point(214, 107);
             this.desiredStatType2.Name = "desiredStatType2";
-            this.desiredStatType2.Size = new System.Drawing.Size(121, 23);
+            this.desiredStatType2.Size = new System.Drawing.Size(104, 21);
             this.desiredStatType2.TabIndex = 68;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(156, 70);
+            this.label16.Location = new System.Drawing.Point(134, 61);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(78, 15);
+            this.label16.Size = new System.Drawing.Size(74, 13);
             this.label16.TabIndex = 69;
             this.label16.Text = "Desired Stat 1";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(156, 127);
+            this.label17.Location = new System.Drawing.Point(134, 110);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(78, 15);
+            this.label17.Size = new System.Drawing.Size(74, 13);
             this.label17.TabIndex = 70;
             this.label17.Text = "Desired Stat 2";
             // 
             // engraving6Quantity_4
             // 
             this.engraving6Quantity_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.engraving6Quantity_4.Location = new System.Drawing.Point(969, 289);
+            this.engraving6Quantity_4.Location = new System.Drawing.Point(831, 250);
             this.engraving6Quantity_4.Name = "engraving6Quantity_4";
-            this.engraving6Quantity_4.Size = new System.Drawing.Size(100, 23);
+            this.engraving6Quantity_4.Size = new System.Drawing.Size(86, 20);
             this.engraving6Quantity_4.TabIndex = 76;
             this.engraving6Quantity_4.Text = "0";
             this.engraving6Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -701,9 +701,9 @@ namespace LostArkLogger
             // engraving5Quantity_4
             // 
             this.engraving5Quantity_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.engraving5Quantity_4.Location = new System.Drawing.Point(969, 238);
+            this.engraving5Quantity_4.Location = new System.Drawing.Point(831, 206);
             this.engraving5Quantity_4.Name = "engraving5Quantity_4";
-            this.engraving5Quantity_4.Size = new System.Drawing.Size(100, 23);
+            this.engraving5Quantity_4.Size = new System.Drawing.Size(86, 20);
             this.engraving5Quantity_4.TabIndex = 75;
             this.engraving5Quantity_4.Text = "0";
             this.engraving5Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -711,9 +711,9 @@ namespace LostArkLogger
             // engraving4Quantity_4
             // 
             this.engraving4Quantity_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.engraving4Quantity_4.Location = new System.Drawing.Point(969, 187);
+            this.engraving4Quantity_4.Location = new System.Drawing.Point(831, 162);
             this.engraving4Quantity_4.Name = "engraving4Quantity_4";
-            this.engraving4Quantity_4.Size = new System.Drawing.Size(100, 23);
+            this.engraving4Quantity_4.Size = new System.Drawing.Size(86, 20);
             this.engraving4Quantity_4.TabIndex = 74;
             this.engraving4Quantity_4.Text = "0";
             this.engraving4Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -721,9 +721,9 @@ namespace LostArkLogger
             // engraving3Quantity_4
             // 
             this.engraving3Quantity_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.engraving3Quantity_4.Location = new System.Drawing.Point(969, 136);
+            this.engraving3Quantity_4.Location = new System.Drawing.Point(831, 118);
             this.engraving3Quantity_4.Name = "engraving3Quantity_4";
-            this.engraving3Quantity_4.Size = new System.Drawing.Size(100, 23);
+            this.engraving3Quantity_4.Size = new System.Drawing.Size(86, 20);
             this.engraving3Quantity_4.TabIndex = 73;
             this.engraving3Quantity_4.Text = "0";
             this.engraving3Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -731,9 +731,9 @@ namespace LostArkLogger
             // engraving2Quantity_4
             // 
             this.engraving2Quantity_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.engraving2Quantity_4.Location = new System.Drawing.Point(969, 85);
+            this.engraving2Quantity_4.Location = new System.Drawing.Point(831, 74);
             this.engraving2Quantity_4.Name = "engraving2Quantity_4";
-            this.engraving2Quantity_4.Size = new System.Drawing.Size(100, 23);
+            this.engraving2Quantity_4.Size = new System.Drawing.Size(86, 20);
             this.engraving2Quantity_4.TabIndex = 72;
             this.engraving2Quantity_4.Text = "0";
             this.engraving2Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -741,9 +741,9 @@ namespace LostArkLogger
             // engraving1Quantity_4
             // 
             this.engraving1Quantity_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.engraving1Quantity_4.Location = new System.Drawing.Point(969, 34);
+            this.engraving1Quantity_4.Location = new System.Drawing.Point(831, 29);
             this.engraving1Quantity_4.Name = "engraving1Quantity_4";
-            this.engraving1Quantity_4.Size = new System.Drawing.Size(100, 23);
+            this.engraving1Quantity_4.Size = new System.Drawing.Size(86, 20);
             this.engraving1Quantity_4.TabIndex = 71;
             this.engraving1Quantity_4.Text = "0";
             this.engraving1Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -751,9 +751,9 @@ namespace LostArkLogger
             // engraving6Quantity_5
             // 
             this.engraving6Quantity_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.engraving6Quantity_5.Location = new System.Drawing.Point(1075, 289);
+            this.engraving6Quantity_5.Location = new System.Drawing.Point(921, 250);
             this.engraving6Quantity_5.Name = "engraving6Quantity_5";
-            this.engraving6Quantity_5.Size = new System.Drawing.Size(100, 23);
+            this.engraving6Quantity_5.Size = new System.Drawing.Size(86, 20);
             this.engraving6Quantity_5.TabIndex = 82;
             this.engraving6Quantity_5.Text = "0";
             this.engraving6Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -761,9 +761,9 @@ namespace LostArkLogger
             // engraving5Quantity_5
             // 
             this.engraving5Quantity_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.engraving5Quantity_5.Location = new System.Drawing.Point(1075, 238);
+            this.engraving5Quantity_5.Location = new System.Drawing.Point(921, 206);
             this.engraving5Quantity_5.Name = "engraving5Quantity_5";
-            this.engraving5Quantity_5.Size = new System.Drawing.Size(100, 23);
+            this.engraving5Quantity_5.Size = new System.Drawing.Size(86, 20);
             this.engraving5Quantity_5.TabIndex = 81;
             this.engraving5Quantity_5.Text = "0";
             this.engraving5Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -771,9 +771,9 @@ namespace LostArkLogger
             // engraving4Quantity_5
             // 
             this.engraving4Quantity_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.engraving4Quantity_5.Location = new System.Drawing.Point(1075, 187);
+            this.engraving4Quantity_5.Location = new System.Drawing.Point(921, 162);
             this.engraving4Quantity_5.Name = "engraving4Quantity_5";
-            this.engraving4Quantity_5.Size = new System.Drawing.Size(100, 23);
+            this.engraving4Quantity_5.Size = new System.Drawing.Size(86, 20);
             this.engraving4Quantity_5.TabIndex = 80;
             this.engraving4Quantity_5.Text = "0";
             this.engraving4Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -781,9 +781,9 @@ namespace LostArkLogger
             // engraving3Quantity_5
             // 
             this.engraving3Quantity_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.engraving3Quantity_5.Location = new System.Drawing.Point(1075, 136);
+            this.engraving3Quantity_5.Location = new System.Drawing.Point(921, 118);
             this.engraving3Quantity_5.Name = "engraving3Quantity_5";
-            this.engraving3Quantity_5.Size = new System.Drawing.Size(100, 23);
+            this.engraving3Quantity_5.Size = new System.Drawing.Size(86, 20);
             this.engraving3Quantity_5.TabIndex = 79;
             this.engraving3Quantity_5.Text = "0";
             this.engraving3Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -791,9 +791,9 @@ namespace LostArkLogger
             // engraving2Quantity_5
             // 
             this.engraving2Quantity_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.engraving2Quantity_5.Location = new System.Drawing.Point(1075, 85);
+            this.engraving2Quantity_5.Location = new System.Drawing.Point(921, 74);
             this.engraving2Quantity_5.Name = "engraving2Quantity_5";
-            this.engraving2Quantity_5.Size = new System.Drawing.Size(100, 23);
+            this.engraving2Quantity_5.Size = new System.Drawing.Size(86, 20);
             this.engraving2Quantity_5.TabIndex = 78;
             this.engraving2Quantity_5.Text = "0";
             this.engraving2Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -801,9 +801,9 @@ namespace LostArkLogger
             // engraving1Quantity_5
             // 
             this.engraving1Quantity_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.engraving1Quantity_5.Location = new System.Drawing.Point(1075, 34);
+            this.engraving1Quantity_5.Location = new System.Drawing.Point(921, 29);
             this.engraving1Quantity_5.Name = "engraving1Quantity_5";
-            this.engraving1Quantity_5.Size = new System.Drawing.Size(100, 23);
+            this.engraving1Quantity_5.Size = new System.Drawing.Size(86, 20);
             this.engraving1Quantity_5.TabIndex = 77;
             this.engraving1Quantity_5.Text = "0";
             this.engraving1Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -811,9 +811,9 @@ namespace LostArkLogger
             // engraving6Quantity_6
             // 
             this.engraving6Quantity_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.engraving6Quantity_6.Location = new System.Drawing.Point(1181, 289);
+            this.engraving6Quantity_6.Location = new System.Drawing.Point(1012, 250);
             this.engraving6Quantity_6.Name = "engraving6Quantity_6";
-            this.engraving6Quantity_6.Size = new System.Drawing.Size(100, 23);
+            this.engraving6Quantity_6.Size = new System.Drawing.Size(86, 20);
             this.engraving6Quantity_6.TabIndex = 88;
             this.engraving6Quantity_6.Text = "0";
             this.engraving6Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -821,9 +821,9 @@ namespace LostArkLogger
             // engraving5Quantity_6
             // 
             this.engraving5Quantity_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.engraving5Quantity_6.Location = new System.Drawing.Point(1181, 238);
+            this.engraving5Quantity_6.Location = new System.Drawing.Point(1012, 206);
             this.engraving5Quantity_6.Name = "engraving5Quantity_6";
-            this.engraving5Quantity_6.Size = new System.Drawing.Size(100, 23);
+            this.engraving5Quantity_6.Size = new System.Drawing.Size(86, 20);
             this.engraving5Quantity_6.TabIndex = 87;
             this.engraving5Quantity_6.Text = "0";
             this.engraving5Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -831,9 +831,9 @@ namespace LostArkLogger
             // engraving4Quantity_6
             // 
             this.engraving4Quantity_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.engraving4Quantity_6.Location = new System.Drawing.Point(1181, 187);
+            this.engraving4Quantity_6.Location = new System.Drawing.Point(1012, 162);
             this.engraving4Quantity_6.Name = "engraving4Quantity_6";
-            this.engraving4Quantity_6.Size = new System.Drawing.Size(100, 23);
+            this.engraving4Quantity_6.Size = new System.Drawing.Size(86, 20);
             this.engraving4Quantity_6.TabIndex = 86;
             this.engraving4Quantity_6.Text = "0";
             this.engraving4Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -841,9 +841,9 @@ namespace LostArkLogger
             // engraving3Quantity_6
             // 
             this.engraving3Quantity_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.engraving3Quantity_6.Location = new System.Drawing.Point(1181, 136);
+            this.engraving3Quantity_6.Location = new System.Drawing.Point(1012, 118);
             this.engraving3Quantity_6.Name = "engraving3Quantity_6";
-            this.engraving3Quantity_6.Size = new System.Drawing.Size(100, 23);
+            this.engraving3Quantity_6.Size = new System.Drawing.Size(86, 20);
             this.engraving3Quantity_6.TabIndex = 85;
             this.engraving3Quantity_6.Text = "0";
             this.engraving3Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -851,9 +851,9 @@ namespace LostArkLogger
             // engraving2Quantity_6
             // 
             this.engraving2Quantity_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.engraving2Quantity_6.Location = new System.Drawing.Point(1181, 85);
+            this.engraving2Quantity_6.Location = new System.Drawing.Point(1012, 74);
             this.engraving2Quantity_6.Name = "engraving2Quantity_6";
-            this.engraving2Quantity_6.Size = new System.Drawing.Size(100, 23);
+            this.engraving2Quantity_6.Size = new System.Drawing.Size(86, 20);
             this.engraving2Quantity_6.TabIndex = 84;
             this.engraving2Quantity_6.Text = "0";
             this.engraving2Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -861,18 +861,18 @@ namespace LostArkLogger
             // engraving1Quantity_6
             // 
             this.engraving1Quantity_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.engraving1Quantity_6.Location = new System.Drawing.Point(1181, 34);
+            this.engraving1Quantity_6.Location = new System.Drawing.Point(1012, 29);
             this.engraving1Quantity_6.Name = "engraving1Quantity_6";
-            this.engraving1Quantity_6.Size = new System.Drawing.Size(100, 23);
+            this.engraving1Quantity_6.Size = new System.Drawing.Size(86, 20);
             this.engraving1Quantity_6.TabIndex = 83;
             this.engraving1Quantity_6.Text = "0";
             this.engraving1Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // saveLastEngravingsButton
             // 
-            this.saveLastEngravingsButton.Location = new System.Drawing.Point(480, 327);
+            this.saveLastEngravingsButton.Location = new System.Drawing.Point(411, 283);
             this.saveLastEngravingsButton.Name = "saveLastEngravingsButton";
-            this.saveLastEngravingsButton.Size = new System.Drawing.Size(136, 23);
+            this.saveLastEngravingsButton.Size = new System.Drawing.Size(117, 20);
             this.saveLastEngravingsButton.TabIndex = 89;
             this.saveLastEngravingsButton.Text = "Save Engraving Profile";
             this.saveLastEngravingsButton.UseVisualStyleBackColor = true;
@@ -880,9 +880,9 @@ namespace LostArkLogger
             // 
             // loadLastEngravingsButton
             // 
-            this.loadLastEngravingsButton.Location = new System.Drawing.Point(622, 327);
+            this.loadLastEngravingsButton.Location = new System.Drawing.Point(533, 283);
             this.loadLastEngravingsButton.Name = "loadLastEngravingsButton";
-            this.loadLastEngravingsButton.Size = new System.Drawing.Size(164, 23);
+            this.loadLastEngravingsButton.Size = new System.Drawing.Size(141, 20);
             this.loadLastEngravingsButton.TabIndex = 90;
             this.loadLastEngravingsButton.Text = "Load Last Engraving Profile";
             this.loadLastEngravingsButton.UseVisualStyleBackColor = true;
@@ -904,19 +904,19 @@ namespace LostArkLogger
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
-            this.tabControl1.Location = new System.Drawing.Point(12, 356);
+            this.tabControl1.Location = new System.Drawing.Point(10, 309);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1349, 601);
+            this.tabControl1.Size = new System.Drawing.Size(1156, 521);
             this.tabControl1.TabIndex = 92;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.cheapest_Textbox);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1341, 573);
+            this.tabPage1.Size = new System.Drawing.Size(1148, 495);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cheapest";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -925,20 +925,20 @@ namespace LostArkLogger
             // 
             this.cheapest_Textbox.BackColor = System.Drawing.Color.Black;
             this.cheapest_Textbox.ForeColor = System.Drawing.Color.White;
-            this.cheapest_Textbox.Location = new System.Drawing.Point(-4, -9);
+            this.cheapest_Textbox.Location = new System.Drawing.Point(-3, -8);
             this.cheapest_Textbox.Multiline = true;
             this.cheapest_Textbox.Name = "cheapest_Textbox";
             this.cheapest_Textbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.cheapest_Textbox.Size = new System.Drawing.Size(1349, 591);
+            this.cheapest_Textbox.Size = new System.Drawing.Size(1157, 513);
             this.cheapest_Textbox.TabIndex = 92;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.highestStat1_textBox);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1341, 573);
+            this.tabPage2.Size = new System.Drawing.Size(1148, 495);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Highest Stat 1";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -947,19 +947,19 @@ namespace LostArkLogger
             // 
             this.highestStat1_textBox.BackColor = System.Drawing.Color.Black;
             this.highestStat1_textBox.ForeColor = System.Drawing.Color.White;
-            this.highestStat1_textBox.Location = new System.Drawing.Point(-4, -9);
+            this.highestStat1_textBox.Location = new System.Drawing.Point(-3, -8);
             this.highestStat1_textBox.Multiline = true;
             this.highestStat1_textBox.Name = "highestStat1_textBox";
             this.highestStat1_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.highestStat1_textBox.Size = new System.Drawing.Size(1349, 591);
+            this.highestStat1_textBox.Size = new System.Drawing.Size(1157, 513);
             this.highestStat1_textBox.TabIndex = 92;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.highestStat2_textBox);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1341, 573);
+            this.tabPage3.Size = new System.Drawing.Size(1148, 495);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Highest Stat 2";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -968,19 +968,19 @@ namespace LostArkLogger
             // 
             this.highestStat2_textBox.BackColor = System.Drawing.Color.Black;
             this.highestStat2_textBox.ForeColor = System.Drawing.Color.White;
-            this.highestStat2_textBox.Location = new System.Drawing.Point(-4, -9);
+            this.highestStat2_textBox.Location = new System.Drawing.Point(-3, -8);
             this.highestStat2_textBox.Multiline = true;
             this.highestStat2_textBox.Name = "highestStat2_textBox";
             this.highestStat2_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.highestStat2_textBox.Size = new System.Drawing.Size(1349, 591);
+            this.highestStat2_textBox.Size = new System.Drawing.Size(1157, 513);
             this.highestStat2_textBox.TabIndex = 92;
             // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.cheapest500HighStat1_textBox);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1341, 573);
+            this.tabPage4.Size = new System.Drawing.Size(1148, 495);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Cheapest 500 with Highest Stat 1";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -989,19 +989,19 @@ namespace LostArkLogger
             // 
             this.cheapest500HighStat1_textBox.BackColor = System.Drawing.Color.Black;
             this.cheapest500HighStat1_textBox.ForeColor = System.Drawing.Color.White;
-            this.cheapest500HighStat1_textBox.Location = new System.Drawing.Point(-4, -9);
+            this.cheapest500HighStat1_textBox.Location = new System.Drawing.Point(-3, -8);
             this.cheapest500HighStat1_textBox.Multiline = true;
             this.cheapest500HighStat1_textBox.Name = "cheapest500HighStat1_textBox";
             this.cheapest500HighStat1_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.cheapest500HighStat1_textBox.Size = new System.Drawing.Size(1349, 591);
+            this.cheapest500HighStat1_textBox.Size = new System.Drawing.Size(1157, 513);
             this.cheapest500HighStat1_textBox.TabIndex = 92;
             // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.cheapest500HighStat2_textBox);
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1341, 573);
+            this.tabPage5.Size = new System.Drawing.Size(1148, 495);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Cheapest 500 with Highest Stat 2";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1010,19 +1010,19 @@ namespace LostArkLogger
             // 
             this.cheapest500HighStat2_textBox.BackColor = System.Drawing.Color.Black;
             this.cheapest500HighStat2_textBox.ForeColor = System.Drawing.Color.White;
-            this.cheapest500HighStat2_textBox.Location = new System.Drawing.Point(-4, -9);
+            this.cheapest500HighStat2_textBox.Location = new System.Drawing.Point(-3, -8);
             this.cheapest500HighStat2_textBox.Multiline = true;
             this.cheapest500HighStat2_textBox.Name = "cheapest500HighStat2_textBox";
             this.cheapest500HighStat2_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.cheapest500HighStat2_textBox.Size = new System.Drawing.Size(1349, 591);
+            this.cheapest500HighStat2_textBox.Size = new System.Drawing.Size(1157, 513);
             this.cheapest500HighStat2_textBox.TabIndex = 92;
             // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.cheapestWithRelicNeck_textBox);
-            this.tabPage6.Location = new System.Drawing.Point(4, 24);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1341, 573);
+            this.tabPage6.Size = new System.Drawing.Size(1148, 495);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Cheapest With Relic Neck";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1031,19 +1031,19 @@ namespace LostArkLogger
             // 
             this.cheapestWithRelicNeck_textBox.BackColor = System.Drawing.Color.Black;
             this.cheapestWithRelicNeck_textBox.ForeColor = System.Drawing.Color.White;
-            this.cheapestWithRelicNeck_textBox.Location = new System.Drawing.Point(-4, -9);
+            this.cheapestWithRelicNeck_textBox.Location = new System.Drawing.Point(-3, -8);
             this.cheapestWithRelicNeck_textBox.Multiline = true;
             this.cheapestWithRelicNeck_textBox.Name = "cheapestWithRelicNeck_textBox";
             this.cheapestWithRelicNeck_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.cheapestWithRelicNeck_textBox.Size = new System.Drawing.Size(1349, 591);
+            this.cheapestWithRelicNeck_textBox.Size = new System.Drawing.Size(1157, 513);
             this.cheapestWithRelicNeck_textBox.TabIndex = 92;
             // 
             // tabPage7
             // 
             this.tabPage7.Controls.Add(this.cheapest80Q_textBox);
-            this.tabPage7.Location = new System.Drawing.Point(4, 24);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1341, 573);
+            this.tabPage7.Size = new System.Drawing.Size(1148, 495);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Cheapest > 80Q";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1052,19 +1052,19 @@ namespace LostArkLogger
             // 
             this.cheapest80Q_textBox.BackColor = System.Drawing.Color.Black;
             this.cheapest80Q_textBox.ForeColor = System.Drawing.Color.White;
-            this.cheapest80Q_textBox.Location = new System.Drawing.Point(-4, -9);
+            this.cheapest80Q_textBox.Location = new System.Drawing.Point(-3, -8);
             this.cheapest80Q_textBox.Multiline = true;
             this.cheapest80Q_textBox.Name = "cheapest80Q_textBox";
             this.cheapest80Q_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.cheapest80Q_textBox.Size = new System.Drawing.Size(1349, 591);
+            this.cheapest80Q_textBox.Size = new System.Drawing.Size(1157, 513);
             this.cheapest80Q_textBox.TabIndex = 92;
             // 
             // tabPage8
             // 
             this.tabPage8.Controls.Add(this.cheapest90Q_textBox);
-            this.tabPage8.Location = new System.Drawing.Point(4, 24);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1341, 573);
+            this.tabPage8.Size = new System.Drawing.Size(1148, 495);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Cheapest > 90Q";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1073,19 +1073,19 @@ namespace LostArkLogger
             // 
             this.cheapest90Q_textBox.BackColor = System.Drawing.Color.Black;
             this.cheapest90Q_textBox.ForeColor = System.Drawing.Color.White;
-            this.cheapest90Q_textBox.Location = new System.Drawing.Point(-4, -9);
+            this.cheapest90Q_textBox.Location = new System.Drawing.Point(-3, -8);
             this.cheapest90Q_textBox.Multiline = true;
             this.cheapest90Q_textBox.Name = "cheapest90Q_textBox";
             this.cheapest90Q_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.cheapest90Q_textBox.Size = new System.Drawing.Size(1349, 591);
+            this.cheapest90Q_textBox.Size = new System.Drawing.Size(1157, 513);
             this.cheapest90Q_textBox.TabIndex = 92;
             // 
             // tabPage9
             // 
             this.tabPage9.Controls.Add(this.cheapest95Q_textBox);
-            this.tabPage9.Location = new System.Drawing.Point(4, 24);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1341, 573);
+            this.tabPage9.Size = new System.Drawing.Size(1148, 495);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "Cheapest > 95Q";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -1094,19 +1094,19 @@ namespace LostArkLogger
             // 
             this.cheapest95Q_textBox.BackColor = System.Drawing.Color.Black;
             this.cheapest95Q_textBox.ForeColor = System.Drawing.Color.White;
-            this.cheapest95Q_textBox.Location = new System.Drawing.Point(-4, -9);
+            this.cheapest95Q_textBox.Location = new System.Drawing.Point(-3, -8);
             this.cheapest95Q_textBox.Multiline = true;
             this.cheapest95Q_textBox.Name = "cheapest95Q_textBox";
             this.cheapest95Q_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.cheapest95Q_textBox.Size = new System.Drawing.Size(1349, 591);
+            this.cheapest95Q_textBox.Size = new System.Drawing.Size(1157, 513);
             this.cheapest95Q_textBox.TabIndex = 92;
             // 
             // reuse_checkBox
             // 
             this.reuse_checkBox.AutoSize = true;
-            this.reuse_checkBox.Location = new System.Drawing.Point(151, 228);
+            this.reuse_checkBox.Location = new System.Drawing.Point(112, 197);
             this.reuse_checkBox.Name = "reuse_checkBox";
-            this.reuse_checkBox.Size = new System.Drawing.Size(156, 19);
+            this.reuse_checkBox.Size = new System.Drawing.Size(143, 17);
             this.reuse_checkBox.TabIndex = 93;
             this.reuse_checkBox.Text = "Use Stored Permutations";
             this.reuse_checkBox.UseVisualStyleBackColor = true;
@@ -1114,9 +1114,9 @@ namespace LostArkLogger
             // message_Label
             // 
             this.message_Label.AutoSize = true;
-            this.message_Label.Location = new System.Drawing.Point(15, 331);
+            this.message_Label.Location = new System.Drawing.Point(13, 287);
             this.message_Label.Name = "message_Label";
-            this.message_Label.Size = new System.Drawing.Size(44, 15);
+            this.message_Label.Size = new System.Drawing.Size(42, 13);
             this.message_Label.TabIndex = 94;
             this.message_Label.Text = "Results";
             // 
@@ -1125,9 +1125,9 @@ namespace LostArkLogger
             this.filterWorryingNeg_checkBox.AutoSize = true;
             this.filterWorryingNeg_checkBox.Checked = true;
             this.filterWorryingNeg_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.filterWorryingNeg_checkBox.Location = new System.Drawing.Point(151, 253);
+            this.filterWorryingNeg_checkBox.Location = new System.Drawing.Point(112, 219);
             this.filterWorryingNeg_checkBox.Name = "filterWorryingNeg_checkBox";
-            this.filterWorryingNeg_checkBox.Size = new System.Drawing.Size(183, 19);
+            this.filterWorryingNeg_checkBox.Size = new System.Drawing.Size(166, 17);
             this.filterWorryingNeg_checkBox.TabIndex = 95;
             this.filterWorryingNeg_checkBox.Text = "Filter >=5 Negative Engraving";
             this.filterWorryingNeg_checkBox.UseVisualStyleBackColor = true;
@@ -1137,53 +1137,53 @@ namespace LostArkLogger
             this.filterZeroNegEngraving_checkBox.AutoSize = true;
             this.filterZeroNegEngraving_checkBox.Checked = true;
             this.filterZeroNegEngraving_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.filterZeroNegEngraving_checkBox.Location = new System.Drawing.Point(151, 278);
+            this.filterZeroNegEngraving_checkBox.Location = new System.Drawing.Point(112, 242);
             this.filterZeroNegEngraving_checkBox.Name = "filterZeroNegEngraving_checkBox";
-            this.filterZeroNegEngraving_checkBox.Size = new System.Drawing.Size(314, 19);
+            this.filterZeroNegEngraving_checkBox.Size = new System.Drawing.Size(286, 17);
             this.filterZeroNegEngraving_checkBox.TabIndex = 96;
-            this.filterZeroNegEngraving_checkBox.Text = "Ensure results have atleast one Negative Engraving at 0";
+            this.filterZeroNegEngraving_checkBox.Text = "Results must have atleast one Negative Engraving at 0";
             this.filterZeroNegEngraving_checkBox.UseVisualStyleBackColor = true;
             // 
             // min_stat1
             // 
-            this.min_stat1.Location = new System.Drawing.Point(240, 91);
+            this.min_stat1.Location = new System.Drawing.Point(214, 81);
             this.min_stat1.Name = "min_stat1";
-            this.min_stat1.Size = new System.Drawing.Size(70, 23);
+            this.min_stat1.Size = new System.Drawing.Size(61, 20);
             this.min_stat1.TabIndex = 97;
             this.min_stat1.Text = "0";
             // 
             // min_stat2
             // 
-            this.min_stat2.Location = new System.Drawing.Point(240, 149);
+            this.min_stat2.Location = new System.Drawing.Point(214, 129);
             this.min_stat2.Name = "min_stat2";
-            this.min_stat2.Size = new System.Drawing.Size(70, 23);
+            this.min_stat2.Size = new System.Drawing.Size(61, 20);
             this.min_stat2.TabIndex = 98;
             this.min_stat2.Text = "0";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(156, 96);
+            this.label18.Location = new System.Drawing.Point(134, 83);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(75, 15);
+            this.label18.Size = new System.Drawing.Size(63, 13);
             this.label18.TabIndex = 99;
             this.label18.Text = "Min Amount";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(156, 152);
+            this.label19.Location = new System.Drawing.Point(134, 132);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(75, 15);
+            this.label19.Size = new System.Drawing.Size(63, 13);
             this.label19.TabIndex = 100;
             this.label19.Text = "Min Amount";
             // 
             // sniffModeCheckbox
             // 
             this.sniffModeCheckbox.AutoSize = true;
-            this.sniffModeCheckbox.Location = new System.Drawing.Point(15, 228);
+            this.sniffModeCheckbox.Location = new System.Drawing.Point(13, 198);
             this.sniffModeCheckbox.Name = "sniffModeCheckbox";
-            this.sniffModeCheckbox.Size = new System.Drawing.Size(78, 19);
+            this.sniffModeCheckbox.Size = new System.Drawing.Size(75, 17);
             this.sniffModeCheckbox.TabIndex = 101;
             this.sniffModeCheckbox.Text = "Winpcap?";
             this.sniffModeCheckbox.UseVisualStyleBackColor = true;
@@ -1191,36 +1191,36 @@ namespace LostArkLogger
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(15, 250);
+            this.label20.Location = new System.Drawing.Point(13, 217);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(103, 15);
+            this.label20.Size = new System.Drawing.Size(95, 13);
             this.label20.TabIndex = 102;
             this.label20.Text = "Parser by Shalzuth";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(329, 12);
+            this.label22.Location = new System.Drawing.Point(282, 10);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(72, 15);
+            this.label22.Size = new System.Drawing.Size(69, 13);
             this.label22.TabIndex = 103;
-            this.label22.Text = "Version 1.0.0";
+            this.label22.Text = "Version 1.1.0";
             // 
             // loggedAuctionPacketCountLabel
             // 
             this.loggedAuctionPacketCountLabel.AutoSize = true;
-            this.loggedAuctionPacketCountLabel.Location = new System.Drawing.Point(156, 12);
-            this.loggedAuctionPacketCountLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.loggedAuctionPacketCountLabel.Location = new System.Drawing.Point(134, 10);
+            this.loggedAuctionPacketCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loggedAuctionPacketCountLabel.Name = "loggedAuctionPacketCountLabel";
-            this.loggedAuctionPacketCountLabel.Size = new System.Drawing.Size(150, 15);
+            this.loggedAuctionPacketCountLabel.Size = new System.Drawing.Size(139, 13);
             this.loggedAuctionPacketCountLabel.TabIndex = 104;
             this.loggedAuctionPacketCountLabel.Text = "Logged Auction Packets : 0";
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1373, 969);
+            this.ClientSize = new System.Drawing.Size(1177, 840);
             this.Controls.Add(this.loggedAuctionPacketCountLabel);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label20);
@@ -1306,7 +1306,7 @@ namespace LostArkLogger
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.Text = "Lost Ark Logger";

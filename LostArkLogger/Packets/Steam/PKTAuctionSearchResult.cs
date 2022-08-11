@@ -177,7 +177,7 @@ namespace LostArkLogger
             var necklaceBytes = bytes.Take(303).ToArray();
             bytes = RemoveFromByteArray(bytes, 303);
 
-            int buyOutPrice = GetInt32Value(necklaceBytes.Skip(279).Take(4).Reverse().ToArray());
+            int buyOutPrice = GetInt32Value(necklaceBytes.Skip(254).Take(4).Reverse().ToArray());
 
             if (buyOutPrice == 0)
             {
@@ -185,24 +185,26 @@ namespace LostArkLogger
             }
 
             //int bidPrice = GetInt32Value(earringBytes.Skip(277).Take(4).Reverse().ToArray());
-            int engraving1Index = 164;
+            int engraving1Index = 198;
             int engraving1Type = GetInt32Value(necklaceBytes.Skip(engraving1Index).Take(4).Reverse().ToArray());
-            int engraving1AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving1Index  + 4: engraving1Index-4;
+            int engraving1AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving1Index  - 8: engraving1Index - 8;
             int engraving1Amount = GetInt32Value(necklaceBytes.Skip(engraving1AmountIndex).Take(4).Reverse().ToArray());
 
-            int engraving2Index = 193;
+            int engraving2Index = 227;
             int engraving2Type = GetInt32Value(necklaceBytes.Skip(engraving2Index).Take(4).Reverse().ToArray());
-            int engraving2AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving2Index + 4 : engraving2Index - 4;
+            int engraving2AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving2Index - 8 : engraving2Index - 8;
             int engraving2Amount = GetInt32Value(necklaceBytes.Skip(engraving2AmountIndex).Take(4).Reverse().ToArray());
 
-            int stat1Type = necklaceBytes.Skip(106).Take(1).ToArray()[0];
-            int stat1Quantity = GetInt32Value(necklaceBytes.Skip(127).Take(4).Reverse().ToArray());
+            int stat1Type = necklaceBytes.Skip(140).Take(1).ToArray()[0];
+            int stat1Quantity = GetInt32Value(necklaceBytes.Skip(132).Take(4).Reverse().ToArray());
 
-            int stat2Type = necklaceBytes.Skip(77).Take(1).ToArray()[0];
-            int stat2Quantity = GetInt32Value(necklaceBytes.Skip(98).Take(4).Reverse().ToArray());
+            int stat2Type = necklaceBytes.Skip(111).Take(1).ToArray()[0];
+            int stat2Quantity = GetInt32Value(necklaceBytes.Skip(103).Take(4).Reverse().ToArray());
 
-            int negEngravingType = GetInt32Value(necklaceBytes.Skip(135).Take(4).Reverse().ToArray());
-            int negEngravingAmount = necklaceBytes.Skip(156).Take(1).ToArray()[0];        
+            int negEngravingTypeIndex = 169;
+            int negEngravingType = GetInt32Value(necklaceBytes.Skip(negEngravingTypeIndex).Take(4).Reverse().ToArray());
+            int negEngravingAmountIndex = accessoryRank == AccessoryRank.Relic ? negEngravingTypeIndex - 8 : negEngravingTypeIndex - 8;
+            int negEngravingAmount = GetInt32Value(necklaceBytes.Skip(negEngravingAmountIndex).Take(4).Reverse().ToArray());    
 
             Engraving engraving1 = new Engraving(engraving1Type, engraving1Amount);
             Engraving engraving2 = new Engraving(engraving2Type, engraving2Amount);
@@ -218,7 +220,7 @@ namespace LostArkLogger
             var earringBytes = bytes.Take(274).ToArray();
             bytes = RemoveFromByteArray(bytes, 274);
 
-            int buyOutPrice = GetInt32Value(earringBytes.Skip(250).Take(4).Reverse().ToArray());
+            int buyOutPrice = GetInt32Value(earringBytes.Skip(225).Take(4).Reverse().ToArray());
 
             if (buyOutPrice == 0)
             {
@@ -226,22 +228,23 @@ namespace LostArkLogger
             }
 
             //int bidPrice = GetInt32Value(earringBytes.Skip(25).Take(4).Reverse().ToArray());
-            int engraving1Index = 135;
-            int engraving1Type = GetInt32Value(earringBytes.Skip(135).Take(4).Reverse().ToArray());
-            int engraving1AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving1Index + 4 : engraving1Index - 4;
+            int engraving1Index = 169;
+            int engraving1Type = GetInt32Value(earringBytes.Skip(engraving1Index).Take(4).Reverse().ToArray());
+            int engraving1AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving1Index - 8 : engraving1Index - 8;
             int engraving1Amount = GetInt32Value(earringBytes.Skip(engraving1AmountIndex).Take(4).Reverse().ToArray());
 
-            int engraving2Index = 164;
-            int engraving2Type = GetInt32Value(earringBytes.Skip(164).Take(4).Reverse().ToArray());
-            int engraving2AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving2Index + 4 : engraving2Index - 4;
+            int engraving2Index = 198;
+            int engraving2Type = GetInt32Value(earringBytes.Skip(engraving2Index).Take(4).Reverse().ToArray());
+            int engraving2AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving2Index - 8  : engraving2Index - 8;
             int engraving2Amount = GetInt32Value(earringBytes.Skip(engraving2AmountIndex).Take(4).Reverse().ToArray());
 
-            int statType = earringBytes.Skip(77).Take(1).ToArray()[0];
-            int statQuantity = GetInt32Value(earringBytes.Skip(98).Take(4).Reverse().ToArray());
+            int statType = earringBytes.Skip(111).Take(1).ToArray()[0];
+            int statQuantity = GetInt32Value(earringBytes.Skip(103).Take(4).Reverse().ToArray());
 
-            int negEngravingType = GetInt32Value(earringBytes.Skip(106).Take(4).Reverse().ToArray());
-            int negEngravingAmount = earringBytes.Skip(127).Take(1).ToArray()[0];
-           
+            int negEngravingTypeIndex = 140;
+            int negEngravingType = GetInt32Value(earringBytes.Skip(negEngravingTypeIndex).Take(4).Reverse().ToArray());
+            int negEngravingAmountIndex = accessoryRank == AccessoryRank.Relic ? negEngravingTypeIndex - 8 : negEngravingTypeIndex - 8;
+            int negEngravingAmount = GetInt32Value(earringBytes.Skip(negEngravingAmountIndex).Take(4).Reverse().ToArray());           
 
             Engraving engraving1 = new Engraving(engraving1Type, engraving1Amount);
             Engraving engraving2 = new Engraving(engraving2Type, engraving2Amount);
