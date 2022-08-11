@@ -3,6 +3,7 @@ using LostArkLogger.Utilities;
 using SharpPcap;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -249,19 +250,20 @@ namespace LostArkLogger
                 // write packets for analyzing, bypass common, useless packets
                 // if (opcode != OpCodes.PKTMoveError && opcode != OpCodes.PKTMoveNotify && opcode != OpCodes.PKTMoveNotifyList && opcode != OpCodes.PKTTransitStateNotify && opcode != OpCodes.PKTPing && opcode != OpCodes.PKTPong)
                 //    Console.WriteLine(opcode + " : " + opcode.ToString("X") + " : " + BitConverter.ToString(payload));
+                Trace.WriteLine(opcode);
 
-                /* Uncomment for auction house accessory sniffing
                 if (opcode == OpCodes.PKTAuctionSearchResult)
                 {
-                    var pc = new PKTAuctionSearchResult(payload);
-                    Console.WriteLine("NumItems=" + pc.NumItems.ToString());
-                    Console.WriteLine("Id, Stat1, Stat2, Engraving1, Engraving2, Engraving3");
-                    foreach (var item in pc.Items)
-                    {
-                        Console.WriteLine(item.ToString());
-                    }
+                    Trace.WriteLine("Auction bitch");
+                    //var pc = new PKTAuctionSearchResult(payload);
+                    //Console.WriteLine("NumItems=" + pc.NumItems.ToString());
+                    //Console.WriteLine("Id, Stat1, Stat2, Engraving1, Engraving2, Engraving3");
+                    //foreach (var item in pc.Items)
+                    //{
+                    //    Console.WriteLine(item.ToString());
+                    //}
                 }
-                */
+                
                 if (opcode == OpCodes.PKTTriggerStartNotify)
                 {
                     var trigger = new PKTTriggerStartNotify(new BitReader(payload));
