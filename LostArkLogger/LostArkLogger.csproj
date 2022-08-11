@@ -141,6 +141,9 @@
     <PackageReference Include="System.Net.Http">
       <Version>4.3.4</Version>
     </PackageReference>
+    <PackageReference Include="System.Text.Json">
+      <Version>6.0.5</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
@@ -153,6 +156,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AccessoryOptimizerLib\AccessoryOptimizerLib.csproj">
+      <Project>{edbe2668-cb4c-4209-b26c-ef63438f2957}</Project>
+      <Name>AccessoryOptimizerLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MachinaNetFramework\MachinaNetFramework.csproj">
       <Project>{e463d199-ba11-4b7a-a342-dd1916f8c771}</Project>
       <Name>MachinaNetFramework</Name>

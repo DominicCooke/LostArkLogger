@@ -9,6 +9,8 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static AccessoryOptimizerLib.Services.PermutationService;
 
 namespace LostArkLogger
 {
@@ -22,7 +24,10 @@ namespace LostArkLogger
         public event Action<LogInfo> onCombatEvent;
         public event Action onNewZone;
         public event Action beforeNewZone;
+
         public event Action<int> onPacketTotalCount;
+        public event Action<int> onAuctionPacketTotalCount;
+
         public bool use_npcap = false;
         private object lockPacketProcessing = new object(); // needed to synchronize UI swapping devices
         public Machina.Infrastructure.NetworkMonitorType? monitorType = null;
@@ -254,16 +259,19 @@ namespace LostArkLogger
 
                 if (opcode == OpCodes.PKTAuctionSearchResult)
                 {
-                    Trace.WriteLine("Auction bitch");
-                    //var pc = new PKTAuctionSearchResult(payload);
-                    //Console.WriteLine("NumItems=" + pc.NumItems.ToString());
-                    //Console.WriteLine("Id, Stat1, Stat2, Engraving1, Engraving2, Engraving3");
-                    //foreach (var item in pc.Items)
-                    //{
-                    //    Console.WriteLine(item.ToString());
-                    //}
+                    onAuctionPacketTotalCount?.Invoke(loggedAuctionPacketCount++);
+
+                    var pc = new PKTAuctionSearchResult(new BitReader(payload));
+                    //var pc = new S_AuctionSearchResult(new BitReader(payload));
+                    PSO.CurrentAccessories.AddRange(pc.Accessories);
+                    Form form = Application.OpenForms["MainWindow"];
+
+                    if (form != null)
+                    {
+                        (form as MainWindow).UpdateCountText();
+                    }
                 }
-                
+
                 if (opcode == OpCodes.PKTTriggerStartNotify)
                 {
                     var trigger = new PKTTriggerStartNotify(new BitReader(payload));
@@ -629,7 +637,7 @@ namespace LostArkLogger
 
         UInt32 currentIpAddr = 0xdeadbeef;
         int loggedPacketCount = 0;
-
+        int loggedAuctionPacketCount = 0;
 
         void Device_OnPacketArrival_machina(Machina.Infrastructure.TCPConnection connection, byte[] bytes)
         {

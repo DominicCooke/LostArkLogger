@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace AccessoryOptimizer.Services
+namespace AccessoryOptimizerLib.Services
 {
     public partial class PermutationService
     {
@@ -13,7 +13,7 @@ namespace AccessoryOptimizer.Services
 
             public static List<Accessory> CurrentAccessories = new List<Accessory>();
 
-            public static Dictionary<UInt32, string> EngravingList = new Dictionary<UInt32, string>()
+            public static Dictionary<uint, string> EngravingList = new Dictionary<uint, string>()
             {
                 [107] = "Disrespect",
                 [109] = "Spirit Absorption",

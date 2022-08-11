@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text.Json.Serialization;
-using static AccessoryOptimizer.Services.PermutationService;
+using static AccessoryOptimizerLib.Services.PermutationService;
 
 namespace AccessoryOptimizerLib.Models
 {

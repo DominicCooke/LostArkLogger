@@ -9,17 +9,20 @@ namespace LostArkLogger
         private byte[] Data;
         private Int32 BitOffset;
         private Int32 ByteOffset;
+
         public BitReader(Byte[] data, Int32 offset = 0)
         {
             Data = data;
             ByteOffset = offset;
         }
+
         public BitReader(BitReader data)
         {
             Data = data.Data;
             BitOffset = data.BitOffset;
             ByteOffset = data.ByteOffset;
         }
+
         public Int32 Position
         {
             get
@@ -32,6 +35,7 @@ namespace LostArkLogger
                 ByteOffset = value / 8;
             }
         }
+
         public Int32 BitsLeft
         {
             get
@@ -39,10 +43,12 @@ namespace LostArkLogger
                 return ((Data.Length - ByteOffset) - 1) * 8 + (8 - BitOffset);
             }
         }
+
         public Boolean ReadBit()
         {
             return ReadBits(1) == 1;
         }
+
         public UInt64 ReadDynamicValue(out Int32 size)
         {
             size = 8;
@@ -53,6 +59,7 @@ namespace LostArkLogger
             }
             return ReadBits(size);
         }
+
         public UInt64 ReadBits(Int32 Count)
         {
             UInt64 Value = 0;
@@ -75,6 +82,7 @@ namespace LostArkLogger
 
             return Value;
         }
+
         public Int64 ReadPackedInt()
         {
             var flag = ReadByte();
@@ -85,6 +93,7 @@ namespace LostArkLogger
             //var valBits = (UInt16)ReadBits(4);
             //return ReadBits(4 + valBits * 4);
         }
+
         public UInt64 ReadSimpleInt()
         {
             var s = ReadUInt16();
@@ -95,6 +104,7 @@ namespace LostArkLogger
             }
             else return (UInt64)(s & 0xFFF | 0x11000);
         }
+
         // todo fix
         public UInt64 ReadFlag()
         {
@@ -103,6 +113,7 @@ namespace LostArkLogger
             if (((flag >> 6) & 1) != 0) ReadBytes(ReadUInt16());
             return 0;
         }
+
         public List<Object> ReadPackedValues(params int[] sizes)
         {
             var packedValues = new List<Object>();
@@ -111,6 +122,7 @@ namespace LostArkLogger
             for (var i = 0; i < 7; i++) if (((flag >> i) & 1) != 0) packedValues.Add(ReadBytes(sizes[i]));
             return packedValues;
         }
+
         public String ReadString()
         {
             var unicode = true;
@@ -133,6 +145,7 @@ namespace LostArkLogger
             var finalStringParsed = unicode ? System.Text.Encoding.Unicode.GetString(stringBytes.ToArray()) : System.Text.Encoding.UTF8.GetString(stringBytes.ToArray());
             return finalStringParsed;
         }
+
         public T Read<T>(int byteArraySize = 0)
         {
             if (typeof(T) == typeof(Byte)) return (T)(Object)ReadByte();
@@ -142,6 +155,7 @@ namespace LostArkLogger
             if (typeof(T) == typeof(Byte[])) return (T)(Object)ReadBytes(byteArraySize);
             return (T)Activator.CreateInstance(typeof(T), this);
         }
+
         public List<T> ReadList<T>(int byteArraySize = 0)
         {
             var num = ReadUInt16();
@@ -150,6 +164,7 @@ namespace LostArkLogger
                 list.Add(Read<T>(byteArraySize));
             return list;
         }
+
         public UInt32 BitReverse(UInt32 value, Byte numBits)
         {
             UInt32 a = 0;
@@ -158,10 +173,12 @@ namespace LostArkLogger
                     a |= (UInt32)(1 << (numBits - 1 - i));
             return a;
         }
+
         public Byte ReadByte()
         {
             return (Byte)ReadBits(8);
         }
+
         public Byte[] ReadBytes(int count)
         {
             var bytes = new byte[count];
@@ -172,23 +189,33 @@ namespace LostArkLogger
 
             return bytes;
         }
+
         public UInt16 ReadUInt16()
         {
             return (UInt16)ReadBits(16);
         }
+
         public UInt32 ReadUInt32()
         {
             return (UInt32)ReadBits(32);
         }
+
         public UInt64 ReadUInt64()
         {
             return (UInt64)ReadBits(64);
         }
+
         public void SkipBits(Int32 Count)
         {
             BitOffset += Count % 8;
             ByteOffset += Count / 8;
         }
+
+        public int GetLengthOfData()
+        {
+            return Data.Length;
+        }
+
         public void Dispose()
         {
             Data = null;
