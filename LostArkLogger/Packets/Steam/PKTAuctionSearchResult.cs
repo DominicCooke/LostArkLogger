@@ -209,7 +209,7 @@ namespace LostArkLogger
             Engraving engraving1 = new Engraving(engraving1Type, engraving1Amount);
             Engraving engraving2 = new Engraving(engraving2Type, engraving2Amount);
 
-            Stats stats = new Stats(stat1Type, stat1Quantity, stat2Type, stat2Quantity);
+            Stats stats = new Stats((Stat_Type)stat1Type, stat1Quantity, (Stat_Type)stat2Type, stat2Quantity);
 
             Accessory accessory = new Accessory(accessoryType, accessoryRank, GetStatQuality(accessoryType, accessoryRank, stat1Quantity, stat2Quantity), 0, buyOutPrice, new List<Engraving>() { engraving1, engraving2 }, new Engraving(negEngravingType, negEngravingAmount), stats);
             return accessory;

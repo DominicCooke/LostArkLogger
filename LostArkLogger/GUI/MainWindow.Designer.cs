@@ -166,7 +166,7 @@ namespace LostArkLogger
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(69, 133);
+            this.clearButton.Location = new System.Drawing.Point(68, 133);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(56, 20);
             this.clearButton.TabIndex = 13;
@@ -176,9 +176,9 @@ namespace LostArkLogger
             // 
             // processButton
             // 
-            this.processButton.Location = new System.Drawing.Point(129, 172);
+            this.processButton.Location = new System.Drawing.Point(255, 162);
             this.processButton.Name = "processButton";
-            this.processButton.Size = new System.Drawing.Size(111, 20);
+            this.processButton.Size = new System.Drawing.Size(111, 43);
             this.processButton.TabIndex = 14;
             this.processButton.Text = "Process Permutations";
             this.processButton.UseVisualStyleBackColor = true;
@@ -187,7 +187,7 @@ namespace LostArkLogger
             // accessoryCount
             // 
             this.accessoryCount.AutoSize = true;
-            this.accessoryCount.Location = new System.Drawing.Point(101, 74);
+            this.accessoryCount.Location = new System.Drawing.Point(113, 73);
             this.accessoryCount.Name = "accessoryCount";
             this.accessoryCount.Size = new System.Drawing.Size(13, 13);
             this.accessoryCount.TabIndex = 15;
@@ -233,7 +233,7 @@ namespace LostArkLogger
             // earringCount
             // 
             this.earringCount.AutoSize = true;
-            this.earringCount.Location = new System.Drawing.Point(102, 29);
+            this.earringCount.Location = new System.Drawing.Point(113, 28);
             this.earringCount.Name = "earringCount";
             this.earringCount.Size = new System.Drawing.Size(10, 13);
             this.earringCount.TabIndex = 21;
@@ -242,7 +242,7 @@ namespace LostArkLogger
             // ringCount
             // 
             this.ringCount.AutoSize = true;
-            this.ringCount.Location = new System.Drawing.Point(102, 52);
+            this.ringCount.Location = new System.Drawing.Point(113, 51);
             this.ringCount.Name = "ringCount";
             this.ringCount.Size = new System.Drawing.Size(10, 13);
             this.ringCount.TabIndex = 22;
@@ -250,7 +250,7 @@ namespace LostArkLogger
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(12, 153);
+            this.saveButton.Location = new System.Drawing.Point(13, 160);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(112, 20);
             this.saveButton.TabIndex = 23;
@@ -260,7 +260,7 @@ namespace LostArkLogger
             // 
             // loadButton
             // 
-            this.loadButton.Location = new System.Drawing.Point(12, 172);
+            this.loadButton.Location = new System.Drawing.Point(14, 183);
             this.loadButton.Name = "loadButton";
             this.loadButton.Size = new System.Drawing.Size(112, 20);
             this.loadButton.TabIndex = 24;
@@ -487,7 +487,7 @@ namespace LostArkLogger
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(134, 36);
+            this.label14.Location = new System.Drawing.Point(156, 41);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(145, 13);
             this.label14.TabIndex = 52;
@@ -495,7 +495,7 @@ namespace LostArkLogger
             // 
             // maxCost
             // 
-            this.maxCost.Location = new System.Drawing.Point(282, 33);
+            this.maxCost.Location = new System.Drawing.Point(305, 41);
             this.maxCost.Name = "maxCost";
             this.maxCost.Size = new System.Drawing.Size(61, 20);
             this.maxCost.TabIndex = 53;
@@ -624,7 +624,7 @@ namespace LostArkLogger
             // necklaceCount
             // 
             this.necklaceCount.AutoSize = true;
-            this.necklaceCount.Location = new System.Drawing.Point(97, 6);
+            this.necklaceCount.Location = new System.Drawing.Point(113, 5);
             this.necklaceCount.Name = "necklaceCount";
             this.necklaceCount.Size = new System.Drawing.Size(10, 13);
             this.necklaceCount.TabIndex = 20;
@@ -642,7 +642,7 @@ namespace LostArkLogger
             this.panel1.Controls.Add(this.accessoryCount);
             this.panel1.Location = new System.Drawing.Point(13, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(115, 94);
+            this.panel1.Size = new System.Drawing.Size(130, 94);
             this.panel1.TabIndex = 66;
             // 
             // label15
@@ -657,23 +657,23 @@ namespace LostArkLogger
             // desiredStatType1
             // 
             this.desiredStatType1.FormattingEnabled = true;
-            this.desiredStatType1.Location = new System.Drawing.Point(214, 58);
+            this.desiredStatType1.Location = new System.Drawing.Point(236, 63);
             this.desiredStatType1.Name = "desiredStatType1";
-            this.desiredStatType1.Size = new System.Drawing.Size(104, 21);
+            this.desiredStatType1.Size = new System.Drawing.Size(130, 21);
             this.desiredStatType1.TabIndex = 67;
             // 
             // desiredStatType2
             // 
             this.desiredStatType2.FormattingEnabled = true;
-            this.desiredStatType2.Location = new System.Drawing.Point(214, 107);
+            this.desiredStatType2.Location = new System.Drawing.Point(236, 110);
             this.desiredStatType2.Name = "desiredStatType2";
-            this.desiredStatType2.Size = new System.Drawing.Size(104, 21);
+            this.desiredStatType2.Size = new System.Drawing.Size(130, 21);
             this.desiredStatType2.TabIndex = 68;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(134, 61);
+            this.label16.Location = new System.Drawing.Point(156, 65);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(74, 13);
             this.label16.TabIndex = 69;
@@ -682,7 +682,7 @@ namespace LostArkLogger
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(134, 110);
+            this.label17.Location = new System.Drawing.Point(156, 113);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(74, 13);
             this.label17.TabIndex = 70;
@@ -1104,7 +1104,7 @@ namespace LostArkLogger
             // reuse_checkBox
             // 
             this.reuse_checkBox.AutoSize = true;
-            this.reuse_checkBox.Location = new System.Drawing.Point(112, 197);
+            this.reuse_checkBox.Location = new System.Drawing.Point(13, 209);
             this.reuse_checkBox.Name = "reuse_checkBox";
             this.reuse_checkBox.Size = new System.Drawing.Size(143, 17);
             this.reuse_checkBox.TabIndex = 93;
@@ -1125,7 +1125,7 @@ namespace LostArkLogger
             this.filterWorryingNeg_checkBox.AutoSize = true;
             this.filterWorryingNeg_checkBox.Checked = true;
             this.filterWorryingNeg_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.filterWorryingNeg_checkBox.Location = new System.Drawing.Point(112, 219);
+            this.filterWorryingNeg_checkBox.Location = new System.Drawing.Point(13, 231);
             this.filterWorryingNeg_checkBox.Name = "filterWorryingNeg_checkBox";
             this.filterWorryingNeg_checkBox.Size = new System.Drawing.Size(166, 17);
             this.filterWorryingNeg_checkBox.TabIndex = 95;
@@ -1137,7 +1137,7 @@ namespace LostArkLogger
             this.filterZeroNegEngraving_checkBox.AutoSize = true;
             this.filterZeroNegEngraving_checkBox.Checked = true;
             this.filterZeroNegEngraving_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.filterZeroNegEngraving_checkBox.Location = new System.Drawing.Point(112, 242);
+            this.filterZeroNegEngraving_checkBox.Location = new System.Drawing.Point(13, 254);
             this.filterZeroNegEngraving_checkBox.Name = "filterZeroNegEngraving_checkBox";
             this.filterZeroNegEngraving_checkBox.Size = new System.Drawing.Size(286, 17);
             this.filterZeroNegEngraving_checkBox.TabIndex = 96;
@@ -1146,24 +1146,24 @@ namespace LostArkLogger
             // 
             // min_stat1
             // 
-            this.min_stat1.Location = new System.Drawing.Point(214, 81);
+            this.min_stat1.Location = new System.Drawing.Point(237, 86);
             this.min_stat1.Name = "min_stat1";
-            this.min_stat1.Size = new System.Drawing.Size(61, 20);
+            this.min_stat1.Size = new System.Drawing.Size(129, 20);
             this.min_stat1.TabIndex = 97;
             this.min_stat1.Text = "0";
             // 
             // min_stat2
             // 
-            this.min_stat2.Location = new System.Drawing.Point(214, 129);
+            this.min_stat2.Location = new System.Drawing.Point(236, 134);
             this.min_stat2.Name = "min_stat2";
-            this.min_stat2.Size = new System.Drawing.Size(61, 20);
+            this.min_stat2.Size = new System.Drawing.Size(130, 20);
             this.min_stat2.TabIndex = 98;
             this.min_stat2.Text = "0";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(134, 83);
+            this.label18.Location = new System.Drawing.Point(156, 89);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(63, 13);
             this.label18.TabIndex = 99;
@@ -1172,7 +1172,7 @@ namespace LostArkLogger
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(134, 132);
+            this.label19.Location = new System.Drawing.Point(156, 137);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(63, 13);
             this.label19.TabIndex = 100;
@@ -1181,7 +1181,7 @@ namespace LostArkLogger
             // sniffModeCheckbox
             // 
             this.sniffModeCheckbox.AutoSize = true;
-            this.sniffModeCheckbox.Location = new System.Drawing.Point(13, 198);
+            this.sniffModeCheckbox.Location = new System.Drawing.Point(291, 8);
             this.sniffModeCheckbox.Name = "sniffModeCheckbox";
             this.sniffModeCheckbox.Size = new System.Drawing.Size(75, 17);
             this.sniffModeCheckbox.TabIndex = 101;
@@ -1191,7 +1191,7 @@ namespace LostArkLogger
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(13, 217);
+            this.label20.Location = new System.Drawing.Point(1003, 8);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(95, 13);
             this.label20.TabIndex = 102;
@@ -1200,7 +1200,7 @@ namespace LostArkLogger
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(282, 10);
+            this.label22.Location = new System.Drawing.Point(1099, 8);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(69, 13);
             this.label22.TabIndex = 103;
@@ -1209,7 +1209,7 @@ namespace LostArkLogger
             // loggedAuctionPacketCountLabel
             // 
             this.loggedAuctionPacketCountLabel.AutoSize = true;
-            this.loggedAuctionPacketCountLabel.Location = new System.Drawing.Point(134, 10);
+            this.loggedAuctionPacketCountLabel.Location = new System.Drawing.Point(121, 10);
             this.loggedAuctionPacketCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loggedAuctionPacketCountLabel.Name = "loggedAuctionPacketCountLabel";
             this.loggedAuctionPacketCountLabel.Size = new System.Drawing.Size(139, 13);

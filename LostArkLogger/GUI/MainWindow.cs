@@ -418,7 +418,7 @@ namespace LostArkLogger
                     return PSO.CurrentAccessories?.Count() > 0;
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 return false;
             }
