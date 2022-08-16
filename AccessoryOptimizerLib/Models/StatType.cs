@@ -5,6 +5,9 @@
         Unset,
         Crit = 15,
         Specialization = 16,
-        Swiftness = 18
+        Domination = 17,
+        Swiftness = 18,
+        Endurance = 19,
+        Expertise = 20,
     }
 }

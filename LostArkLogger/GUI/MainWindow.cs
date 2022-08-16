@@ -91,7 +91,7 @@ namespace LostArkLogger
         {
             message_Label.Text = "Processing now!";
             string message = string.Empty;
-            var allDesiredEngravings = GetDesiredEngravings();
+            List<List<DesiredEngraving>> allDesiredEngravings = GetDesiredEngravings().Where(des => des.All(de => de.Amount > 0)).ToList();
 
             if (string.IsNullOrEmpty(desiredStatType1.SelectedItem.ToString()))
             {
@@ -126,32 +126,29 @@ namespace LostArkLogger
                 _permutationService._necklaces = _permutationService._necklaces.Where(n => (n.Stats.StatType1 == PSO.DesiredStatType1 || n.Stats.StatType2 == PSO.DesiredStatType1) && (n.Stats.StatType1 == PSO.DesiredStatType2 || n.Stats.StatType2 == PSO.DesiredStatType2)).ToList();
             }
 
-            //_permutationService._necklaces.Add(new Accessory(AccessoryType.Necklace, AccessoryRank.Relic, 92, 0, 0, new() { new Engraving(EngravingType.Keen_Blunt_Weapon, 5), new Engraving(EngravingType.Hit_Master, 3) }, new Engraving(EngravingType.Atk_Power_Reduction, 2), new Stats(Stat_Type.Crit, 484, Stat_Type.Specialization, 500)));
-            //_permutationService._rings.Add(new Accessory(AccessoryType.Ring, AccessoryRank.Legendary, 98, 0, 0, new() { new Engraving(EngravingType.Demonic_Impulse, 3), new Engraving(EngravingType.Grudge, 3) }, new Engraving(EngravingType.Defence_Reduction, 2), new Stats(Stat_Type.Specialization, 179)));
-            //_permutationService._rings.Add(new Accessory(AccessoryType.Ring, AccessoryRank.Relic, 100, 0, 0, new() { new Engraving(EngravingType.Adrenaline, 5), new Engraving(EngravingType.Hit_Master, 3) }, new Engraving(EngravingType.Move_Speed_Reduction, 3), new Stats(Stat_Type.Specialization, 200)));
+            (int numberOfPermutations, List<PermutationDisplay> permutationDisplays) = _permutationService.Process(allDesiredEngravings, int.Parse(maxCost.Text), reuse_checkBox.Checked, filterWorryingNeg_checkBox.Checked, filterZeroNegEngraving_checkBox.Checked);
 
-            List<PermutationDisplay> permutations = _permutationService.Process(allDesiredEngravings, int.Parse(maxCost.Text), reuse_checkBox.Checked, filterWorryingNeg_checkBox.Checked, filterZeroNegEngraving_checkBox.Checked);
-            permutations = permutations.Where(p => p.NegativeSummary.AmountOfAtkPower == 0).ToList();
+            message_Label.Text = $"Matching any engraving profile results = {numberOfPermutations}      Negative engraving filter results = {permutationDisplays.Count}";
 
-            message_Label.Text = $"Total Results ({permutations.Count})";
 
             if (MinimumStatHasValue(min_stat1, out int amount1))
             {
-                permutations = FilterByMinStat(permutations, (Stat_Type)PSO.DesiredStatType1, amount1);
+                permutationDisplays = FilterByMinStat(permutationDisplays, (Stat_Type)PSO.DesiredStatType1, amount1);
             }
 
             if (MinimumStatHasValue(min_stat2, out int amount2))
             {
-                permutations = FilterByMinStat(permutations, (Stat_Type)PSO.DesiredStatType2, amount2);
+                permutationDisplays = FilterByMinStat(permutationDisplays, (Stat_Type)PSO.DesiredStatType2, amount2);
             }
 
-            message_Label.Text += $" - Filtered Results ({permutations.Count})";
+            message_Label.Text += $"      Minimum Stat filter results = {permutationDisplays.Count}";
 
-            cheapest_Textbox.Text = GetStringOutputOfResults(permutations
+            cheapest_Textbox.Text = GetStringOutputOfResults(permutationDisplays
                 .OrderBy(p => p.Cost)
+                .Take(100)
                 .ToList());
 
-            cheapest500HighStat1_textBox.Text = GetStringOutputOfResults(permutations
+            cheapest500HighStat1_textBox.Text = GetStringOutputOfResults(permutationDisplays
                 .OrderBy(p => p.Cost)
                 .Take(500)
                 .OrderBy(p => PSO.DesiredStatType1 == Stat_Type.Crit ? p.StatsValue.CritValue : (PSO.DesiredStatType1 == Stat_Type.Specialization ? p.StatsValue.SpecValue : p.StatsValue.SwiftValue))
@@ -159,7 +156,7 @@ namespace LostArkLogger
                 .Take(5)
                 .ToList());
 
-            cheapest500HighStat2_textBox.Text = GetStringOutputOfResults(permutations
+            cheapest500HighStat2_textBox.Text = GetStringOutputOfResults(permutationDisplays
                 .OrderBy(p => p.Cost)
                 .Take(500)
                 .OrderBy(p => PSO.DesiredStatType2 == Stat_Type.Crit ? p.StatsValue.CritValue : (PSO.DesiredStatType2 == Stat_Type.Specialization ? p.StatsValue.SpecValue : p.StatsValue.SwiftValue))
@@ -167,37 +164,37 @@ namespace LostArkLogger
                 .Take(5)
                 .ToList());
 
-            cheapest80Q_textBox.Text = GetStringOutputOfResults(permutations
+            cheapest80Q_textBox.Text = GetStringOutputOfResults(permutationDisplays
                 .Where(p => p.AverageQuality >= 80)
                 .OrderBy(p => p.Cost)
                 .Take(5)
                 .ToList());
 
-            cheapest90Q_textBox.Text = GetStringOutputOfResults(permutations
+            cheapest90Q_textBox.Text = GetStringOutputOfResults(permutationDisplays
                 .Where(p => p.AverageQuality >= 90)
                 .OrderBy(p => p.Cost)
                 .Take(5)
                 .ToList());
 
-            cheapest95Q_textBox.Text = GetStringOutputOfResults(permutations
+            cheapest95Q_textBox.Text = GetStringOutputOfResults(permutationDisplays
                 .Where(p => p.AverageQuality >= 95)
                 .OrderBy(p => p.Cost)
                 .Take(5)
                 .ToList());
 
-            cheapestWithRelicNeck_textBox.Text = GetStringOutputOfResults(permutations
+            cheapestWithRelicNeck_textBox.Text = GetStringOutputOfResults(permutationDisplays
                 .Where(p => p.Necklace.AccessoryRank == AccessoryRank.Relic)
                 .OrderBy(p => p.Cost)
                 .Take(5)
                 .ToList());
 
-            highestStat1_textBox.Text = GetStringOutputOfResults(permutations
+            highestStat1_textBox.Text = GetStringOutputOfResults(permutationDisplays
                 .OrderBy(p => PSO.DesiredStatType1 == Stat_Type.Crit ? p.StatsValue.CritValue : (PSO.DesiredStatType1 == Stat_Type.Specialization ? p.StatsValue.SpecValue : p.StatsValue.SwiftValue))
                 .Reverse()
                 .Take(5)
                 .ToList());
 
-            highestStat2_textBox.Text = GetStringOutputOfResults(permutations
+            highestStat2_textBox.Text = GetStringOutputOfResults(permutationDisplays
                 .OrderBy(p => PSO.DesiredStatType2 == Stat_Type.Crit ? p.StatsValue.CritValue : (PSO.DesiredStatType2 == Stat_Type.Specialization ? p.StatsValue.SpecValue : p.StatsValue.SwiftValue))
                 .Reverse()
                 .Take(5)
@@ -251,8 +248,8 @@ namespace LostArkLogger
             engraving5Choice.DataSource = GetChoices<EngravingType>();
             engraving6Choice.DataSource = GetChoices<EngravingType>();
 
-            desiredStatType1.DataSource = GetChoices<Stat_Type>();
-            desiredStatType2.DataSource = GetChoices<Stat_Type>();
+            desiredStatType1.DataSource = GetChoices<Stat_Type>().Where(stc => stc != Stat_Type.Unset.ToString()).ToArray();
+            desiredStatType2.DataSource = GetChoices<Stat_Type>().Where(stc => stc != Stat_Type.Unset.ToString()).ToArray();
         }
 
         private string[] GetChoices<T>()
@@ -292,12 +289,7 @@ namespace LostArkLogger
 
             for (int i = 1; i < 7; i++)
             {
-                string firstEngravingQuantity = Controls[$"engraving1Quantity_{i}"].Text;
-
-                if (!string.IsNullOrEmpty(firstEngravingQuantity) && firstEngravingQuantity != "0")
-                {
-                    overallDesiredEngravings.Add(GetDesiredEngraving(i));
-                }
+                overallDesiredEngravings.Add(GetDesiredEngraving(i));
             }
 
             return overallDesiredEngravings;
@@ -345,7 +337,7 @@ namespace LostArkLogger
         {
             if (!string.IsNullOrEmpty(choiceComboBox.Text))
             {
-                if (!string.IsNullOrEmpty(quantityTextBox.Text) && quantityTextBox.Text != "0")
+                if (!string.IsNullOrEmpty(quantityTextBox.Text))
                 {
                     desiredEngravings.Add(new DesiredEngraving(int.Parse(quantityTextBox.Text), (EngravingType)Enum.Parse(typeof(EngravingType), choiceComboBox.Text)));
                 }
@@ -418,7 +410,7 @@ namespace LostArkLogger
                     return PSO.CurrentAccessories?.Count() > 0;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return false;
             }

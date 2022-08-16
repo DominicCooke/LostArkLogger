@@ -176,7 +176,7 @@ namespace LostArkLogger
             // 
             // processButton
             // 
-            this.processButton.Location = new System.Drawing.Point(255, 162);
+            this.processButton.Location = new System.Drawing.Point(269, 160);
             this.processButton.Name = "processButton";
             this.processButton.Size = new System.Drawing.Size(111, 43);
             this.processButton.TabIndex = 14;
@@ -487,7 +487,7 @@ namespace LostArkLogger
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(156, 41);
+            this.label14.Location = new System.Drawing.Point(170, 39);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(145, 13);
             this.label14.TabIndex = 52;
@@ -495,7 +495,7 @@ namespace LostArkLogger
             // 
             // maxCost
             // 
-            this.maxCost.Location = new System.Drawing.Point(305, 41);
+            this.maxCost.Location = new System.Drawing.Point(319, 39);
             this.maxCost.Name = "maxCost";
             this.maxCost.Size = new System.Drawing.Size(61, 20);
             this.maxCost.TabIndex = 53;
@@ -642,7 +642,7 @@ namespace LostArkLogger
             this.panel1.Controls.Add(this.accessoryCount);
             this.panel1.Location = new System.Drawing.Point(13, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(130, 94);
+            this.panel1.Size = new System.Drawing.Size(143, 94);
             this.panel1.TabIndex = 66;
             // 
             // label15
@@ -657,7 +657,7 @@ namespace LostArkLogger
             // desiredStatType1
             // 
             this.desiredStatType1.FormattingEnabled = true;
-            this.desiredStatType1.Location = new System.Drawing.Point(236, 63);
+            this.desiredStatType1.Location = new System.Drawing.Point(250, 61);
             this.desiredStatType1.Name = "desiredStatType1";
             this.desiredStatType1.Size = new System.Drawing.Size(130, 21);
             this.desiredStatType1.TabIndex = 67;
@@ -665,7 +665,7 @@ namespace LostArkLogger
             // desiredStatType2
             // 
             this.desiredStatType2.FormattingEnabled = true;
-            this.desiredStatType2.Location = new System.Drawing.Point(236, 110);
+            this.desiredStatType2.Location = new System.Drawing.Point(250, 108);
             this.desiredStatType2.Name = "desiredStatType2";
             this.desiredStatType2.Size = new System.Drawing.Size(130, 21);
             this.desiredStatType2.TabIndex = 68;
@@ -673,7 +673,7 @@ namespace LostArkLogger
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(156, 65);
+            this.label16.Location = new System.Drawing.Point(170, 63);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(74, 13);
             this.label16.TabIndex = 69;
@@ -682,7 +682,7 @@ namespace LostArkLogger
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(156, 113);
+            this.label17.Location = new System.Drawing.Point(170, 111);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(74, 13);
             this.label17.TabIndex = 70;
@@ -870,7 +870,7 @@ namespace LostArkLogger
             // 
             // saveLastEngravingsButton
             // 
-            this.saveLastEngravingsButton.Location = new System.Drawing.Point(411, 283);
+            this.saveLastEngravingsButton.Location = new System.Drawing.Point(837, 280);
             this.saveLastEngravingsButton.Name = "saveLastEngravingsButton";
             this.saveLastEngravingsButton.Size = new System.Drawing.Size(117, 20);
             this.saveLastEngravingsButton.TabIndex = 89;
@@ -880,7 +880,7 @@ namespace LostArkLogger
             // 
             // loadLastEngravingsButton
             // 
-            this.loadLastEngravingsButton.Location = new System.Drawing.Point(533, 283);
+            this.loadLastEngravingsButton.Location = new System.Drawing.Point(959, 280);
             this.loadLastEngravingsButton.Name = "loadLastEngravingsButton";
             this.loadLastEngravingsButton.Size = new System.Drawing.Size(141, 20);
             this.loadLastEngravingsButton.TabIndex = 90;
@@ -1146,7 +1146,7 @@ namespace LostArkLogger
             // 
             // min_stat1
             // 
-            this.min_stat1.Location = new System.Drawing.Point(237, 86);
+            this.min_stat1.Location = new System.Drawing.Point(251, 84);
             this.min_stat1.Name = "min_stat1";
             this.min_stat1.Size = new System.Drawing.Size(129, 20);
             this.min_stat1.TabIndex = 97;
@@ -1154,7 +1154,7 @@ namespace LostArkLogger
             // 
             // min_stat2
             // 
-            this.min_stat2.Location = new System.Drawing.Point(236, 134);
+            this.min_stat2.Location = new System.Drawing.Point(250, 132);
             this.min_stat2.Name = "min_stat2";
             this.min_stat2.Size = new System.Drawing.Size(130, 20);
             this.min_stat2.TabIndex = 98;
@@ -1163,7 +1163,7 @@ namespace LostArkLogger
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(156, 89);
+            this.label18.Location = new System.Drawing.Point(170, 87);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(63, 13);
             this.label18.TabIndex = 99;
@@ -1172,7 +1172,7 @@ namespace LostArkLogger
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(156, 137);
+            this.label19.Location = new System.Drawing.Point(170, 135);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(63, 13);
             this.label19.TabIndex = 100;
@@ -1204,7 +1204,7 @@ namespace LostArkLogger
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(69, 13);
             this.label22.TabIndex = 103;
-            this.label22.Text = "Version 1.2.0";
+            this.label22.Text = "Version 1.3.0";
             // 
             // loggedAuctionPacketCountLabel
             // 

@@ -15,13 +15,13 @@ namespace AccessoryOptimizerLib.Services
         public List<Accessory> _earrings = new List<Accessory>();
         public List<Accessory> _rings = new List<Accessory>();
 
-        private List<PermutationDisplay> _permutationDisplays = new List<PermutationDisplay>();
+        public List<PermutationDisplay> _permutationDisplays = new List<PermutationDisplay>();
                
-        public List<PermutationDisplay> Process(List<List<DesiredEngraving>> allDesiredEngravings, int maxPrice, bool useStoredPermutations = false, bool filterWorryingEngraving = true, bool filterEngravingAtZero = true)
+        public (int numberOfPermutations, List<PermutationDisplay>) Process(List<List<DesiredEngraving>> allDesiredEngravings, int maxPrice, bool useStoredPermutations = false, bool filterWorryingEngraving = true, bool filterEngravingAtZero = true)
         {
-            if (useStoredPermutations && _permutationDisplays.Count > 0)
+            if (useStoredPermutations)
             {
-                return _permutationDisplays;
+                return (_permutationDisplays.Count, _permutationDisplays);
             }
 
             if (allDesiredEngravings.Count > 0)
@@ -33,7 +33,8 @@ namespace AccessoryOptimizerLib.Services
                 List<Permutation> permutationsThatMatchesDesiredEngravings = GetPermutations(necks, ears, rings, allDesiredEngravings);
 
                 _permutationDisplays = permutationsThatMatchesDesiredEngravings.Select(p => new PermutationDisplay(p)).ToList();
-
+                int numberOfPermutations = _permutationDisplays.Count;
+                
                 if (filterWorryingEngraving)
                 {
                     _permutationDisplays = _permutationDisplays.Where(e => !e.IsThereWorryingNegativeEngraving()).ToList();
@@ -44,10 +45,10 @@ namespace AccessoryOptimizerLib.Services
                     _permutationDisplays = _permutationDisplays.Where(e => e.HasEngravingAtZero()).ToList();
                 }
 
-                return _permutationDisplays;
+                return (numberOfPermutations, _permutationDisplays);
             }
 
-            return new List<PermutationDisplay>();
+            return (0, new List<PermutationDisplay>());
         }
 
         private bool DoesPermutationMatchDesiredEngravings(List<DesiredEngraving> desiredEngravings, Permutation permutation)
