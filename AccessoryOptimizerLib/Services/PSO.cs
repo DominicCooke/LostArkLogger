@@ -40,6 +40,8 @@ namespace AccessoryOptimizerLib.Services
                 [193] = "Barrage Enhancement",
                 [194] = "True Courage",
                 [195] = "Desperate Salvation",
+                [196] = "Rage Hammer",
+                [197] = "Gravity Training",
                 [200] = "Empress's Grace",
                 [201] = "Order of the Emperor",
                 [202] = "Master of Escape",

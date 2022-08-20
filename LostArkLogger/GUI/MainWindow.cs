@@ -128,6 +128,26 @@ namespace LostArkLogger
 
             (int numberOfPermutations, List<PermutationDisplay> permutationDisplays) = _permutationService.Process(allDesiredEngravings, int.Parse(maxCost.Text), reuse_checkBox.Checked, filterWorryingNeg_checkBox.Checked, filterZeroNegEngraving_checkBox.Checked);
 
+            if (!string.IsNullOrEmpty(atkPowMax.Text))
+            {
+                permutationDisplays = permutationDisplays.Where(pd => pd.NegativeSummary.AmountOfAtkPower <= int.Parse(atkPowMax.Text)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(atkSpdMax.Text))
+            {
+                permutationDisplays = permutationDisplays.Where(pd => pd.NegativeSummary.AmountOfAtkSpeed <= int.Parse(atkSpdMax.Text)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(moveSpdMax.Text))
+            {
+                permutationDisplays = permutationDisplays.Where(pd => pd.NegativeSummary.AmountOfMoveSpeed <= int.Parse(moveSpdMax.Text)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(defMax.Text))
+            {
+                permutationDisplays = permutationDisplays.Where(pd => pd.NegativeSummary.AmountOfDefenceReduction <= int.Parse(defMax.Text)).ToList();
+            }
+
             message_Label.Text = $"Matching any engraving profile results = {numberOfPermutations}      Negative engraving filter results = {permutationDisplays.Count}";
 
 
@@ -252,6 +272,30 @@ namespace LostArkLogger
             desiredStatType2.DataSource = GetChoices<Stat_Type>().Where(stc => stc != Stat_Type.Unset.ToString()).ToArray();
         }
 
+        private void manualNegativeEngravingInputsCheckBox_CheckedChanged(Object sender, EventArgs e)
+        {
+            if (manualNegativeEngravingInputsCheckBox.Checked)
+            {
+                filterWorryingNeg_checkBox.Checked = false;
+                filterZeroNegEngraving_checkBox.Checked = false;
+                maxNegEngValuesPanel.Visible = true;
+                atkPowMax.Text = "0";
+                atkSpdMax.Text = "0";
+                moveSpdMax.Text = "0";
+                defMax.Text = "0";
+            }
+            else
+            {
+                filterWorryingNeg_checkBox.Checked = true;
+                filterZeroNegEngraving_checkBox.Checked = true;
+                maxNegEngValuesPanel.Visible = false;
+                atkPowMax.Text = string.Empty;
+                atkSpdMax.Text = string.Empty;
+                moveSpdMax.Text = string.Empty;
+                defMax.Text = string.Empty;
+            }
+        }
+
         private string[] GetChoices<T>()
         {
             string[] choices = new[] { string.Empty };
@@ -335,6 +379,11 @@ namespace LostArkLogger
 
         private static void AddEngravingIfSet(List<DesiredEngraving> desiredEngravings, ComboBox choiceComboBox, TextBox quantityTextBox)
         {
+            if (choiceComboBox == null)
+            {
+                return;
+            }
+
             if (!string.IsNullOrEmpty(choiceComboBox.Text))
             {
                 if (!string.IsNullOrEmpty(quantityTextBox.Text))
