@@ -8,6 +8,48 @@ LoadAllJsonFiles();
 void LoadAllJsonFiles()
 {
     var parsedLogs = new List<ParsedLog>();
+    List<ParsedLog> valtan = new List<ParsedLog>();
+    List<ParsedLog> vykas = new List<ParsedLog>();
+
+    foreach (string fileName in Directory.GetFiles(@"C:\Users\Dominic\Documents\Lost Ark Logs\parsed", "*.json"))
+    {
+        ParsedLog parsedLog = LoadData<ParsedLog>(fileName);
+
+
+        if (parsedLog?.MostDamageTakenEntity?.Name.ToString().Contains("Vykas") ?? false)
+        {
+            vykas.Add(parsedLog);
+        }
+
+        if (parsedLog?.MostDamageTakenEntity?.Name.ToString().Contains("Incubus Morphe") ?? false)
+        {
+            vykas.Add(parsedLog);
+        }
+
+        if (parsedLog?.MostDamageTakenEntity?.Name.ToString().Contains("Nightmarish Morphe") ?? false)
+        {
+            vykas.Add(parsedLog);
+        }
+
+        if (parsedLog?.MostDamageTakenEntity?.Name.ToString().Contains("Valtan") ?? false)
+        {
+            valtan.Add(parsedLog);
+        }
+    }
+
+    vykas = vykas.Where(v => v.Entities.FirstOrDefault(e => e.Key.Contains("Vykas") || e.Key.Contains("Incubus Morphe") || e.Key.Contains("Nightmarish Morphe")).Value.IsDead).ToList();
+    valtan = valtan.Where(v => v.Entities.First(e => e.Key.Contains("Valtan")).Value.IsDead).ToList();
+
+    List<ParsedLog> vykasP3 = vykas.Where(e => e.Entities.ContainsKey("Covetous Legion Commander Vykas")).ToList();
+    List<ParsedLog> vykasP2 = vykas.Where(e => e.Entities.ContainsKey("Covetous Devourer Vykas")).ToList();
+    List<ParsedLog> vykasP1 = vykas.Where(e => e.Entities.ContainsKey("Incubus Morphe") || e.Entities.ContainsKey("Nightmarish Morphe")).ToList();
+
+    //List<ParsedLog> valtanHps = valtan.Select(v => v.DamageStatistics.TotalDamageDealt).OrderByDescending(d => d).ToList();
+}
+
+void LoadAllGuildJsonFiles()
+{
+    var parsedLogs = new List<ParsedLog>();
 
     foreach (string fileName in Directory.GetFiles(@"C:\Users\Dominic\Documents\Lost Ark Logs\parsed", "*.json"))
     {

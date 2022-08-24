@@ -20,7 +20,7 @@ namespace ParsedLogParser.Models
         public DamageStatistics DamageStatistics { get; set; }
 
         [JsonPropertyName("duration")]
-        public int Duration { get; set; }
+        public long Duration { get; set; }
 
         [JsonPropertyName("mostDamageTakenEntity")]
         public DamageTakenEntity MostDamageTakenEntity { get; set; }
@@ -35,7 +35,7 @@ namespace ParsedLogParser.Models
         public string Name { get; set; }
 
         [JsonPropertyName("damageTaken")]
-        public int DamageTaken { get; set; }
+        public long DamageTaken { get; set; }
 
         [JsonPropertyName("isPlayer")]
         public bool IsPlayer { get; set; }
@@ -44,28 +44,28 @@ namespace ParsedLogParser.Models
     public class DamageStatistics
     {
         [JsonPropertyName("totalDamageDealt")]
-        public int TotalDamageDealt { get; set; }
+        public long TotalDamageDealt { get; set; }
 
         [JsonPropertyName("topDamageDealt")]
-        public int TopDamageDealt { get; set; }
+        public long TopDamageDealt { get; set; }
 
         [JsonPropertyName("totalDamageTaken")]
-        public int TotalDamageTaken { get; set; }
+        public long TotalDamageTaken { get; set; }
 
         [JsonPropertyName("topDamageTaken")]
-        public int TopDamageTaken { get; set; }
+        public long TopDamageTaken { get; set; }
 
         [JsonPropertyName("totalHealingDone")]
-        public int TotalHealingDone { get; set; }
+        public long TotalHealingDone { get; set; }
 
         [JsonPropertyName("topHealingDone")]
-        public int TopHealingDone { get; set; }
+        public long TopHealingDone { get; set; }
 
         [JsonPropertyName("totalShieldDone")]
-        public int TotalShieldDone { get; set; }
+        public long TotalShieldDone { get; set; }
 
         [JsonPropertyName("topShieldDone")]
-        public int TopShieldDone { get; set; }
+        public long TopShieldDone { get; set; }
     }
 
     public class Entity
@@ -92,25 +92,25 @@ namespace ParsedLogParser.Models
         public object DeathTime { get; set; }
 
         [JsonPropertyName("gearScore")]
-        public string GearScore { get; set; }
+        public object GearScore { get; set; }
 
         [JsonPropertyName("currentHp")]
-        public int CurrentHp { get; set; }
+        public long CurrentHp { get; set; }
 
         [JsonPropertyName("maxHp")]
-        public int MaxHp { get; set; }
+        public long MaxHp { get; set; }
 
         [JsonPropertyName("damageDealt")]
-        public int DamageDealt { get; set; }
+        public long DamageDealt { get; set; }
 
         [JsonPropertyName("healingDone")]
-        public int HealingDone { get; set; }
+        public long HealingDone { get; set; }
 
         [JsonPropertyName("shieldDone")]
-        public int ShieldDone { get; set; }
+        public long ShieldDone { get; set; }
 
         [JsonPropertyName("damageTaken")]
-        public int DamageTaken { get; set; }
+        public long DamageTaken { get; set; }
         
         [JsonPropertyName("skills")]
         public Dictionary<string, Skill> Skills { get; set; }
@@ -125,10 +125,10 @@ namespace ParsedLogParser.Models
         public string Name { get; set; }
 
         [JsonPropertyName("totalDamage")]
-        public int TotalDamage { get; set; }
+        public long TotalDamage { get; set; }
 
         [JsonPropertyName("maxDamage")]
-        public int MaxDamage { get; set; }
+        public long MaxDamage { get; set; }
 
         [JsonPropertyName("hits")]
         public Hits Hits { get; set; }
@@ -137,19 +137,19 @@ namespace ParsedLogParser.Models
     public class Hits
     {
         [JsonPropertyName("total")]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         [JsonPropertyName("crit")]
-        public int Crit { get; set; }
+        public long Crit { get; set; }
 
         [JsonPropertyName("backAttack")]
-        public int BackAttack { get; set; }
+        public long BackAttack { get; set; }
 
         [JsonPropertyName("frontAttack")]
-        public int FrontAttack { get; set; }
+        public long FrontAttack { get; set; }
 
         [JsonPropertyName("counter")]
-        public int Counter { get; set; }
+        public long Counter { get; set; }
     }
 }
 

@@ -72,7 +72,7 @@ namespace LostArkLogger
             if (AppDomain.CurrentDomain.FriendlyName.Contains("LostArk"))
             {
                 //var tempName = "LostArkDps" + Guid.NewGuid().ToString().Substring(0, 6) + ".exe";
-                var tempName = "DpsMeter.exe";
+                var tempName = "AccessoryOptimizer.exe";
                 MessageBox.Show("LostArkLogger.exe is flagged.\nRenaming to " + tempName + " !", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 File.Copy(AppDomain.CurrentDomain.FriendlyName, tempName);
                 Process.Start(tempName);

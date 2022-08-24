@@ -277,7 +277,9 @@ namespace LostArkLogger
             if (manualNegativeEngravingInputsCheckBox.Checked)
             {
                 filterWorryingNeg_checkBox.Checked = false;
+                filterWorryingNeg_checkBox.Enabled = false;
                 filterZeroNegEngraving_checkBox.Checked = false;
+                filterZeroNegEngraving_checkBox.Enabled = false;
                 maxNegEngValuesPanel.Visible = true;
                 atkPowMax.Text = "0";
                 atkSpdMax.Text = "0";
@@ -287,7 +289,9 @@ namespace LostArkLogger
             else
             {
                 filterWorryingNeg_checkBox.Checked = true;
+                filterWorryingNeg_checkBox.Enabled = true;
                 filterZeroNegEngraving_checkBox.Checked = true;
+                filterZeroNegEngraving_checkBox.Enabled = true;
                 maxNegEngValuesPanel.Visible = false;
                 atkPowMax.Text = string.Empty;
                 atkSpdMax.Text = string.Empty;

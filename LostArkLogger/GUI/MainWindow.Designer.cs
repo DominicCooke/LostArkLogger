@@ -1166,7 +1166,7 @@ namespace LostArkLogger
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(69, 13);
             this.label22.TabIndex = 103;
-            this.label22.Text = "Version 1.4.0";
+            this.label22.Text = "Version 1.5.0";
             // 
             // loggedAuctionPacketCountLabel
             // 
@@ -1369,7 +1369,7 @@ namespace LostArkLogger
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
             this.Name = "MainWindow";
-            this.Text = "Lost Ark Logger";
+            this.Text = "Lost Ark Accessory Optimizer";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);

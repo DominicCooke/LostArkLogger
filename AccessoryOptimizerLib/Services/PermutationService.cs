@@ -16,7 +16,7 @@ namespace AccessoryOptimizerLib.Services
         public List<Accessory> _rings = new List<Accessory>();
 
         public List<PermutationDisplay> _permutationDisplays = new List<PermutationDisplay>();
-               
+
         public (int numberOfPermutations, List<PermutationDisplay>) Process(List<List<DesiredEngraving>> allDesiredEngravings, int maxPrice, bool useStoredPermutations = false, bool filterWorryingEngraving = true, bool filterEngravingAtZero = true)
         {
             if (useStoredPermutations)
@@ -34,7 +34,7 @@ namespace AccessoryOptimizerLib.Services
 
                 _permutationDisplays = permutationsThatMatchesDesiredEngravings.Select(p => new PermutationDisplay(p)).ToList();
                 int numberOfPermutations = _permutationDisplays.Count;
-                
+
                 if (filterWorryingEngraving)
                 {
                     _permutationDisplays = _permutationDisplays.Where(e => !e.IsThereWorryingNegativeEngraving()).ToList();
@@ -94,9 +94,15 @@ namespace AccessoryOptimizerLib.Services
 
                         foreach (var rC in ringCombinations)
                         {
+                            // performance boosting
+                            if(IsThereAWorryingNegativeEngraving(eC.Item1, eC.Item2, rC.Item1, rC.Item2))
+                            {
+                                continue;
+                            }
+
                             var areAnyEngravingsSatisfied = desiredEngravingAmounts.Any(dea => dea - GetCurrentEngravingValueTotal(eC.Item1, eC.Item2, rC.Item1, rC.Item2) <= 8);
 
-                            if (!IsThereAWorryingNegativeEngraving(eC.Item1, eC.Item2, rC.Item1, rC.Item2) && areAnyEngravingsSatisfied)
+                            if (areAnyEngravingsSatisfied)
                             {
                                 foreach (var necklace in necklaces)
                                 {
@@ -133,7 +139,7 @@ namespace AccessoryOptimizerLib.Services
 
         private List<(Accessory, Accessory)> GetEarringCombinations(List<Accessory> earrings)
         {
-            List<(Guid, Guid)> idCombinations = new List<(Guid, Guid)>();
+            List<(Guid, Guid)> usedIdCombinations = new List<(Guid, Guid)>();
             List<(Accessory, Accessory)> earringCombinations = new List<(Accessory, Accessory)>();
 
             foreach (var (earring, k) in earrings.Select((value, k) => (value, k)))
@@ -141,20 +147,22 @@ namespace AccessoryOptimizerLib.Services
                 for (int p = k; p < earrings.Count; p++)
                 {
                     Accessory nextEarring = earrings[p];
-                    if (idCombinations.Any(i => (i.Item1 == earring.Id && i.Item2 == nextEarring.Id) || (i.Item2 == earring.Id && i.Item1 == nextEarring.Id)) || earring.Id == nextEarring.Id)
+
+                    if (usedIdCombinations.Any(i => (i.Item1 == earring.Id && i.Item2 == nextEarring.Id) || (i.Item2 == earring.Id && i.Item1 == nextEarring.Id)) || earring.Id == nextEarring.Id)
                     {
                         continue;
                     }
                     else
                     {
-                        earringCombinations.Add((earring, nextEarring));
-
-                        var totalEngravingValueCurrent = earring.Engravings.Sum(e => e.EngravingValue) + nextEarring.Engravings.Sum(e => e.EngravingValue);
-
-                        if (!AreAccessoriesAreOverNegativeCap(earring, nextEarring) && totalEngravingValueCurrent >= 12)
+                        // performance boosting
+                        if (AreAccessoriesAreOverNegativeCap(earring, nextEarring))
                         {
-                            idCombinations.Add((earring.Id, nextEarring.Id));
+                            usedIdCombinations.Add((earring.Id, nextEarring.Id));
+                            continue;
                         }
+
+                        earringCombinations.Add((earring, nextEarring));
+                        usedIdCombinations.Add((earring.Id, nextEarring.Id));
                     }
 
                 }
@@ -165,7 +173,7 @@ namespace AccessoryOptimizerLib.Services
 
         private List<(Accessory, Accessory)> GetRingCombinations(List<Accessory> rings)
         {
-            List<(Guid, Guid)> idCombinations = new List<(Guid, Guid)>();
+            List<(Guid, Guid)> usedIdCombinations = new List<(Guid, Guid)>();
             List<(Accessory, Accessory)> ringCombinations = new List<(Accessory, Accessory)>();
 
             foreach (var (ring, k) in rings.Select((value, k) => (value, k)))
@@ -173,20 +181,22 @@ namespace AccessoryOptimizerLib.Services
                 for (int p = k; p < rings.Count; p++)
                 {
                     Accessory nextRing = rings[p];
-                    if (idCombinations.Any(i => (i.Item1 == ring.Id && i.Item2 == nextRing.Id) || (i.Item2 == ring.Id && i.Item1 == nextRing.Id)) || ring.Id == nextRing.Id)
+
+                    if (usedIdCombinations.Any(i => (i.Item1 == ring.Id && i.Item2 == nextRing.Id) || (i.Item2 == ring.Id && i.Item1 == nextRing.Id)) || ring.Id == nextRing.Id)
                     {
                         continue;
                     }
                     else
                     {
-                        ringCombinations.Add((ring, nextRing));
-
-                        var totalEngravingValueCurrent = ring.Engravings.Sum(e => e.EngravingValue) + nextRing.Engravings.Sum(e => e.EngravingValue);
-
-                        if (!AreAccessoriesAreOverNegativeCap(ring, nextRing) && totalEngravingValueCurrent >= 12)
+                        // performance boosting
+                        if (AreAccessoriesAreOverNegativeCap(ring, nextRing))
                         {
-                            idCombinations.Add((ring.Id, nextRing.Id));
+                            usedIdCombinations.Add((ring.Id, nextRing.Id));
+                            continue;
                         }
+
+                        ringCombinations.Add((ring, nextRing));
+                        usedIdCombinations.Add((ring.Id, nextRing.Id));
                     }
                 }
             }
