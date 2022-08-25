@@ -15,15 +15,14 @@ namespace LostArkLogger
             _reader = reader;
             byte[] bytes = _reader.ReadBytes(_reader.GetLengthOfData());
 
-            bytes = RemoveFromByteArray(bytes, 12);
             int numberOfItems = bytes.Take(2).Reverse().ToArray()[1];
-            bytes = RemoveFromByteArray(bytes, 2);
+            bytes = RemoveFromByteArray(bytes, 10);  
 
             List<Accessory> accessories = new List<Accessory>();
             for (int i = 0; i < numberOfItems; i++)
             {
-                var itemIdBytes = bytes.Skip(12).Take(4).Reverse().ToArray();
-                var itemId2Bytes = bytes.Skip(12).Take(4).Reverse().ToArray();
+                var itemIdBytes = bytes.Skip(37).Take(4).Reverse().ToArray();
+                var itemId2Bytes = bytes.Skip(37).Take(4).Reverse().ToArray();
                 int itemId = GetInt32Value(itemIdBytes);
                 int item2Id = GetInt32Value(itemId2Bytes);
 
@@ -177,7 +176,7 @@ namespace LostArkLogger
             var necklaceBytes = bytes.Take(303).ToArray();
             bytes = RemoveFromByteArray(bytes, 303);
 
-            int buyOutPrice = GetInt32Value(necklaceBytes.Skip(254).Take(4).Reverse().ToArray());
+            int buyOutPrice = GetInt32Value(necklaceBytes.Skip(261).Take(4).Reverse().ToArray());
 
             if (buyOutPrice == 0)
             {
@@ -185,25 +184,25 @@ namespace LostArkLogger
             }
 
             //int bidPrice = GetInt32Value(earringBytes.Skip(277).Take(4).Reverse().ToArray());
-            int engraving1Index = 198;
+            int engraving1Index = 186;
             int engraving1Type = GetInt32Value(necklaceBytes.Skip(engraving1Index).Take(4).Reverse().ToArray());
-            int engraving1AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving1Index  - 8: engraving1Index - 8;
+            int engraving1AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving1Index + 5: engraving1Index + 5;
             int engraving1Amount = GetInt32Value(necklaceBytes.Skip(engraving1AmountIndex).Take(4).Reverse().ToArray());
 
-            int engraving2Index = 227;
+            int engraving2Index = 215;
             int engraving2Type = GetInt32Value(necklaceBytes.Skip(engraving2Index).Take(4).Reverse().ToArray());
-            int engraving2AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving2Index - 8 : engraving2Index - 8;
+            int engraving2AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving2Index + 5 : engraving2Index + 5;
             int engraving2Amount = GetInt32Value(necklaceBytes.Skip(engraving2AmountIndex).Take(4).Reverse().ToArray());
 
-            int stat1Type = necklaceBytes.Skip(140).Take(1).ToArray()[0];
-            int stat1Quantity = GetInt32Value(necklaceBytes.Skip(132).Take(4).Reverse().ToArray());
+            int stat1Type = necklaceBytes.Skip(128).Take(1).ToArray()[0];
+            int stat1Quantity = GetInt32Value(necklaceBytes.Skip(133).Take(4).Reverse().ToArray());
 
-            int stat2Type = necklaceBytes.Skip(111).Take(1).ToArray()[0];
-            int stat2Quantity = GetInt32Value(necklaceBytes.Skip(103).Take(4).Reverse().ToArray());
+            int stat2Type = necklaceBytes.Skip(99).Take(1).ToArray()[0];
+            int stat2Quantity = GetInt32Value(necklaceBytes.Skip(104).Take(4).Reverse().ToArray());
 
-            int negEngravingTypeIndex = 169;
+            int negEngravingTypeIndex = 157;
             int negEngravingType = GetInt32Value(necklaceBytes.Skip(negEngravingTypeIndex).Take(4).Reverse().ToArray());
-            int negEngravingAmountIndex = accessoryRank == AccessoryRank.Relic ? negEngravingTypeIndex - 8 : negEngravingTypeIndex - 8;
+            int negEngravingAmountIndex = accessoryRank == AccessoryRank.Relic ? negEngravingTypeIndex + 5 : negEngravingTypeIndex + 5;
             int negEngravingAmount = GetInt32Value(necklaceBytes.Skip(negEngravingAmountIndex).Take(4).Reverse().ToArray());    
 
             Engraving engraving1 = new Engraving(engraving1Type, engraving1Amount);
@@ -220,7 +219,7 @@ namespace LostArkLogger
             var earringBytes = bytes.Take(274).ToArray();
             bytes = RemoveFromByteArray(bytes, 274);
 
-            int buyOutPrice = GetInt32Value(earringBytes.Skip(225).Take(4).Reverse().ToArray());
+            int buyOutPrice = GetInt32Value(earringBytes.Skip(232).Take(4).Reverse().ToArray());
 
             if (buyOutPrice == 0)
             {
@@ -228,22 +227,22 @@ namespace LostArkLogger
             }
 
             //int bidPrice = GetInt32Value(earringBytes.Skip(25).Take(4).Reverse().ToArray());
-            int engraving1Index = 169;
+            int engraving1Index = 157;
             int engraving1Type = GetInt32Value(earringBytes.Skip(engraving1Index).Take(4).Reverse().ToArray());
-            int engraving1AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving1Index - 8 : engraving1Index - 8;
+            int engraving1AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving1Index + 5 : engraving1Index + 5;
             int engraving1Amount = GetInt32Value(earringBytes.Skip(engraving1AmountIndex).Take(4).Reverse().ToArray());
 
-            int engraving2Index = 198;
+            int engraving2Index = 186;
             int engraving2Type = GetInt32Value(earringBytes.Skip(engraving2Index).Take(4).Reverse().ToArray());
-            int engraving2AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving2Index - 8  : engraving2Index - 8;
+            int engraving2AmountIndex = accessoryRank == AccessoryRank.Relic ? engraving2Index + 5  : engraving2Index + 5;
             int engraving2Amount = GetInt32Value(earringBytes.Skip(engraving2AmountIndex).Take(4).Reverse().ToArray());
 
-            int statType = earringBytes.Skip(111).Take(1).ToArray()[0];
-            int statQuantity = GetInt32Value(earringBytes.Skip(103).Take(4).Reverse().ToArray());
+            int statType = earringBytes.Skip(99).Take(1).ToArray()[0];
+            int statQuantity = GetInt32Value(earringBytes.Skip(104).Take(4).Reverse().ToArray());
 
-            int negEngravingTypeIndex = 140;
+            int negEngravingTypeIndex = 128;
             int negEngravingType = GetInt32Value(earringBytes.Skip(negEngravingTypeIndex).Take(4).Reverse().ToArray());
-            int negEngravingAmountIndex = accessoryRank == AccessoryRank.Relic ? negEngravingTypeIndex - 8 : negEngravingTypeIndex - 8;
+            int negEngravingAmountIndex = accessoryRank == AccessoryRank.Relic ? negEngravingTypeIndex + 5 : negEngravingTypeIndex + 5;
             int negEngravingAmount = GetInt32Value(earringBytes.Skip(negEngravingAmountIndex).Take(4).Reverse().ToArray());           
 
             Engraving engraving1 = new Engraving(engraving1Type, engraving1Amount);
