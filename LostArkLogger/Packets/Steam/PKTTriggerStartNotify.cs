@@ -10,6 +10,8 @@ namespace LostArkLogger
             TriggerUnitIndex = reader.ReadUInt64();
             Signal = reader.ReadUInt32();
             ActorId = reader.ReadUInt32();
+            TriggerUnitIndex = reader.ReadUInt64();
+            Signal = reader.ReadUInt32();
         }
     }
 }
