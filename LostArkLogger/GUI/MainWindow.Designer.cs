@@ -1166,7 +1166,7 @@ namespace LostArkLogger
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(69, 13);
             this.label22.TabIndex = 103;
-            this.label22.Text = "Version 1.5.0";
+            this.label22.Text = "Version 1.7.0";
             // 
             // loggedAuctionPacketCountLabel
             // 

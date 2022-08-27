@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json.Serialization;
 
 namespace AccessoryOptimizerLib.Models
@@ -62,6 +63,12 @@ namespace AccessoryOptimizerLib.Models
             StatsValue = new StatsValue(stats);
             Stats = stats;
             Id = Guid.NewGuid();
+        }
+
+        public string GetEngravingId()
+        {
+            var engravingNames = Engravings.Select(e => $"{e.EngravingName}{e.EngravingValue}").OrderBy(e => e).ToList();
+            return $"{engravingNames[0]}{engravingNames[1]}";
         }
     }
 }

@@ -91,7 +91,7 @@ namespace LostArkLogger
         {
             message_Label.Text = "Processing now!";
             string message = string.Empty;
-            List<List<DesiredEngraving>> allDesiredEngravings = GetDesiredEngravings().Where(des => des.All(de => de.Amount > 0)).ToList();
+            List<DesiredEngravings> allDesiredEngravings = GetOverallDesiredEngravings().Where(des => des.Engravings.All(de => de.Amount > 0)).ToList();
 
             if (string.IsNullOrEmpty(desiredStatType1.SelectedItem.ToString()))
             {
@@ -123,7 +123,7 @@ namespace LostArkLogger
 
             if (PSO.DesiredStatType1 != null && PSO.DesiredStatType2 != null)
             {
-                _permutationService._necklaces = _permutationService._necklaces.Where(n => (n.Stats.StatType1 == PSO.DesiredStatType1 || n.Stats.StatType2 == PSO.DesiredStatType1) && (n.Stats.StatType1 == PSO.DesiredStatType2 || n.Stats.StatType2 == PSO.DesiredStatType2)).ToList();
+                _permutationService._necklaces = _permutationService._necklaces.Where(n => (n.Stats.StatType1 == PSO.DesiredStatType1 && n.Stats.StatType2 == PSO.DesiredStatType2) || (n.Stats.StatType1 == PSO.DesiredStatType2 && n.Stats.StatType2 == PSO.DesiredStatType1)).ToList();
             }
 
             (int numberOfPermutations, List<PermutationDisplay> permutationDisplays) = _permutationService.Process(allDesiredEngravings, int.Parse(maxCost.Text), reuse_checkBox.Checked, filterWorryingNeg_checkBox.Checked, filterZeroNegEngraving_checkBox.Checked);
@@ -163,10 +163,12 @@ namespace LostArkLogger
 
             message_Label.Text += $"      Minimum Stat filter results = {permutationDisplays.Count}";
 
-            cheapest_Textbox.Text = GetStringOutputOfResults(permutationDisplays
+            var cheap = permutationDisplays
                 .OrderBy(p => p.Cost)
                 .Take(100)
-                .ToList());
+                .ToList();
+
+            cheapest_Textbox.Text = GetStringOutputOfResults(cheap);
 
             cheapest500HighStat1_textBox.Text = GetStringOutputOfResults(permutationDisplays
                 .OrderBy(p => p.Cost)
@@ -331,25 +333,25 @@ namespace LostArkLogger
             UpdateCountText();
         }
 
-        private List<List<DesiredEngraving>> GetDesiredEngravings()
+        private List<DesiredEngravings> GetOverallDesiredEngravings()
         {
-            List<List<DesiredEngraving>> overallDesiredEngravings = new List<List<DesiredEngraving>>();
+            List<DesiredEngravings> overallDesiredEngravings = new List<DesiredEngravings>();
 
             for (int i = 1; i < 7; i++)
             {
-                overallDesiredEngravings.Add(GetDesiredEngraving(i));
+                overallDesiredEngravings.Add(GetDesiredEngravings(i));
             }
 
             return overallDesiredEngravings;
         }
 
-        private List<DesiredEngraving> GetDesiredEngraving(int columnIndex)
+        private DesiredEngravings GetDesiredEngravings(int columnIndex)
         {
-            List<DesiredEngraving> desiredEngravings = new List<DesiredEngraving>();
+            DesiredEngravings desiredEngravings = new DesiredEngravings();
 
             for (int i = 1; i < 7; i++)
             {
-                AddEngravingIfSet(desiredEngravings, Controls[$"engraving{i}Choice"] as ComboBox, Controls[$"engraving{i}Quantity_{columnIndex}"] as TextBox);
+                AddEngravingIfSet(desiredEngravings.Engravings, Controls[$"engraving{i}Choice"] as ComboBox, Controls[$"engraving{i}Quantity_{columnIndex}"] as TextBox);
             }
 
             return desiredEngravings;
@@ -399,7 +401,7 @@ namespace LostArkLogger
 
         private void saveLastEngravingsButton_Click(object sender, EventArgs e)
         {
-            List<List<DesiredEngraving>> allDesiredEngravings = GetDesiredEngravings();
+            List<DesiredEngravings> allDesiredEngravings = GetOverallDesiredEngravings();
 
             string json = JsonSerializer.Serialize(allDesiredEngravings, new JsonSerializerOptions() { IncludeFields = true });
             File.WriteAllText(@".\savedEngravings.json", json);
@@ -416,11 +418,11 @@ namespace LostArkLogger
                 }
                 else
                 {
-                    List<List<DesiredEngraving>> allDesiredEngravings = JsonSerializer.Deserialize<List<List<DesiredEngraving>>>(json);
+                    List<DesiredEngravings> allDesiredEngravings = JsonSerializer.Deserialize<List<DesiredEngravings>>(json);
 
                     foreach (var (desiredEngravings, k) in allDesiredEngravings.Select((value, k) => (value, k)))
                     {
-                        foreach (var (desiredEngraving, j) in desiredEngravings.Select((value, j) => (value, j)))
+                        foreach (var (desiredEngraving, j) in desiredEngravings.Engravings.Select((value, j) => (value, j)))
                         {
                             ComboBox comboBox = ((ComboBox)Controls[$"engraving{j + 1}Choice"]);
                             comboBox.SelectedIndex = comboBox.FindString(desiredEngraving.EngravingType.ToString());

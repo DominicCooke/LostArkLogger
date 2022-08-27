@@ -8,11 +8,18 @@
 
         public int SwiftValue { get; set; } = 0;
 
-        public StatsValue(int critValue, int specValue, int swiftValue)
+                public int DominationValue { get; set; } = 0;
+                public int ExpertiseValue { get; set; } = 0;
+                public int EnduranceValue { get; set; } = 0;
+
+        public StatsValue(int critValue, int specValue, int swiftValue, int dominationValue = 0, int expertiseValue = 0, int enduranceValue = 0 )
         {
             CritValue = critValue;
             SpecValue = specValue;
             SwiftValue = swiftValue;
+            DominationValue = dominationValue;
+            ExpertiseValue = expertiseValue;
+            EnduranceValue = enduranceValue;
         }
 
         public StatsValue() { }
@@ -44,6 +51,15 @@
                     break;
                 case Stat_Type.Crit:
                     CritValue = statQuantity + CritValue;
+                    break;
+                case Stat_Type.Endurance:
+                    EnduranceValue = statQuantity + EnduranceValue;
+                    break;
+                case Stat_Type.Domination:
+                    DominationValue = statQuantity + DominationValue;
+                    break;
+                case Stat_Type.Expertise:
+                    ExpertiseValue = statQuantity + ExpertiseValue;
                     break;
             }
         }
