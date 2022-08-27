@@ -307,17 +307,17 @@ namespace AccessoryOptimizerLib.Services
             switch (statType)
             {
                 case Stat_Type.Swiftness:
-                    return grouping.Select(g => (g, g.Item1.StatsValue.SwiftValue + g.Item2.StatsValue.SwiftValue)).OrderBy(g => g.Item2).ToList();
+                    return grouping.Select(g => (g, g.Item1.StatsValue.SwiftValue + g.Item2.StatsValue.SwiftValue)).OrderBy(g => g.Item2).Reverse().ToList();
                 case Stat_Type.Specialization:
-                    return grouping.Select(g => (g, g.Item1.StatsValue.SpecValue + g.Item2.StatsValue.SpecValue)).OrderBy(g => g.Item2).ToList();
+                    return grouping.Select(g => (g, g.Item1.StatsValue.SpecValue + g.Item2.StatsValue.SpecValue)).OrderBy(g => g.Item2).Reverse().ToList();
                 case Stat_Type.Crit:
-                    return grouping.Select(g => (g, g.Item1.StatsValue.CritValue + g.Item2.StatsValue.CritValue)).OrderBy(g => g.Item2).ToList();
+                    return grouping.Select(g => (g, g.Item1.StatsValue.CritValue + g.Item2.StatsValue.CritValue)).OrderBy(g => g.Item2).Reverse().ToList();
                 case Stat_Type.Endurance:
-                    return grouping.Select(g => (g, g.Item1.StatsValue.EnduranceValue + g.Item2.StatsValue.EnduranceValue)).OrderBy(g => g.Item2).ToList();
+                    return grouping.Select(g => (g, g.Item1.StatsValue.EnduranceValue + g.Item2.StatsValue.EnduranceValue)).OrderBy(g => g.Item2).Reverse().ToList();
                 case Stat_Type.Domination:
-                    return grouping.Select(g => (g, g.Item1.StatsValue.DominationValue + g.Item2.StatsValue.DominationValue)).OrderBy(g => g.Item2).ToList();
+                    return grouping.Select(g => (g, g.Item1.StatsValue.DominationValue + g.Item2.StatsValue.DominationValue)).OrderBy(g => g.Item2).Reverse().ToList();
                 case Stat_Type.Expertise:
-                    return grouping.Select(g => (g, g.Item1.StatsValue.ExpertiseValue + g.Item2.StatsValue.ExpertiseValue)).OrderBy(g => g.Item2).ToList();
+                    return grouping.Select(g => (g, g.Item1.StatsValue.ExpertiseValue + g.Item2.StatsValue.ExpertiseValue)).OrderBy(g => g.Item2).Reverse().ToList();
                 default:
                     break;
             }

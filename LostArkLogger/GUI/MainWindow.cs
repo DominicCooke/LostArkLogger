@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using static AccessoryOptimizerLib.Services.PermutationService;
 
 namespace LostArkLogger
@@ -210,17 +211,61 @@ namespace LostArkLogger
                 .Take(5)
                 .ToList());
 
-            highestStat1_textBox.Text = GetStringOutputOfResults(permutationDisplays
-                .OrderBy(p => PSO.DesiredStatType1 == Stat_Type.Crit ? p.StatsValue.CritValue : (PSO.DesiredStatType1 == Stat_Type.Specialization ? p.StatsValue.SpecValue : p.StatsValue.SwiftValue))
+            var highestStat1 = permutationDisplays
+                .OrderBy(p => PSO.DesiredStatType1 == Stat_Type.Crit ? p.StatsValue.CritValue : (PSO.DesiredStatType1 == Stat_Type.Specialization ? p.StatsValue.SpecValue : p.StatsValue.SwiftValue));
+                
+
+            highestStat1_textBox.Text = GetStringOutputOfResults(highestStat1
                 .Reverse()
                 .Take(5)
                 .ToList());
 
-            highestStat2_textBox.Text = GetStringOutputOfResults(permutationDisplays
-                .OrderBy(p => PSO.DesiredStatType2 == Stat_Type.Crit ? p.StatsValue.CritValue : (PSO.DesiredStatType2 == Stat_Type.Specialization ? p.StatsValue.SpecValue : p.StatsValue.SwiftValue))
+            var highestStat2 = permutationDisplays
+                .OrderBy(p => PSO.DesiredStatType2 == Stat_Type.Crit ? p.StatsValue.CritValue : (PSO.DesiredStatType2 == Stat_Type.Specialization ? p.StatsValue.SpecValue : p.StatsValue.SwiftValue));
+
+            highestStat2_textBox.Text = GetStringOutputOfResults(highestStat2
                 .Reverse()
                 .Take(5)
                 .ToList());
+
+
+            stat1CostChart.Series.Clear();
+            stat2CostChart.Series.Clear();
+
+            var highestStatCost1Series = new Series
+            {
+                Name = "HighestStatCost1",
+                Color = System.Drawing.Color.Blue,
+                IsVisibleInLegend = false,
+                ChartType = SeriesChartType.Point,
+            };
+
+            var highestStatCost2Series = new Series
+            {
+                Name = "HighestStatCost2",
+                Color = System.Drawing.Color.Red,
+                IsVisibleInLegend = false,
+                ChartType = SeriesChartType.Point,
+            };
+
+            stat1CostChart.Series.Add(highestStatCost1Series);
+            stat2CostChart.Series.Add(highestStatCost2Series);
+            
+            stat1CostChart.ChartAreas[0].AxisX.Title = PSO.DesiredStatType1.ToString();
+            stat1CostChart.ChartAreas[0].AxisY.Title = "Cost";
+
+            stat2CostChart.ChartAreas[0].AxisX.Title = PSO.DesiredStatType2.ToString();
+            stat2CostChart.ChartAreas[0].AxisY.Title = "Cost";
+
+            foreach (var highestStatPermutation in highestStat1.GroupBy(hs => (hs.StatsValue.GetStatValue((Stat_Type)PSO.DesiredStatType1), hs.Cost)).Select(g => g.First()))
+            {
+                highestStatCost1Series.Points.AddXY(highestStatPermutation.StatsValue.GetStatValue((Stat_Type)PSO.DesiredStatType1), highestStatPermutation.Cost);
+            }
+
+            foreach (var highestStatPermutation in highestStat2.GroupBy(hs => (hs.StatsValue.GetStatValue((Stat_Type)PSO.DesiredStatType1), hs.Cost)).Select(g => g.First()))
+            {
+                highestStatCost2Series.Points.AddXY(highestStatPermutation.StatsValue.GetStatValue((Stat_Type)PSO.DesiredStatType2), highestStatPermutation.Cost);
+            }
         }
 
         private List<PermutationDisplay> FilterByMinStat(List<PermutationDisplay> permutationDisplays, Stat_Type statType, int minAmount)

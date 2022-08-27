@@ -31,6 +31,10 @@ namespace LostArkLogger
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.loggedPacketCountLabel = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
@@ -147,6 +151,9 @@ namespace LostArkLogger
             this.moveSpdMax = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.maxNegEngValuesPanel = new System.Windows.Forms.Panel();
+            this.stat1CostChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.stat2CostChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -159,6 +166,9 @@ namespace LostArkLogger
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.maxNegEngValuesPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stat1CostChart)).BeginInit();
+            this.tabPage11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stat2CostChart)).BeginInit();
             this.SuspendLayout();
             // 
             // loggedPacketCountLabel
@@ -183,7 +193,7 @@ namespace LostArkLogger
             // 
             // processButton
             // 
-            this.processButton.Location = new System.Drawing.Point(12, 213);
+            this.processButton.Location = new System.Drawing.Point(12, 211);
             this.processButton.Name = "processButton";
             this.processButton.Size = new System.Drawing.Size(111, 43);
             this.processButton.TabIndex = 14;
@@ -194,7 +204,7 @@ namespace LostArkLogger
             // accessoryCount
             // 
             this.accessoryCount.AutoSize = true;
-            this.accessoryCount.Location = new System.Drawing.Point(113, 73);
+            this.accessoryCount.Location = new System.Drawing.Point(113, 71);
             this.accessoryCount.Name = "accessoryCount";
             this.accessoryCount.Size = new System.Drawing.Size(13, 13);
             this.accessoryCount.TabIndex = 15;
@@ -213,7 +223,7 @@ namespace LostArkLogger
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 17;
@@ -222,7 +232,7 @@ namespace LostArkLogger
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 29);
+            this.label2.Location = new System.Drawing.Point(3, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 13);
             this.label2.TabIndex = 18;
@@ -231,7 +241,7 @@ namespace LostArkLogger
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 52);
+            this.label3.Location = new System.Drawing.Point(3, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 13);
             this.label3.TabIndex = 19;
@@ -240,7 +250,7 @@ namespace LostArkLogger
             // earringCount
             // 
             this.earringCount.AutoSize = true;
-            this.earringCount.Location = new System.Drawing.Point(113, 28);
+            this.earringCount.Location = new System.Drawing.Point(113, 27);
             this.earringCount.Name = "earringCount";
             this.earringCount.Size = new System.Drawing.Size(10, 13);
             this.earringCount.TabIndex = 21;
@@ -249,7 +259,7 @@ namespace LostArkLogger
             // ringCount
             // 
             this.ringCount.AutoSize = true;
-            this.ringCount.Location = new System.Drawing.Point(113, 51);
+            this.ringCount.Location = new System.Drawing.Point(113, 49);
             this.ringCount.Name = "ringCount";
             this.ringCount.Size = new System.Drawing.Size(10, 13);
             this.ringCount.TabIndex = 22;
@@ -257,7 +267,7 @@ namespace LostArkLogger
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(12, 160);
+            this.saveButton.Location = new System.Drawing.Point(12, 159);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(113, 20);
             this.saveButton.TabIndex = 23;
@@ -267,7 +277,7 @@ namespace LostArkLogger
             // 
             // loadButton
             // 
-            this.loadButton.Location = new System.Drawing.Point(12, 183);
+            this.loadButton.Location = new System.Drawing.Point(12, 185);
             this.loadButton.Name = "loadButton";
             this.loadButton.Size = new System.Drawing.Size(112, 20);
             this.loadButton.TabIndex = 24;
@@ -309,7 +319,7 @@ namespace LostArkLogger
             this.engraving1Quantity_1.Size = new System.Drawing.Size(30, 20);
             this.engraving1Quantity_1.TabIndex = 28;
             this.engraving1Quantity_1.Text = "0";
-            this.engraving1Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving1Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving2Quantity_1
             // 
@@ -319,7 +329,7 @@ namespace LostArkLogger
             this.engraving2Quantity_1.Size = new System.Drawing.Size(30, 20);
             this.engraving2Quantity_1.TabIndex = 32;
             this.engraving2Quantity_1.Text = "0";
-            this.engraving2Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving2Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -338,7 +348,7 @@ namespace LostArkLogger
             this.engraving3Quantity_1.Size = new System.Drawing.Size(30, 20);
             this.engraving3Quantity_1.TabIndex = 36;
             this.engraving3Quantity_1.Text = "0";
-            this.engraving3Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving3Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 
@@ -365,7 +375,7 @@ namespace LostArkLogger
             this.engraving4Quantity_1.Size = new System.Drawing.Size(30, 20);
             this.engraving4Quantity_1.TabIndex = 40;
             this.engraving4Quantity_1.Text = "0";
-            this.engraving4Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving4Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
             // 
@@ -392,7 +402,7 @@ namespace LostArkLogger
             this.engraving5Quantity_1.Size = new System.Drawing.Size(30, 20);
             this.engraving5Quantity_1.TabIndex = 44;
             this.engraving5Quantity_1.Text = "0";
-            this.engraving5Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving5Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
             // 
@@ -419,7 +429,7 @@ namespace LostArkLogger
             this.engraving6Quantity_1.Size = new System.Drawing.Size(30, 20);
             this.engraving6Quantity_1.TabIndex = 48;
             this.engraving6Quantity_1.Text = "0";
-            this.engraving6Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving6Quantity_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label13
             // 
@@ -449,7 +459,7 @@ namespace LostArkLogger
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(170, 39);
+            this.label14.Location = new System.Drawing.Point(170, 43);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(145, 13);
             this.label14.TabIndex = 52;
@@ -462,6 +472,7 @@ namespace LostArkLogger
             this.maxCost.Size = new System.Drawing.Size(61, 20);
             this.maxCost.TabIndex = 53;
             this.maxCost.Text = "15001";
+            this.maxCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving6Quantity_2
             // 
@@ -471,7 +482,7 @@ namespace LostArkLogger
             this.engraving6Quantity_2.Size = new System.Drawing.Size(30, 20);
             this.engraving6Quantity_2.TabIndex = 59;
             this.engraving6Quantity_2.Text = "0";
-            this.engraving6Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving6Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving5Quantity_2
             // 
@@ -481,7 +492,7 @@ namespace LostArkLogger
             this.engraving5Quantity_2.Size = new System.Drawing.Size(30, 20);
             this.engraving5Quantity_2.TabIndex = 58;
             this.engraving5Quantity_2.Text = "0";
-            this.engraving5Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving5Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving4Quantity_2
             // 
@@ -491,7 +502,7 @@ namespace LostArkLogger
             this.engraving4Quantity_2.Size = new System.Drawing.Size(30, 20);
             this.engraving4Quantity_2.TabIndex = 57;
             this.engraving4Quantity_2.Text = "0";
-            this.engraving4Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving4Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving3Quantity_2
             // 
@@ -501,7 +512,7 @@ namespace LostArkLogger
             this.engraving3Quantity_2.Size = new System.Drawing.Size(30, 20);
             this.engraving3Quantity_2.TabIndex = 56;
             this.engraving3Quantity_2.Text = "0";
-            this.engraving3Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving3Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving2Quantity_2
             // 
@@ -511,7 +522,7 @@ namespace LostArkLogger
             this.engraving2Quantity_2.Size = new System.Drawing.Size(30, 20);
             this.engraving2Quantity_2.TabIndex = 55;
             this.engraving2Quantity_2.Text = "0";
-            this.engraving2Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving2Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving1Quantity_2
             // 
@@ -521,7 +532,7 @@ namespace LostArkLogger
             this.engraving1Quantity_2.Size = new System.Drawing.Size(30, 20);
             this.engraving1Quantity_2.TabIndex = 54;
             this.engraving1Quantity_2.Text = "0";
-            this.engraving1Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving1Quantity_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving6Quantity_3
             // 
@@ -531,7 +542,7 @@ namespace LostArkLogger
             this.engraving6Quantity_3.Size = new System.Drawing.Size(30, 20);
             this.engraving6Quantity_3.TabIndex = 65;
             this.engraving6Quantity_3.Text = "0";
-            this.engraving6Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving6Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving5Quantity_3
             // 
@@ -541,7 +552,7 @@ namespace LostArkLogger
             this.engraving5Quantity_3.Size = new System.Drawing.Size(30, 20);
             this.engraving5Quantity_3.TabIndex = 64;
             this.engraving5Quantity_3.Text = "0";
-            this.engraving5Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving5Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving4Quantity_3
             // 
@@ -551,7 +562,7 @@ namespace LostArkLogger
             this.engraving4Quantity_3.Size = new System.Drawing.Size(30, 20);
             this.engraving4Quantity_3.TabIndex = 63;
             this.engraving4Quantity_3.Text = "0";
-            this.engraving4Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving4Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving3Quantity_3
             // 
@@ -561,7 +572,7 @@ namespace LostArkLogger
             this.engraving3Quantity_3.Size = new System.Drawing.Size(30, 20);
             this.engraving3Quantity_3.TabIndex = 62;
             this.engraving3Quantity_3.Text = "0";
-            this.engraving3Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving3Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving2Quantity_3
             // 
@@ -571,7 +582,7 @@ namespace LostArkLogger
             this.engraving2Quantity_3.Size = new System.Drawing.Size(30, 20);
             this.engraving2Quantity_3.TabIndex = 61;
             this.engraving2Quantity_3.Text = "0";
-            this.engraving2Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving2Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving1Quantity_3
             // 
@@ -581,7 +592,7 @@ namespace LostArkLogger
             this.engraving1Quantity_3.Size = new System.Drawing.Size(30, 20);
             this.engraving1Quantity_3.TabIndex = 60;
             this.engraving1Quantity_3.Text = "0";
-            this.engraving1Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving1Quantity_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // necklaceCount
             // 
@@ -610,7 +621,7 @@ namespace LostArkLogger
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 74);
+            this.label15.Location = new System.Drawing.Point(3, 71);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(100, 13);
             this.label15.TabIndex = 67;
@@ -619,7 +630,7 @@ namespace LostArkLogger
             // desiredStatType1
             // 
             this.desiredStatType1.FormattingEnabled = true;
-            this.desiredStatType1.Location = new System.Drawing.Point(250, 61);
+            this.desiredStatType1.Location = new System.Drawing.Point(250, 63);
             this.desiredStatType1.Name = "desiredStatType1";
             this.desiredStatType1.Size = new System.Drawing.Size(130, 21);
             this.desiredStatType1.TabIndex = 67;
@@ -627,7 +638,7 @@ namespace LostArkLogger
             // desiredStatType2
             // 
             this.desiredStatType2.FormattingEnabled = true;
-            this.desiredStatType2.Location = new System.Drawing.Point(250, 108);
+            this.desiredStatType2.Location = new System.Drawing.Point(250, 112);
             this.desiredStatType2.Name = "desiredStatType2";
             this.desiredStatType2.Size = new System.Drawing.Size(130, 21);
             this.desiredStatType2.TabIndex = 68;
@@ -635,7 +646,7 @@ namespace LostArkLogger
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(170, 63);
+            this.label16.Location = new System.Drawing.Point(170, 67);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(74, 13);
             this.label16.TabIndex = 69;
@@ -644,7 +655,7 @@ namespace LostArkLogger
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(170, 111);
+            this.label17.Location = new System.Drawing.Point(170, 116);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(74, 13);
             this.label17.TabIndex = 70;
@@ -658,7 +669,7 @@ namespace LostArkLogger
             this.engraving6Quantity_4.Size = new System.Drawing.Size(30, 20);
             this.engraving6Quantity_4.TabIndex = 76;
             this.engraving6Quantity_4.Text = "0";
-            this.engraving6Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving6Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving5Quantity_4
             // 
@@ -668,7 +679,7 @@ namespace LostArkLogger
             this.engraving5Quantity_4.Size = new System.Drawing.Size(30, 20);
             this.engraving5Quantity_4.TabIndex = 75;
             this.engraving5Quantity_4.Text = "0";
-            this.engraving5Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving5Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving4Quantity_4
             // 
@@ -678,7 +689,7 @@ namespace LostArkLogger
             this.engraving4Quantity_4.Size = new System.Drawing.Size(30, 20);
             this.engraving4Quantity_4.TabIndex = 74;
             this.engraving4Quantity_4.Text = "0";
-            this.engraving4Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving4Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving3Quantity_4
             // 
@@ -688,7 +699,7 @@ namespace LostArkLogger
             this.engraving3Quantity_4.Size = new System.Drawing.Size(30, 20);
             this.engraving3Quantity_4.TabIndex = 73;
             this.engraving3Quantity_4.Text = "0";
-            this.engraving3Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving3Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving2Quantity_4
             // 
@@ -698,7 +709,7 @@ namespace LostArkLogger
             this.engraving2Quantity_4.Size = new System.Drawing.Size(30, 20);
             this.engraving2Quantity_4.TabIndex = 72;
             this.engraving2Quantity_4.Text = "0";
-            this.engraving2Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving2Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving1Quantity_4
             // 
@@ -708,7 +719,7 @@ namespace LostArkLogger
             this.engraving1Quantity_4.Size = new System.Drawing.Size(30, 20);
             this.engraving1Quantity_4.TabIndex = 71;
             this.engraving1Quantity_4.Text = "0";
-            this.engraving1Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving1Quantity_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving6Quantity_5
             // 
@@ -718,7 +729,7 @@ namespace LostArkLogger
             this.engraving6Quantity_5.Size = new System.Drawing.Size(30, 20);
             this.engraving6Quantity_5.TabIndex = 82;
             this.engraving6Quantity_5.Text = "0";
-            this.engraving6Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving6Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving5Quantity_5
             // 
@@ -728,7 +739,7 @@ namespace LostArkLogger
             this.engraving5Quantity_5.Size = new System.Drawing.Size(30, 20);
             this.engraving5Quantity_5.TabIndex = 81;
             this.engraving5Quantity_5.Text = "0";
-            this.engraving5Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving5Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving4Quantity_5
             // 
@@ -738,7 +749,7 @@ namespace LostArkLogger
             this.engraving4Quantity_5.Size = new System.Drawing.Size(30, 20);
             this.engraving4Quantity_5.TabIndex = 80;
             this.engraving4Quantity_5.Text = "0";
-            this.engraving4Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving4Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving3Quantity_5
             // 
@@ -748,7 +759,7 @@ namespace LostArkLogger
             this.engraving3Quantity_5.Size = new System.Drawing.Size(30, 20);
             this.engraving3Quantity_5.TabIndex = 79;
             this.engraving3Quantity_5.Text = "0";
-            this.engraving3Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving3Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving2Quantity_5
             // 
@@ -758,7 +769,7 @@ namespace LostArkLogger
             this.engraving2Quantity_5.Size = new System.Drawing.Size(30, 20);
             this.engraving2Quantity_5.TabIndex = 78;
             this.engraving2Quantity_5.Text = "0";
-            this.engraving2Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving2Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving1Quantity_5
             // 
@@ -768,7 +779,7 @@ namespace LostArkLogger
             this.engraving1Quantity_5.Size = new System.Drawing.Size(30, 20);
             this.engraving1Quantity_5.TabIndex = 77;
             this.engraving1Quantity_5.Text = "0";
-            this.engraving1Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving1Quantity_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving6Quantity_6
             // 
@@ -778,7 +789,7 @@ namespace LostArkLogger
             this.engraving6Quantity_6.Size = new System.Drawing.Size(30, 20);
             this.engraving6Quantity_6.TabIndex = 88;
             this.engraving6Quantity_6.Text = "0";
-            this.engraving6Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving6Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving5Quantity_6
             // 
@@ -788,7 +799,7 @@ namespace LostArkLogger
             this.engraving5Quantity_6.Size = new System.Drawing.Size(30, 20);
             this.engraving5Quantity_6.TabIndex = 87;
             this.engraving5Quantity_6.Text = "0";
-            this.engraving5Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving5Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving4Quantity_6
             // 
@@ -798,7 +809,7 @@ namespace LostArkLogger
             this.engraving4Quantity_6.Size = new System.Drawing.Size(30, 20);
             this.engraving4Quantity_6.TabIndex = 86;
             this.engraving4Quantity_6.Text = "0";
-            this.engraving4Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving4Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving3Quantity_6
             // 
@@ -808,7 +819,7 @@ namespace LostArkLogger
             this.engraving3Quantity_6.Size = new System.Drawing.Size(30, 20);
             this.engraving3Quantity_6.TabIndex = 85;
             this.engraving3Quantity_6.Text = "0";
-            this.engraving3Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving3Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving2Quantity_6
             // 
@@ -818,7 +829,7 @@ namespace LostArkLogger
             this.engraving2Quantity_6.Size = new System.Drawing.Size(30, 20);
             this.engraving2Quantity_6.TabIndex = 84;
             this.engraving2Quantity_6.Text = "0";
-            this.engraving2Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving2Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engraving1Quantity_6
             // 
@@ -828,7 +839,7 @@ namespace LostArkLogger
             this.engraving1Quantity_6.Size = new System.Drawing.Size(30, 20);
             this.engraving1Quantity_6.TabIndex = 83;
             this.engraving1Quantity_6.Text = "0";
-            this.engraving1Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.engraving1Quantity_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // saveLastEngravingsButton
             // 
@@ -866,6 +877,7 @@ namespace LostArkLogger
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
+            this.tabControl1.Controls.Add(this.tabPage11);
             this.tabControl1.Location = new System.Drawing.Point(12, 317);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1108,24 +1120,26 @@ namespace LostArkLogger
             // 
             // min_stat1
             // 
-            this.min_stat1.Location = new System.Drawing.Point(251, 84);
+            this.min_stat1.Location = new System.Drawing.Point(319, 88);
             this.min_stat1.Name = "min_stat1";
-            this.min_stat1.Size = new System.Drawing.Size(129, 20);
+            this.min_stat1.Size = new System.Drawing.Size(61, 20);
             this.min_stat1.TabIndex = 97;
             this.min_stat1.Text = "0";
+            this.min_stat1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // min_stat2
             // 
-            this.min_stat2.Location = new System.Drawing.Point(250, 132);
+            this.min_stat2.Location = new System.Drawing.Point(319, 137);
             this.min_stat2.Name = "min_stat2";
-            this.min_stat2.Size = new System.Drawing.Size(130, 20);
+            this.min_stat2.Size = new System.Drawing.Size(61, 20);
             this.min_stat2.TabIndex = 98;
             this.min_stat2.Text = "0";
+            this.min_stat2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(170, 87);
+            this.label18.Location = new System.Drawing.Point(170, 92);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(63, 13);
             this.label18.TabIndex = 99;
@@ -1134,7 +1148,7 @@ namespace LostArkLogger
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(170, 135);
+            this.label19.Location = new System.Drawing.Point(170, 141);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(63, 13);
             this.label19.TabIndex = 100;
@@ -1204,6 +1218,7 @@ namespace LostArkLogger
             this.atkPowMax.Name = "atkPowMax";
             this.atkPowMax.Size = new System.Drawing.Size(38, 20);
             this.atkPowMax.TabIndex = 108;
+            this.atkPowMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // atkSpdMax
             // 
@@ -1211,6 +1226,7 @@ namespace LostArkLogger
             this.atkSpdMax.Name = "atkSpdMax";
             this.atkSpdMax.Size = new System.Drawing.Size(38, 20);
             this.atkSpdMax.TabIndex = 110;
+            this.atkSpdMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label24
             // 
@@ -1245,6 +1261,7 @@ namespace LostArkLogger
             this.defMax.Name = "defMax";
             this.defMax.Size = new System.Drawing.Size(38, 20);
             this.defMax.TabIndex = 115;
+            this.defMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // moveSpdMax
             // 
@@ -1252,6 +1269,7 @@ namespace LostArkLogger
             this.moveSpdMax.Name = "moveSpdMax";
             this.moveSpdMax.Size = new System.Drawing.Size(38, 20);
             this.moveSpdMax.TabIndex = 114;
+            this.moveSpdMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label27
             // 
@@ -1278,6 +1296,43 @@ namespace LostArkLogger
             this.maxNegEngValuesPanel.Size = new System.Drawing.Size(239, 76);
             this.maxNegEngValuesPanel.TabIndex = 117;
             this.maxNegEngValuesPanel.Visible = false;
+            // 
+            // stat1CostChart
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.stat1CostChart.ChartAreas.Add(chartArea2);
+            this.stat1CostChart.Location = new System.Drawing.Point(3, 3);
+            this.stat1CostChart.Name = "stat1CostChart";
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Series1";
+            this.stat1CostChart.Series.Add(series2);
+            this.stat1CostChart.Size = new System.Drawing.Size(1145, 250);
+            this.stat1CostChart.TabIndex = 118;
+            this.stat1CostChart.Text = "chart1";
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.Controls.Add(this.stat2CostChart);
+            this.tabPage11.Controls.Add(this.stat1CostChart);
+            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Size = new System.Drawing.Size(1148, 495);
+            this.tabPage11.TabIndex = 9;
+            this.tabPage11.Text = "Charts";
+            this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // stat2CostChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.stat2CostChart.ChartAreas.Add(chartArea1);
+            this.stat2CostChart.Location = new System.Drawing.Point(0, 247);
+            this.stat2CostChart.Name = "stat2CostChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Name = "Series1";
+            this.stat2CostChart.Series.Add(series1);
+            this.stat2CostChart.Size = new System.Drawing.Size(1145, 250);
+            this.stat2CostChart.TabIndex = 119;
+            this.stat2CostChart.Text = "chart1";
             // 
             // MainWindow
             // 
@@ -1393,6 +1448,9 @@ namespace LostArkLogger
             this.tabPage9.PerformLayout();
             this.maxNegEngValuesPanel.ResumeLayout(false);
             this.maxNegEngValuesPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stat1CostChart)).EndInit();
+            this.tabPage11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.stat2CostChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1520,5 +1578,8 @@ namespace LostArkLogger
         private TextBox moveSpdMax;
         private Label label27;
         private Panel maxNegEngValuesPanel;
+        private TabPage tabPage11;
+        private System.Windows.Forms.DataVisualization.Charting.Chart stat1CostChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart stat2CostChart;
     }
 }

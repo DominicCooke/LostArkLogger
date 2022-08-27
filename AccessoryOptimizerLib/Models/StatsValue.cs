@@ -8,11 +8,13 @@
 
         public int SwiftValue { get; set; } = 0;
 
-                public int DominationValue { get; set; } = 0;
-                public int ExpertiseValue { get; set; } = 0;
-                public int EnduranceValue { get; set; } = 0;
+        public int DominationValue { get; set; } = 0;
 
-        public StatsValue(int critValue, int specValue, int swiftValue, int dominationValue = 0, int expertiseValue = 0, int enduranceValue = 0 )
+        public int ExpertiseValue { get; set; } = 0;
+
+        public int EnduranceValue { get; set; } = 0;
+
+        public StatsValue(int critValue, int specValue, int swiftValue, int dominationValue = 0, int expertiseValue = 0, int enduranceValue = 0)
         {
             CritValue = critValue;
             SpecValue = specValue;
@@ -27,6 +29,27 @@
         public StatsValue(Stats stats)
         {
             AddStats(stats);
+        }
+
+        public int GetStatValue(Stat_Type statType)
+        {
+            switch (statType)
+            {
+                case Stat_Type.Specialization:
+                    return SpecValue;
+                case Stat_Type.Swiftness:
+                    return SwiftValue;
+                case Stat_Type.Crit:
+                    return CritValue;
+                case Stat_Type.Endurance:
+                    return EnduranceValue;
+                case Stat_Type.Domination:
+                    return DominationValue;
+                case Stat_Type.Expertise:
+                    return ExpertiseValue;
+            }
+
+            return 0;
         }
 
         public void AddStats(Stats stats)
