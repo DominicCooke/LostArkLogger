@@ -37,7 +37,8 @@ namespace LostArkLogger
         public MainWindow()
         {
             InitializeComponent();
-            //versionLabel.Text = "v" + System.Reflection.Assembly.GetEntryAssembly().GetName().Version.ToString();
+            var version = typeof(MainWindow).Assembly.GetName().Version;
+            versionLabel.Text = $"Version {version.Major}.{version.Minor}.{version.Build}";
             Oodle.Init();
             if (!Directory.Exists("logs")) Directory.CreateDirectory("logs");
             sniffer = new Parser();
