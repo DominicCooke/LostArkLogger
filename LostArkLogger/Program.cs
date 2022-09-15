@@ -55,8 +55,9 @@ namespace LostArkLogger
             (var region, var installedVersion) = VersionCheck.GetLostArkVersion();
             if (installedVersion == null)
             {
-                MessageBox.Show("Launch Lost Ark before launching logger", "Lost Ark Not Running", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Environment.Exit(0);
+                //MessageBox.Show("Launch Lost Ark before launching logger", "Lost Ark Not Running", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //Environment.Exit(0);
+                Properties.Settings.Default.Region = Region.Steam;
             }
             else if (region == Region.Unknown)
                 MessageBox.Show("DPS Meter is out of date.\nDPS Meter might not work until updated.\nCheck Discord/Github for more info.\nFeel free to add a message in the discord informing shalzuth that it's out of data", "Out of date!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -97,15 +98,17 @@ namespace LostArkLogger
         {
             if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
             {
+                var currentProcess = Process.GetCurrentProcess();
+
                 var startInfo = new ProcessStartInfo
                 {
                     UseShellExecute = true,
                     WorkingDirectory = Environment.CurrentDirectory,
-                    FileName = Assembly.GetEntryAssembly().CodeBase.Replace(".dll", ".exe"),
+                    FileName = currentProcess.MainModule.FileName,
                     Verb = "runas"
                 };
                 try { Process.Start(startInfo); }
-                catch (Exception ex) { MessageBox.Show("This program must be run as an administrator!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                catch (Exception) { MessageBox.Show("This program must be run as an administrator!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 return false;
             }
             return true;

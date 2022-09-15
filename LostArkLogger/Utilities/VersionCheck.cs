@@ -29,7 +29,7 @@ namespace LostArkLogger
                 else if (version == SupportedKoreaVersion) return (Region.Korea, version);
                 else return (Region.Unknown, version);
             }
-            return (Region.Unknown, null);
+            //return (Region.Unknown, null);
             var fileName = @"C:\Program Files (x86)\Steam\steamapps\common\Lost Ark\Binaries\Win64\LOSTARK.exe";
             if (!File.Exists(fileName))
             {
