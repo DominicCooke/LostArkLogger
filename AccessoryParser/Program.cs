@@ -1,5 +1,5 @@
 ﻿using AccessoryOptimizerLib.Models;
-using LostArkLogger;
+using static LostArkLogger.PKTAuctionSearchResult;
 
 Main();
 
