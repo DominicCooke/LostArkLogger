@@ -88,9 +88,12 @@ namespace LostArkLogger
             var buyout = BitConverter.ToInt32(reader.ReadBytes(4));
 
             reader.Position += 12 * 8; // Because Position is in bits not bytes
-            var bid = BitConverter.ToInt32(reader.ReadBytes(4));
+            var initialBid = BitConverter.ToInt32(reader.ReadBytes(4));
 
-            reader.Position += 44 * 8; // Because Position is in bits not bytes
+            reader.Position += 4 * 8; // Because Position is in bits not bytes
+            var currentBid = BitConverter.ToInt32(reader.ReadBytes(4));
+
+            reader.Position += 36 * 8; // Because Position is in bits not bytes
 
             var result = accessoryType == AccessoryType.Necklace
                 ? reader.Position == startAcessoryIndex + Necklace_Length * 8
@@ -113,7 +116,7 @@ namespace LostArkLogger
                     accessoryType.Value,
                     accessoryRank.Value,
                     quality,
-                    bid,
+                    currentBid,
                     buyout,
                     new List<Engraving>
                     {
