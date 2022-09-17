@@ -37,6 +37,8 @@ namespace LostArkLogger
         public MainWindow()
         {
             InitializeComponent();
+            InitializeCharts(); /* Legacy Fix Because Designer is broken */
+
             var version = typeof(MainWindow).Assembly.GetName().Version;
             versionLabel.Text = $"Version {version.Major}.{version.Minor}.{version.Build}";
             Oodle.Init();
@@ -68,15 +70,65 @@ namespace LostArkLogger
             InitializeOptions();
         }
 
+        private void InitializeCharts()
+        {
+            ChartArea chartArea2 = new();
+            Series series2 = new();
+            ChartArea chartArea1 = new();
+            Series series1 = new();
+            stat1CostChart = new Chart();
+            stat2CostChart = new Chart();
+            ((ISupportInitialize)(stat1CostChart)).BeginInit();
+            ((ISupportInitialize)(stat2CostChart)).BeginInit();
+
+            // 
+            // stat1CostChart
+            // 
+            chartArea2.Name = "ChartArea1";
+            stat1CostChart.ChartAreas.Add(chartArea2);
+            stat1CostChart.Location = new System.Drawing.Point(3, 3);
+            stat1CostChart.Name = "stat1CostChart";
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Series1";
+            stat1CostChart.Series.Add(series2);
+            stat1CostChart.Size = new System.Drawing.Size(1145, 250);
+            stat1CostChart.TabIndex = 118;
+            stat1CostChart.Text = "chart1";
+            // 
+            // tabPage11
+            // 
+            tabPage11.Controls.Add(stat2CostChart);
+            tabPage11.Controls.Add(stat1CostChart);
+            tabPage11.Location = new System.Drawing.Point(4, 22);
+            tabPage11.Name = "tabPage11";
+            tabPage11.Size = new System.Drawing.Size(1148, 495);
+            tabPage11.TabIndex = 9;
+            tabPage11.Text = "Charts";
+            tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // stat2CostChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            stat2CostChart.ChartAreas.Add(chartArea1);
+            stat2CostChart.Location = new System.Drawing.Point(0, 247);
+            stat2CostChart.Name = "stat2CostChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Name = "Series1";
+            stat2CostChart.Series.Add(series1);
+            stat2CostChart.Size = new System.Drawing.Size(1145, 250);
+            stat2CostChart.TabIndex = 119;
+            stat2CostChart.Text = "chart1";
+        }
+
         #region Other Stuff
         private void sniffModeCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            this.sniffModeCheckbox.Enabled = false;
-            this.sniffer.use_npcap = sniffModeCheckbox.Checked;
-            this.sniffer.InstallListener();
+            sniffModeCheckbox.Enabled = false;
+            sniffer.use_npcap = sniffModeCheckbox.Checked;
+            sniffer.InstallListener();
             // This will unset the checkbox if it fails to initialize
-            this.sniffModeCheckbox.Checked = this.sniffer.use_npcap;
-            this.sniffModeCheckbox.Enabled = true;
+            sniffModeCheckbox.Checked = sniffer.use_npcap;
+            sniffModeCheckbox.Enabled = true;
             Properties.Settings.Default.Npcap = sniffModeCheckbox.Checked;
             Properties.Settings.Default.Save();
         }
@@ -128,7 +180,7 @@ namespace LostArkLogger
                 _permutationService._necklaces = _permutationService._necklaces.Where(n => (n.Stats.StatType1 == PSO.DesiredStatType1 && n.Stats.StatType2 == PSO.DesiredStatType2) || (n.Stats.StatType1 == PSO.DesiredStatType2 && n.Stats.StatType2 == PSO.DesiredStatType1)).ToList();
             }
 
-            (int numberOfPermutations, List<PermutationDisplay> permutationDisplays) = _permutationService.Process(allDesiredEngravings, int.Parse(maxCost.Text), reuse_checkBox.Checked, filterWorryingNeg_checkBox.Checked, filterZeroNegEngraving_checkBox.Checked);
+            (int numberOfPermutations, List<PermutationDisplay> permutationDisplays) = _permutationService.Process(allDesiredEngravings, int.Parse(minCost.Text), int.Parse(maxCost.Text), reuse_checkBox.Checked, filterWorryingNeg_checkBox.Checked, filterZeroNegEngraving_checkBox.Checked);
 
             if (!string.IsNullOrEmpty(atkPowMax.Text))
             {
@@ -381,7 +433,7 @@ namespace LostArkLogger
 
         private List<DesiredEngravings> GetOverallDesiredEngravings()
         {
-            List<DesiredEngravings> overallDesiredEngravings = new List<DesiredEngravings>();
+            List<DesiredEngravings> overallDesiredEngravings = new();
 
             for (int i = 1; i < 7; i++)
             {
@@ -393,7 +445,7 @@ namespace LostArkLogger
 
         private DesiredEngravings GetDesiredEngravings(int columnIndex)
         {
-            DesiredEngravings desiredEngravings = new DesiredEngravings();
+            DesiredEngravings desiredEngravings = new();
 
             for (int i = 1; i < 7; i++)
             {
@@ -405,7 +457,7 @@ namespace LostArkLogger
 
         private string GetStringOutputOfResults(List<PermutationDisplay> permutations)
         {
-            StringBuilder overallString = new StringBuilder();
+            StringBuilder overallString = new();
 
             foreach (PermutationDisplay p in permutations)
             {

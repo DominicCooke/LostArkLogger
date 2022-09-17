@@ -148,6 +148,8 @@ namespace LostArkLogger
             this.moveSpdMax = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.maxNegEngValuesPanel = new System.Windows.Forms.Panel();
+            this.minCost = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -480,7 +482,7 @@ namespace LostArkLogger
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(198, 50);
+            this.label14.Location = new System.Drawing.Point(198, 77);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(167, 15);
@@ -489,7 +491,7 @@ namespace LostArkLogger
             // 
             // maxCost
             // 
-            this.maxCost.Location = new System.Drawing.Point(372, 45);
+            this.maxCost.Location = new System.Drawing.Point(372, 74);
             this.maxCost.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.maxCost.Name = "maxCost";
             this.maxCost.Size = new System.Drawing.Size(70, 23);
@@ -668,7 +670,7 @@ namespace LostArkLogger
             // desiredStatType1
             // 
             this.desiredStatType1.FormattingEnabled = true;
-            this.desiredStatType1.Location = new System.Drawing.Point(292, 73);
+            this.desiredStatType1.Location = new System.Drawing.Point(292, 102);
             this.desiredStatType1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.desiredStatType1.Name = "desiredStatType1";
             this.desiredStatType1.Size = new System.Drawing.Size(151, 23);
@@ -677,7 +679,7 @@ namespace LostArkLogger
             // desiredStatType2
             // 
             this.desiredStatType2.FormattingEnabled = true;
-            this.desiredStatType2.Location = new System.Drawing.Point(292, 129);
+            this.desiredStatType2.Location = new System.Drawing.Point(292, 158);
             this.desiredStatType2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.desiredStatType2.Name = "desiredStatType2";
             this.desiredStatType2.Size = new System.Drawing.Size(151, 23);
@@ -686,7 +688,7 @@ namespace LostArkLogger
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(198, 77);
+            this.label16.Location = new System.Drawing.Point(198, 104);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(78, 15);
@@ -696,7 +698,7 @@ namespace LostArkLogger
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(198, 134);
+            this.label17.Location = new System.Drawing.Point(198, 161);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(78, 15);
@@ -1215,7 +1217,7 @@ namespace LostArkLogger
             // 
             // min_stat1
             // 
-            this.min_stat1.Location = new System.Drawing.Point(372, 102);
+            this.min_stat1.Location = new System.Drawing.Point(372, 131);
             this.min_stat1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.min_stat1.Name = "min_stat1";
             this.min_stat1.Size = new System.Drawing.Size(70, 23);
@@ -1225,7 +1227,7 @@ namespace LostArkLogger
             // 
             // min_stat2
             // 
-            this.min_stat2.Location = new System.Drawing.Point(372, 158);
+            this.min_stat2.Location = new System.Drawing.Point(372, 187);
             this.min_stat2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.min_stat2.Name = "min_stat2";
             this.min_stat2.Size = new System.Drawing.Size(70, 23);
@@ -1236,7 +1238,7 @@ namespace LostArkLogger
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(198, 106);
+            this.label18.Location = new System.Drawing.Point(198, 133);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(75, 15);
@@ -1246,7 +1248,7 @@ namespace LostArkLogger
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(198, 163);
+            this.label19.Location = new System.Drawing.Point(198, 190);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(75, 15);
@@ -1410,11 +1412,33 @@ namespace LostArkLogger
             this.maxNegEngValuesPanel.TabIndex = 117;
             this.maxNegEngValuesPanel.Visible = false;
             // 
+            // minCost
+            // 
+            this.minCost.Location = new System.Drawing.Point(372, 45);
+            this.minCost.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.minCost.Name = "minCost";
+            this.minCost.Size = new System.Drawing.Size(70, 23);
+            this.minCost.TabIndex = 119;
+            this.minCost.Text = "1";
+            this.minCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(198, 48);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(161, 15);
+            this.label4.TabIndex = 118;
+            this.label4.Text = "Minimun Individual Acc Cost";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 977);
+            this.Controls.Add(this.minCost);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.engraving5Choice);
             this.Controls.Add(this.engraving1Choice);
             this.Controls.Add(this.engraving1Label);
@@ -1654,5 +1678,7 @@ namespace LostArkLogger
         private TabPage tabPage11;
         private System.Windows.Forms.DataVisualization.Charting.Chart stat1CostChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart stat2CostChart;
+        private TextBox minCost;
+        private Label label4;
     }
 }
