@@ -17,7 +17,7 @@ namespace AccessoryOptimizerLib.Services
 
         public List<PermutationDisplay> _permutationDisplays = new List<PermutationDisplay>();
 
-        public (int numberOfPermutations, List<PermutationDisplay>) Process(List<DesiredEngravings> allDesiredEngravings, int maxPrice, bool useStoredPermutations = false, bool filterWorryingEngraving = true, bool filterEngravingAtZero = true)
+        public (int numberOfPermutations, List<PermutationDisplay>) Process(List<DesiredEngravings> allDesiredEngravings, int minCost, int maxPrice, bool useStoredPermutations = false, bool filterWorryingEngraving = true, bool filterEngravingAtZero = true)
         {
             if (useStoredPermutations)
             {
@@ -26,9 +26,9 @@ namespace AccessoryOptimizerLib.Services
 
             if (allDesiredEngravings.Count > 0)
             {
-                var necks = _necklaces.Where(n => n.BuyNowPrice < maxPrice).ToList();
-                var ears = _earrings.Where(n => n.BuyNowPrice < maxPrice).ToList();
-                var rings = _rings.Where(n => n.BuyNowPrice < maxPrice).ToList();
+                var necks = _necklaces.Where(n => n.BuyNowPrice >= minCost && n.BuyNowPrice < maxPrice).ToList();
+                var ears = _earrings.Where(n => n.BuyNowPrice >= minCost && n.BuyNowPrice < maxPrice).ToList();
+                var rings = _rings.Where(n => n.BuyNowPrice >= minCost && n.BuyNowPrice < maxPrice).ToList();
                 //var necks = new List<Accessory>();
 
                 //rings.Add(new Accessory(AccessoryType.Ring, AccessoryRank.Relic, 87, 0, 0, new List<Engraving>() { new Engraving(EngravingType.Barricade, 5), new Engraving(EngravingType.Stabilized_Status, 3) }, new Engraving(EngravingType.Atk_Power_Reduction, 2), new Stats(Stat_Type.Specialization, 195)));

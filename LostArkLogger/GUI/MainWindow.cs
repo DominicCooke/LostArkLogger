@@ -37,7 +37,8 @@ namespace LostArkLogger
         public MainWindow()
         {
             InitializeComponent();
-            //versionLabel.Text = "v" + System.Reflection.Assembly.GetEntryAssembly().GetName().Version.ToString();
+            var version = typeof(MainWindow).Assembly.GetName().Version;
+            versionLabel.Text = $"Version {version.Major}.{version.Minor}.{version.Build}";
             Oodle.Init();
             if (!Directory.Exists("logs")) Directory.CreateDirectory("logs");
             sniffer = new Parser();
@@ -127,7 +128,7 @@ namespace LostArkLogger
                 _permutationService._necklaces = _permutationService._necklaces.Where(n => (n.Stats.StatType1 == PSO.DesiredStatType1 && n.Stats.StatType2 == PSO.DesiredStatType2) || (n.Stats.StatType1 == PSO.DesiredStatType2 && n.Stats.StatType2 == PSO.DesiredStatType1)).ToList();
             }
 
-            (int numberOfPermutations, List<PermutationDisplay> permutationDisplays) = _permutationService.Process(allDesiredEngravings, int.Parse(maxCost.Text), reuse_checkBox.Checked, filterWorryingNeg_checkBox.Checked, filterZeroNegEngraving_checkBox.Checked);
+            (int numberOfPermutations, List<PermutationDisplay> permutationDisplays) = _permutationService.Process(allDesiredEngravings, int.Parse(minCost.Text), int.Parse(maxCost.Text), reuse_checkBox.Checked, filterWorryingNeg_checkBox.Checked, filterZeroNegEngraving_checkBox.Checked);
 
             if (!string.IsNullOrEmpty(atkPowMax.Text))
             {

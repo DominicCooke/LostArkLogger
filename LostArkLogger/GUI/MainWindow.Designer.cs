@@ -138,7 +138,7 @@ namespace LostArkLogger
             this.label19 = new System.Windows.Forms.Label();
             this.sniffModeCheckbox = new System.Windows.Forms.CheckBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.versionLabel = new System.Windows.Forms.Label();
             this.loggedAuctionPacketCountLabel = new System.Windows.Forms.Label();
             this.manualNegativeEngravingInputsCheckBox = new System.Windows.Forms.CheckBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -154,6 +154,8 @@ namespace LostArkLogger
             this.stat1CostChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.stat2CostChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.minCost = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -459,7 +461,7 @@ namespace LostArkLogger
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(170, 43);
+            this.label14.Location = new System.Drawing.Point(170, 67);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(145, 13);
             this.label14.TabIndex = 52;
@@ -467,7 +469,7 @@ namespace LostArkLogger
             // 
             // maxCost
             // 
-            this.maxCost.Location = new System.Drawing.Point(319, 39);
+            this.maxCost.Location = new System.Drawing.Point(319, 63);
             this.maxCost.Name = "maxCost";
             this.maxCost.Size = new System.Drawing.Size(61, 20);
             this.maxCost.TabIndex = 53;
@@ -630,7 +632,7 @@ namespace LostArkLogger
             // desiredStatType1
             // 
             this.desiredStatType1.FormattingEnabled = true;
-            this.desiredStatType1.Location = new System.Drawing.Point(250, 63);
+            this.desiredStatType1.Location = new System.Drawing.Point(250, 88);
             this.desiredStatType1.Name = "desiredStatType1";
             this.desiredStatType1.Size = new System.Drawing.Size(130, 21);
             this.desiredStatType1.TabIndex = 67;
@@ -638,7 +640,7 @@ namespace LostArkLogger
             // desiredStatType2
             // 
             this.desiredStatType2.FormattingEnabled = true;
-            this.desiredStatType2.Location = new System.Drawing.Point(250, 112);
+            this.desiredStatType2.Location = new System.Drawing.Point(250, 137);
             this.desiredStatType2.Name = "desiredStatType2";
             this.desiredStatType2.Size = new System.Drawing.Size(130, 21);
             this.desiredStatType2.TabIndex = 68;
@@ -646,7 +648,7 @@ namespace LostArkLogger
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(170, 67);
+            this.label16.Location = new System.Drawing.Point(170, 92);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(74, 13);
             this.label16.TabIndex = 69;
@@ -655,7 +657,7 @@ namespace LostArkLogger
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(170, 116);
+            this.label17.Location = new System.Drawing.Point(170, 141);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(74, 13);
             this.label17.TabIndex = 70;
@@ -1120,7 +1122,7 @@ namespace LostArkLogger
             // 
             // min_stat1
             // 
-            this.min_stat1.Location = new System.Drawing.Point(319, 88);
+            this.min_stat1.Location = new System.Drawing.Point(319, 112);
             this.min_stat1.Name = "min_stat1";
             this.min_stat1.Size = new System.Drawing.Size(61, 20);
             this.min_stat1.TabIndex = 97;
@@ -1129,7 +1131,7 @@ namespace LostArkLogger
             // 
             // min_stat2
             // 
-            this.min_stat2.Location = new System.Drawing.Point(319, 137);
+            this.min_stat2.Location = new System.Drawing.Point(319, 162);
             this.min_stat2.Name = "min_stat2";
             this.min_stat2.Size = new System.Drawing.Size(61, 20);
             this.min_stat2.TabIndex = 98;
@@ -1139,7 +1141,7 @@ namespace LostArkLogger
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(170, 92);
+            this.label18.Location = new System.Drawing.Point(170, 116);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(63, 13);
             this.label18.TabIndex = 99;
@@ -1148,7 +1150,7 @@ namespace LostArkLogger
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(170, 141);
+            this.label19.Location = new System.Drawing.Point(170, 166);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(63, 13);
             this.label19.TabIndex = 100;
@@ -1173,14 +1175,14 @@ namespace LostArkLogger
             this.label20.TabIndex = 102;
             this.label20.Text = "Parser by Shalzuth";
             // 
-            // label22
+            // versionLabel
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(635, 12);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(69, 13);
-            this.label22.TabIndex = 103;
-            this.label22.Text = "Version 1.8.0";
+            this.versionLabel.AutoSize = true;
+            this.versionLabel.Location = new System.Drawing.Point(635, 12);
+            this.versionLabel.Name = "label22";
+            this.versionLabel.Size = new System.Drawing.Size(69, 13);
+            this.versionLabel.TabIndex = 103;
+            this.versionLabel.Text = "Version X.X.X";
             // 
             // loggedAuctionPacketCountLabel
             // 
@@ -1334,11 +1336,32 @@ namespace LostArkLogger
             this.stat2CostChart.TabIndex = 119;
             this.stat2CostChart.Text = "chart1";
             // 
+            // minCost
+            // 
+            this.minCost.Location = new System.Drawing.Point(319, 39);
+            this.minCost.Name = "minCost";
+            this.minCost.Size = new System.Drawing.Size(61, 20);
+            this.minCost.TabIndex = 118;
+            this.minCost.Text = "1";
+            this.minCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(170, 43);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(165, 15);
+            this.label4.TabIndex = 119;
+            this.label4.Text = "Minimum Individual Acc Cost";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 847);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.minCost);
             this.Controls.Add(this.engraving5Choice);
             this.Controls.Add(this.engraving1Choice);
             this.Controls.Add(this.engraving1Label);
@@ -1349,7 +1372,7 @@ namespace LostArkLogger
             this.Controls.Add(this.label5);
             this.Controls.Add(this.loggedAuctionPacketCountLabel);
             this.Controls.Add(this.engraving2Quantity_1);
-            this.Controls.Add(this.label22);
+            this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.engraving3Choice);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label7);
@@ -1565,7 +1588,7 @@ namespace LostArkLogger
         private LinkLabel linkLabel1;
         private Label label20;
         private Label label21;
-        private Label label22;
+        private Label versionLabel;
         public Label loggedAuctionPacketCountLabel;
         private CheckBox manualNegativeEngravingInputsCheckBox;
         private Label label23;
@@ -1581,5 +1604,7 @@ namespace LostArkLogger
         private TabPage tabPage11;
         private System.Windows.Forms.DataVisualization.Charting.Chart stat1CostChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart stat2CostChart;
+        private TextBox minCost;
+        private Label label4;
     }
 }

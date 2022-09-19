@@ -56,7 +56,7 @@
         {
             AddValue(stats.StatType1, stats.Stat1Quantity);
 
-            if (stats.StatType2 != null)
+            if (stats.StatType2 != Stat_Type.Unset)
             {
                 AddValue((Stat_Type)stats.StatType2, (int)stats.Stat2Quantity);
             }
