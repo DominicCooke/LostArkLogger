@@ -65,6 +65,8 @@
         Demonic_Impulse = 281,
         Judgment = 282,
         Blessed_Aura = 283,
+        Arthetinean_Skill = 284,
+        Evolutionary_Legacy = 285,
         Master_Brawler = 288,
         Peacemaker = 289,
         Time_to_Hunt = 290,

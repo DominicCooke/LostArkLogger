@@ -78,6 +78,8 @@ namespace AccessoryOptimizerLib.Services
                 [281] = "Demonic Impulse",
                 [282] = "Judgment",
                 [283] = "Blessed Aura",
+                [284] = "Arthetinean Skill",
+                [285] = "Evolutionary_Legacy",
                 [288] = "Master Brawler",
                 [289] = "Peacemaker",
                 [290] = "Time to Hunt",

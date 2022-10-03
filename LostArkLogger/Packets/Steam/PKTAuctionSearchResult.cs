@@ -1,144 +1,236 @@
-
 using AccessoryOptimizerLib.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 
 namespace LostArkLogger
 {
     public partial class PKTAuctionSearchResult
     {
         #region Network Fields Index
-        /* 
-         * All integral value are offset relative to payload
-         * But when decoding we need relative offset of the previous offset
-         */
 
-        // Build 1.317.353.1852897 - 2022-09-08
+        // Build 1.331.367.1873750 - 2022-09-28
         internal const int Header_Length = 14;
-        private const int ItemId_Index = 27 - Header_Length;
 
+        private const int Item_Id = 73 - Header_Length;
+        
         private const int Necklace_Length = 317 - Header_Length;
-        private const int Earring_Or_Ring_Length = 288 - Header_Length;
+        private const int Necklace_Stat_1_Type = 142;
+        private const int Necklace_Stat_1_Value = Necklace_Stat_1_Type + 8;
+        private const int Necklace_Stat_2_Type = 171;
+        private const int Necklace_Stat_2_Value = Necklace_Stat_2_Type + 8;
+        private const int Necklace_Engrav_1_Type = 229;
+        private const int Necklace_Engrav_1_Value = Necklace_Engrav_1_Type + 8;
+        private const int Necklace_Engrav_2_Type = 258;
+        private const int Necklace_Engrav_2_Value = Necklace_Engrav_2_Type + 8;
+        private const int Necklace_Neg_Engrave_Type = 200;
+        private const int Necklace_Neg_Engrave_Value = Necklace_Neg_Engrave_Type + 8;
+        private const int Necklace_Initial_Bid = 23;
+        private const int Necklace_Current_Bid = 283;
+        private const int Necklace_Buyout = 31;
 
-        private const int ItemId_Bytes_Skipped_After = 64;
-
-        // Example why relative is important
-        private int PacketLength
-        {
-            get
-            {
-                return Header_Length
-                    + (Accessories.Count(e => e.AccessoryType == AccessoryType.Necklace) * Necklace_Length)
-                    + (Accessories.Count(e => e.AccessoryType != AccessoryType.Necklace) * Earring_Or_Ring_Length);
-            }
-        }
-
+        private const int Ring_Length = 288 - Header_Length;
+        private const int Ring_Stat_1_Type = 142;
+        private const int Ring_Stat_1_Value = Ring_Stat_1_Type + 8;
+        private const int Ring_Engrav_1_Type = 200;
+        private const int Ring_Engrav_1_Value = Ring_Engrav_1_Type + 8;
+        private const int Ring_Engrav_2_Type = 229;
+        private const int Ring_Engrav_2_Value = Ring_Engrav_2_Type + 8;
+        private const int Ring_Neg_Engrave_Type = 171;
+        private const int Ring_Neg_Engrave_Value = Ring_Neg_Engrave_Type + 8;
+        private const int Ring_Initial_Bid = 23;
+        private const int Ring_Current_Bid = 254;
+        private const int Ring_Buyout = 31;
+                
         #endregion
 
         public void SteamDecode(BitReader reader)
         {
-            var startPosition = reader.Position;
-
             DecodeHeader(reader);
 
-            while (reader.BitsLeft >= Earring_Or_Ring_Length * 8
-                   || reader.BitsLeft >= Necklace_Length * 8)
+            while (reader.BitsLeft >= Necklace_Length * 8 
+                   || reader.BitsLeft >= Ring_Length * 8)
             {
-                DecodeAccessory(reader);
+                var itemOffset = reader.Position / 8; // Because Position is in bits
+
+                var itemId = GetValueInt32(reader, itemOffset + Item_Id);
+
+                // Set position backward because itemId belong to item struct
+                reader.Position = itemOffset * 8; // Still in bits so let's multiply by 8
+
+                (var accType, var accRank) = GetAccessoryTypeAndRank(itemId);
+
+                if (!accType.HasValue)
+                {
+                    Trace.WriteLine($"ItemId {itemId} is not known.");
+                    
+                    var remainingBytes = reader.BitsLeft / 8;
+                    var data = reader.ReadBytes(remainingBytes);
+                    Trace.WriteLine($"Bytes: {string.Join(", ", data)}");
+
+                    // If not item is not an accessory, array is not parsed correctly.
+                    reader.Position = 0;
+                    return;
+                }
+                else if (accType == AccessoryType.Necklace)
+                {
+                    var acc = GetNecklace(reader, accType.Value, accRank.Value);
+                    Accessories.Add(acc);
+                }
+                else if (accType == AccessoryType.Ring
+                        || accType == AccessoryType.Earring)
+                {
+                    var acc = GetEarringOrRing(reader, accType.Value, accRank.Value);
+                    Accessories.Add(acc);
+                }
             }
+
+            if (reader.BitsLeft != 0) Debug.Assert(reader.BitsLeft != 0);
         }
 
-        public void DecodeHeader(BitReader reader)
+        private void DecodeHeader(BitReader reader)
         {
             var headerBytes = reader.ReadBytes(Header_Length);
-            var arrayLength = headerBytes[4];
+            var arrayLength = headerBytes[0];
 
             Accessories = new List<Accessory>(arrayLength);
         }
 
-        public void DecodeAccessory(BitReader reader)
+        private static Accessory GetNecklace(BitReader reader, AccessoryType accessoryType, AccessoryRank accessoryRank)
         {
-            var startAcessoryIndex = reader.Position;
+            var beginOffset = reader.Position / 8; // Because Position is in bits
 
-            reader.Position += ItemId_Index * 8; // Because Position is in bits not bytes
-            var itemId = BitConverter.ToInt32(reader.ReadBytes(4));
+            var stat1_type = GetValueInt32(reader, beginOffset + Necklace_Stat_1_Type);
+            var stat1_value = GetValueInt32(reader, beginOffset + Necklace_Stat_1_Value);
+            var stat2_type = GetValueInt32(reader, beginOffset + Necklace_Stat_2_Type);
+            var stat2_value = GetValueInt32(reader, beginOffset + Necklace_Stat_2_Value);
+            var engrav1_type = GetValueInt32(reader, beginOffset + Necklace_Engrav_1_Type);
+            var engrav1_value = GetValueInt32(reader, beginOffset + Necklace_Engrav_1_Value);
+            var engrav2_type = GetValueInt32(reader, beginOffset + Necklace_Engrav_2_Type);
+            var engrav2_value = GetValueInt32(reader, beginOffset + Necklace_Engrav_2_Value);
+            var neg_engrav_type = GetValueInt32(reader, beginOffset + Necklace_Neg_Engrave_Type);
+            var neg_engrav_value = GetValueInt32(reader, beginOffset + Necklace_Neg_Engrave_Value);
+            var initialBid = GetValueInt32(reader, beginOffset + Necklace_Initial_Bid);
+            var currentBid = GetValueInt32(reader, beginOffset + Necklace_Current_Bid);
+            var buyout = GetValueInt32(reader, beginOffset + Necklace_Buyout);
 
-            (var accessoryType, var accessoryRank) = GetAccessoryTypeAndRank(itemId);
-
-            (var stats1, var stats1_amount) = GetValueType(reader, startIndex: ItemId_Bytes_Skipped_After);
-
-            if (accessoryType == null)
-            {
-                Debug.Assert(accessoryType == null);
-            }
-
-            int? stats2 = null, stats2_amount = null;
-            if (accessoryType == AccessoryType.Necklace)
-            {
-                (stats2, stats2_amount) = GetValueType(reader, startIndex: 16);
-            }
-
-            (var negEngrave, var negEngrave_amount) = GetValueType(reader, startIndex: 16);
-            (var engrave1, var engrave1_amount) = GetValueType(reader, startIndex: 16);
-            (var engrave2, var engrave2_amount) = GetValueType(reader, startIndex: 16);
-
-            reader.Position += 29 * 8; // Because Position is in bits not bytes
-            var buyout = BitConverter.ToInt32(reader.ReadBytes(4));
-
-            reader.Position += 12 * 8; // Because Position is in bits not bytes
-            var initialBid = BitConverter.ToInt32(reader.ReadBytes(4));
-
-            reader.Position += 4 * 8; // Because Position is in bits not bytes
-            var currentBid = BitConverter.ToInt32(reader.ReadBytes(4));
-
-            reader.Position += 36 * 8; // Because Position is in bits not bytes
-
-            var result = accessoryType == AccessoryType.Necklace
-                ? reader.Position == startAcessoryIndex + Necklace_Length * 8
-                : reader.Position == startAcessoryIndex + Earring_Or_Ring_Length * 8;
-
-            Stats stats;
-            int quality;
-            if (accessoryType == AccessoryType.Necklace)
-            {
-                stats = new Stats((Stat_Type)stats1, stats1_amount, (Stat_Type)(stats2.Value), stats2_amount.Value);
-                quality = GetStatQuality(accessoryType.Value, accessoryRank.Value, stats1_amount, stats2_amount.Value);
-            }
-            else
-            {
-                stats = new Stats((Stat_Type)stats1, stats1_amount);
-                quality = GetStatQuality(accessoryType.Value, accessoryRank.Value, stats1_amount);
-            }
+            var stats = new Stats((Stat_Type)stat1_type, stat1_value, (Stat_Type)(stat2_type), stat2_value);
+            var quality = GetStatQuality(accessoryType, accessoryRank, stat1_value, stat2_value);
 
             var accessory = new Accessory(
-                    accessoryType.Value,
-                    accessoryRank.Value,
-                    quality,
-                    currentBid,
-                    buyout,
-                    new List<Engraving>
-                    {
-                        new Engraving(engrave1, engrave1_amount),
-                        new Engraving(engrave2, engrave2_amount),
-                    },
-                    new Engraving(negEngrave, negEngrave_amount),
-                    stats
-                );
+                accessoryType,
+                accessoryRank,
+                quality,
+                currentBid,
+                buyout,
+                new List<Engraving>
+                {
+                    new Engraving(engrav1_type, engrav1_value),
+                    new Engraving(engrav2_type, engrav2_value),
+                },
+                new Engraving(neg_engrav_type, neg_engrav_value),
+                stats
+            );
 
-            Accessories.Add(accessory);
+            reader.Position = (beginOffset + Necklace_Length) * 8;
+
+            return accessory;
         }
 
-        public static (int Type, int Value) GetValueType(BitReader reader, int startIndex = 0)
+        private static Accessory GetEarringOrRing(BitReader reader, AccessoryType accessoryType, AccessoryRank accessoryRank)
         {
-            reader.Position += startIndex * 8; // Because Position is in bits not bytes
+            var beginOffset = reader.Position / 8; // Because Position is in bits
 
-            var value = BitConverter.ToInt32(reader.ReadBytes(4));
-            _ = reader.ReadBytes(5);
-            var type = BitConverter.ToInt32(reader.ReadBytes(4));
+            var stat1_type = GetValueInt32(reader, beginOffset + Ring_Stat_1_Type);
+            var stat1_value = GetValueInt32(reader, beginOffset + Ring_Stat_1_Value);
+            var engrav1_type = GetValueInt32(reader, beginOffset + Ring_Engrav_1_Type);
+            var engrav1_value = GetValueInt32(reader, beginOffset + Ring_Engrav_1_Value);
+            var engrav2_type = GetValueInt32(reader, beginOffset + Ring_Engrav_2_Type);
+            var engrav2_value = GetValueInt32(reader, beginOffset + Ring_Engrav_2_Value);
+            var neg_engrav_type = GetValueInt32(reader, beginOffset + Ring_Neg_Engrave_Type);
+            var neg_engrav_value = GetValueInt32(reader, beginOffset + Ring_Neg_Engrave_Value);
+            var initialBid = GetValueInt32(reader, beginOffset + Ring_Initial_Bid);
+            var currentBid = GetValueInt32(reader, beginOffset + Ring_Current_Bid);
+            var buyout = GetValueInt32(reader, beginOffset + Ring_Buyout);
 
-            return (type, value);
+            var stats = new Stats((Stat_Type)stat1_type, stat1_value);
+            var quality = GetStatQuality(accessoryType, accessoryRank, stat1_value);
+
+            var accessory = new Accessory(
+                accessoryType,
+                accessoryRank,
+                quality,
+                currentBid,
+                buyout,
+                new List<Engraving>
+                {
+                    new Engraving(engrav1_type, engrav1_value),
+                    new Engraving(engrav2_type, engrav2_value),
+                },
+                new Engraving(neg_engrav_type, neg_engrav_value),
+                stats
+            );
+
+            reader.Position = (beginOffset + Ring_Length) * 8;
+
+            return accessory;
+        }
+
+        private static int GetValueInt32(BitReader reader, int absolutePosition)
+        {
+            reader.Position = absolutePosition * 8;
+            return BitConverter.ToInt32(reader.ReadBytes(4));
+        }
+
+        private static int GetStatQuality(AccessoryType accessoryType, AccessoryRank accessoryRank, int statQuantity, int stat2Quantity = 0)
+        {
+            decimal real = 0;
+            int actualStat;
+            switch (accessoryType)
+            {
+                case AccessoryType.Ring:
+                    if (accessoryRank == AccessoryRank.Legendary)
+                    {
+                        actualStat = statQuantity - 130;
+                        real = (decimal)(actualStat / 0.5);
+                    }
+                    else if (accessoryRank == AccessoryRank.Relic)
+                    {
+                        actualStat = statQuantity - 160;
+                        real = (decimal)(actualStat / 0.4);
+                    }
+                    break;
+                case AccessoryType.Earring:
+                    if (accessoryRank == AccessoryRank.Legendary)
+                    {
+                        actualStat = statQuantity - 195;
+                        real = (decimal)(actualStat / 0.75);
+                    }
+                    else if (accessoryRank == AccessoryRank.Relic)
+                    {
+                        actualStat = statQuantity - 240;
+                        real = (decimal)(actualStat / 0.6);
+                    }
+                    break;
+                case AccessoryType.Necklace:
+                    if (accessoryRank == AccessoryRank.Legendary)
+                    {
+                        actualStat = statQuantity + stat2Quantity - 650;
+                        real = (decimal)(actualStat / 2.5);
+                    }
+                    else if (accessoryRank == AccessoryRank.Relic)
+                    {
+                        actualStat = statQuantity + stat2Quantity - 800;
+                        real = (decimal)(actualStat / 2);
+                    }
+                    break;
+            }
+            real = Math.Round(real);
+            
+            if (real > 100 || real < 0)
+                Debug.Assert(real > 100 || real < 0, "Quality calculation is wrong");
+
+            return (int)real;
         }
 
         private static (AccessoryType?, AccessoryRank?) GetAccessoryTypeAndRank(int itemId)
@@ -186,7 +278,7 @@ namespace LostArkLogger
                         accessoryRank = AccessoryRank.Relic;
                     }
                     break;
-
+            
                 case RingItemIds.Splendid_Destroyer_Ring:
                 case RingItemIds.Splendid_Inquirer_Ring:
                 case RingItemIds.Twisted_Space_Ring:
@@ -222,64 +314,6 @@ namespace LostArkLogger
             }
 
             return (accessoryType, accessoryRank);
-        }
-
-        private int GetStatQuality(AccessoryType accessoryType, AccessoryRank accessoryRank, int statQuantity, int stat2Quantity = 0)
-        {
-            decimal real = 0;
-            int actualStat;
-
-            switch (accessoryType)
-            {
-                case AccessoryType.Ring:
-                    if (accessoryRank == AccessoryRank.Legendary)
-                    {
-                        actualStat = statQuantity - 130;
-                        real = (decimal)(actualStat / 0.5);
-                    }
-                    else if (accessoryRank == AccessoryRank.Relic)
-                    {
-                        actualStat = statQuantity - 160;
-                        real = (decimal)(actualStat / 0.4);
-                    }
-
-                    break;
-                case AccessoryType.Earring:
-                    if (accessoryRank == AccessoryRank.Legendary)
-                    {
-                        actualStat = statQuantity - 195;
-                        real = (decimal)(actualStat / 0.75);
-                    }
-                    else if (accessoryRank == AccessoryRank.Relic)
-                    {
-                        actualStat = statQuantity - 240;
-                        real = (decimal)(actualStat / 0.6);
-                    }
-
-                    break;
-                case AccessoryType.Necklace:
-                    if (accessoryRank == AccessoryRank.Legendary)
-                    {
-                        actualStat = statQuantity + stat2Quantity - 650;
-                        real = (decimal)(actualStat / 2.5);
-                    }
-                    else if (accessoryRank == AccessoryRank.Relic)
-                    {
-                        actualStat = statQuantity + stat2Quantity - 800;
-                        real = (decimal)(actualStat / 2);
-                    }
-
-                    break;
-            }
-
-            real = Math.Round(real);
-
-            if (real > 100 || real < 0)
-            {
-                bool sus = true;
-            }
-
-            return (int)real;
         }
 
         #region EarringItemIds
@@ -344,5 +378,6 @@ namespace LostArkLogger
         }
 
         #endregion
+        
     }
 }
